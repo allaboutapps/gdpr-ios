@@ -7,16 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1474A6CC250E98E5004F3D98 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474A6CB250E98E4004F3D98 /* Package.swift */; };
+		14A6CDB324ED58CF007B58DA /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDB224ED58CF007B58DA /* ServiceTableViewCell.swift */; };
+		14A6CDD024EE63F6007B58DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDCF24EE63F6007B58DA /* AppDelegate.swift */; };
+		14A6CDD224EE63F7007B58DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDD124EE63F7007B58DA /* SceneDelegate.swift */; };
+		14A6CDD424EE63F7007B58DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDD324EE63F7007B58DA /* ContentView.swift */; };
+		14A6CDD624EE63F8007B58DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A6CDD524EE63F8007B58DA /* Assets.xcassets */; };
+		14A6CDD924EE63F8007B58DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A6CDD824EE63F8007B58DA /* Preview Assets.xcassets */; };
+		14A6CDDC24EE63F8007B58DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A6CDDA24EE63F8007B58DA /* LaunchScreen.storyboard */; };
+		14A6CDE324EE7539007B58DA /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE124EE752B007B58DA /* ItemRow.swift */; };
+		14A6CDE524EE758B007B58DA /* PolicyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE424EE758B007B58DA /* PolicyItem.swift */; };
+		14A6CDE724EE77EB007B58DA /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */; };
+		14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */; };
 		14A8453A24EA9C2C00FEEBC9 /* GDPR.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A8453824EA9C2C00FEEBC9 /* GDPR.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14A8454724EA9DAC00FEEBC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8454624EA9DAC00FEEBC9 /* AppDelegate.swift */; };
+		14A8454924EA9DAC00FEEBC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8454824EA9DAC00FEEBC9 /* SceneDelegate.swift */; };
+		14A8454B24EA9DAC00FEEBC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8454A24EA9DAC00FEEBC9 /* ViewController.swift */; };
+		14A8454E24EA9DAC00FEEBC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A8454C24EA9DAC00FEEBC9 /* Main.storyboard */; };
+		14A8455024EA9DAD00FEEBC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A8454F24EA9DAD00FEEBC9 /* Assets.xcassets */; };
+		14A8455324EA9DAD00FEEBC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A8455124EA9DAD00FEEBC9 /* LaunchScreen.storyboard */; };
+		14A8455924EA9DD300FEEBC9 /* GDPR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8453524EA9C2C00FEEBC9 /* GDPR.framework */; };
+		14A8455A24EA9DD300FEEBC9 /* GDPR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8453524EA9C2C00FEEBC9 /* GDPR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456024EC399D00FEEBC9 /* GDPRManager.swift */; };
+		14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */; };
+		14A8456924ED140300FEEBC9 /* PolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456824ED140300FEEBC9 /* PolicyTableViewCell.swift */; };
+		14A8456B24ED162900FEEBC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14A8456A24ED162900FEEBC9 /* .swiftlint.yml */; };
+		14A8456D24ED193C00FEEBC9 /* TosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456C24ED193C00FEEBC9 /* TosViewController.swift */; };
+		14A8456F24ED19F700FEEBC9 /* TosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456E24ED19F700FEEBC9 /* TosViewModel.swift */; };
+		14A8457124ED1ACF00FEEBC9 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */; };
+		14A8457324ED234400FEEBC9 /* PolicyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8457224ED234400FEEBC9 /* PolicyModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		14A8455B24EA9DD300FEEBC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14A8452C24EA9C2C00FEEBC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14A8453424EA9C2C00FEEBC9;
+			remoteInfo = GDPR;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14A8455D24EA9DD300FEEBC9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14A8455A24EA9DD300FEEBC9 /* GDPR.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1474A6CB250E98E4004F3D98 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		14A6CDB224ED58CF007B58DA /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		14A6CDCD24EE63F6007B58DA /* Example2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A6CDCF24EE63F6007B58DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14A6CDD124EE63F7007B58DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		14A6CDD324EE63F7007B58DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		14A6CDD524EE63F8007B58DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14A6CDD824EE63F8007B58DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		14A6CDDB24EE63F8007B58DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		14A6CDDD24EE63F8007B58DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14A6CDE124EE752B007B58DA /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
+		14A6CDE424EE758B007B58DA /* PolicyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyItem.swift; sourceTree = "<group>"; };
+		14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
 		14A8453524EA9C2C00FEEBC9 /* GDPR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDPR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A8453824EA9C2C00FEEBC9 /* GDPR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPR.h; sourceTree = "<group>"; };
 		14A8453924EA9C2C00FEEBC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14A8454424EA9DAC00FEEBC9 /* GDPR Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GDPR Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A8454624EA9DAC00FEEBC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14A8454824EA9DAC00FEEBC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		14A8454A24EA9DAC00FEEBC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14A8454D24EA9DAC00FEEBC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14A8454F24EA9DAD00FEEBC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14A8455224EA9DAD00FEEBC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		14A8455424EA9DAD00FEEBC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14A8456024EC399D00FEEBC9 /* GDPRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRManager.swift; sourceTree = "<group>"; };
+		14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesWebView.swift; sourceTree = "<group>"; };
+		14A8456824ED140300FEEBC9 /* PolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyTableViewCell.swift; sourceTree = "<group>"; };
+		14A8456A24ED162900FEEBC9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		14A8456C24ED193C00FEEBC9 /* TosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TosViewController.swift; sourceTree = "<group>"; };
+		14A8456E24ED19F700FEEBC9 /* TosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TosViewModel.swift; sourceTree = "<group>"; };
+		14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		14A8457224ED234400FEEBC9 /* PolicyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		14A6CDCA24EE63F6007B58DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14A8453224EA9C2C00FEEBC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -24,14 +113,60 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14A8454124EA9DAC00FEEBC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A8455924EA9DD300FEEBC9 /* GDPR.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14A6CDCE24EE63F6007B58DA /* Example2 */ = {
+			isa = PBXGroup;
+			children = (
+				14A6CDCF24EE63F6007B58DA /* AppDelegate.swift */,
+				14A6CDD124EE63F7007B58DA /* SceneDelegate.swift */,
+				14A6CDD324EE63F7007B58DA /* ContentView.swift */,
+				14A6CDE124EE752B007B58DA /* ItemRow.swift */,
+				14A6CDD524EE63F8007B58DA /* Assets.xcassets */,
+				14A6CDDA24EE63F8007B58DA /* LaunchScreen.storyboard */,
+				14A6CDDD24EE63F8007B58DA /* Info.plist */,
+				14A6CDD724EE63F8007B58DA /* Preview Content */,
+			);
+			path = Example2;
+			sourceTree = "<group>";
+		};
+		14A6CDD724EE63F8007B58DA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				14A6CDD824EE63F8007B58DA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		14A6CDE824EEB178007B58DA /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				14A6CDB224ED58CF007B58DA /* ServiceTableViewCell.swift */,
+				14A8456824ED140300FEEBC9 /* PolicyTableViewCell.swift */,
+				14A8456C24ED193C00FEEBC9 /* TosViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		14A8452B24EA9C2C00FEEBC9 = {
 			isa = PBXGroup;
 			children = (
+				1474A6CB250E98E4004F3D98 /* Package.swift */,
+				14A8456A24ED162900FEEBC9 /* .swiftlint.yml */,
 				14A8453724EA9C2C00FEEBC9 /* GDPR */,
+				14A8454524EA9DAC00FEEBC9 /* GDPR Example */,
+				14A6CDCE24EE63F6007B58DA /* Example2 */,
 				14A8453624EA9C2C00FEEBC9 /* Products */,
+				14A8455824EA9DD300FEEBC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -39,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				14A8453524EA9C2C00FEEBC9 /* GDPR.framework */,
+				14A8454424EA9DAC00FEEBC9 /* GDPR Example.app */,
+				14A6CDCD24EE63F6007B58DA /* Example2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,10 +183,64 @@
 		14A8453724EA9C2C00FEEBC9 /* GDPR */ = {
 			isa = PBXGroup;
 			children = (
+				14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */,
+				14A8456424ED0B6F00FEEBC9 /* PrivacyPolicy */,
+				14A8456324ED0B6500FEEBC9 /* Tos */,
+				14A8456224ED0B5400FEEBC9 /* Settings */,
 				14A8453824EA9C2C00FEEBC9 /* GDPR.h */,
 				14A8453924EA9C2C00FEEBC9 /* Info.plist */,
+				14A8456024EC399D00FEEBC9 /* GDPRManager.swift */,
+				14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */,
 			);
 			path = GDPR;
+			sourceTree = "<group>";
+		};
+		14A8454524EA9DAC00FEEBC9 /* GDPR Example */ = {
+			isa = PBXGroup;
+			children = (
+				14A8454624EA9DAC00FEEBC9 /* AppDelegate.swift */,
+				14A8454824EA9DAC00FEEBC9 /* SceneDelegate.swift */,
+				14A8454A24EA9DAC00FEEBC9 /* ViewController.swift */,
+				14A8454C24EA9DAC00FEEBC9 /* Main.storyboard */,
+				14A8454F24EA9DAD00FEEBC9 /* Assets.xcassets */,
+				14A8455124EA9DAD00FEEBC9 /* LaunchScreen.storyboard */,
+				14A8455424EA9DAD00FEEBC9 /* Info.plist */,
+			);
+			path = "GDPR Example";
+			sourceTree = "<group>";
+		};
+		14A8455824EA9DD300FEEBC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		14A8456224ED0B5400FEEBC9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		14A8456324ED0B6500FEEBC9 /* Tos */ = {
+			isa = PBXGroup;
+			children = (
+				14A6CDE824EEB178007B58DA /* UIKit */,
+				14A8457224ED234400FEEBC9 /* PolicyModel.swift */,
+				14A8456E24ED19F700FEEBC9 /* TosViewModel.swift */,
+				14A6CDE424EE758B007B58DA /* PolicyItem.swift */,
+				14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */,
+				14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */,
+			);
+			path = Tos;
+			sourceTree = "<group>";
+		};
+		14A8456424ED0B6F00FEEBC9 /* PrivacyPolicy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PrivacyPolicy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -66,6 +257,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		14A6CDCC24EE63F6007B58DA /* Example2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14A6CDDE24EE63F8007B58DA /* Build configuration list for PBXNativeTarget "Example2" */;
+			buildPhases = (
+				14A6CDC924EE63F6007B58DA /* Sources */,
+				14A6CDCA24EE63F6007B58DA /* Frameworks */,
+				14A6CDCB24EE63F6007B58DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Example2;
+			productName = Example2;
+			productReference = 14A6CDCD24EE63F6007B58DA /* Example2.app */;
+			productType = "com.apple.product-type.application";
+		};
 		14A8453424EA9C2C00FEEBC9 /* GDPR */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14A8453D24EA9C2C00FEEBC9 /* Build configuration list for PBXNativeTarget "GDPR" */;
@@ -74,6 +282,7 @@
 				14A8453124EA9C2C00FEEBC9 /* Sources */,
 				14A8453224EA9C2C00FEEBC9 /* Frameworks */,
 				14A8453324EA9C2C00FEEBC9 /* Resources */,
+				14A8456724ED0E0B00FEEBC9 /* SwifLint */,
 			);
 			buildRules = (
 			);
@@ -84,16 +293,43 @@
 			productReference = 14A8453524EA9C2C00FEEBC9 /* GDPR.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		14A8454324EA9DAC00FEEBC9 /* GDPR Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14A8455524EA9DAD00FEEBC9 /* Build configuration list for PBXNativeTarget "GDPR Example" */;
+			buildPhases = (
+				14A8454024EA9DAC00FEEBC9 /* Sources */,
+				14A8454124EA9DAC00FEEBC9 /* Frameworks */,
+				14A8454224EA9DAC00FEEBC9 /* Resources */,
+				14A8455D24EA9DD300FEEBC9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14A8455C24EA9DD300FEEBC9 /* PBXTargetDependency */,
+			);
+			name = "GDPR Example";
+			productName = "GDPR Example";
+			productReference = 14A8454424EA9DAC00FEEBC9 /* GDPR Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		14A8452C24EA9C2C00FEEBC9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "All About Apps";
 				TargetAttributes = {
+					14A6CDCC24EE63F6007B58DA = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					14A8453424EA9C2C00FEEBC9 = {
+						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
+					};
+					14A8454324EA9DAC00FEEBC9 = {
 						CreatedOnToolsVersion = 11.6;
 					};
 				};
@@ -112,31 +348,183 @@
 			projectRoot = "";
 			targets = (
 				14A8453424EA9C2C00FEEBC9 /* GDPR */,
+				14A8454324EA9DAC00FEEBC9 /* GDPR Example */,
+				14A6CDCC24EE63F6007B58DA /* Example2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		14A6CDCB24EE63F6007B58DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A6CDDC24EE63F8007B58DA /* LaunchScreen.storyboard in Resources */,
+				14A6CDD924EE63F8007B58DA /* Preview Assets.xcassets in Resources */,
+				14A6CDD624EE63F8007B58DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14A8453324EA9C2C00FEEBC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A8456B24ED162900FEEBC9 /* .swiftlint.yml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14A8454224EA9DAC00FEEBC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A8455324EA9DAD00FEEBC9 /* LaunchScreen.storyboard in Resources */,
+				14A8455024EA9DAD00FEEBC9 /* Assets.xcassets in Resources */,
+				14A8454E24EA9DAC00FEEBC9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14A8456724ED0E0B00FEEBC9 /* SwifLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwifLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		14A6CDC924EE63F6007B58DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A6CDD024EE63F6007B58DA /* AppDelegate.swift in Sources */,
+				14A6CDD224EE63F7007B58DA /* SceneDelegate.swift in Sources */,
+				14A6CDD424EE63F7007B58DA /* ContentView.swift in Sources */,
+				14A6CDE324EE7539007B58DA /* ItemRow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14A8453124EA9C2C00FEEBC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1474A6CC250E98E5004F3D98 /* Package.swift in Sources */,
+				14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */,
+				14A6CDB324ED58CF007B58DA /* ServiceTableViewCell.swift in Sources */,
+				14A8457124ED1ACF00FEEBC9 /* UIView+AutoLayout.swift in Sources */,
+				14A6CDE724EE77EB007B58DA /* PrivacyPolicyView.swift in Sources */,
+				14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */,
+				14A6CDE524EE758B007B58DA /* PolicyItem.swift in Sources */,
+				14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */,
+				14A8456924ED140300FEEBC9 /* PolicyTableViewCell.swift in Sources */,
+				14A8457324ED234400FEEBC9 /* PolicyModel.swift in Sources */,
+				14A8456F24ED19F700FEEBC9 /* TosViewModel.swift in Sources */,
+				14A8456D24ED193C00FEEBC9 /* TosViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14A8454024EA9DAC00FEEBC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14A8454B24EA9DAC00FEEBC9 /* ViewController.swift in Sources */,
+				14A8454724EA9DAC00FEEBC9 /* AppDelegate.swift in Sources */,
+				14A8454924EA9DAC00FEEBC9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		14A8455C24EA9DD300FEEBC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14A8453424EA9C2C00FEEBC9 /* GDPR */;
+			targetProxy = 14A8455B24EA9DD300FEEBC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		14A6CDDA24EE63F8007B58DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14A6CDDB24EE63F8007B58DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		14A8454C24EA9DAC00FEEBC9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14A8454D24EA9DAC00FEEBC9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		14A8455124EA9DAD00FEEBC9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14A8455224EA9DAD00FEEBC9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		14A6CDDF24EE63F8007B58DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Example2/Preview Content\"";
+				DEVELOPMENT_TEAM = 2B6FWRNH2M;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Example2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = allaboutapps.Example2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14A6CDE024EE63F8007B58DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Example2/Preview Content\"";
+				DEVELOPMENT_TEAM = 2B6FWRNH2M;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Example2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = allaboutapps.Example2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		14A8453B24EA9C2C00FEEBC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -260,6 +648,7 @@
 		14A8453E24EA9C2C00FEEBC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2B6FWRNH2M;
@@ -276,6 +665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = allaboutapps.GDPR;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +674,7 @@
 		14A8453F24EA9C2C00FEEBC9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2B6FWRNH2M;
@@ -305,9 +696,56 @@
 			};
 			name = Release;
 		};
+		14A8455624EA9DAD00FEEBC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B6FWRNH2M;
+				INFOPLIST_FILE = "GDPR Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "allaboutapps.GDPR-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14A8455724EA9DAD00FEEBC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B6FWRNH2M;
+				INFOPLIST_FILE = "GDPR Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "allaboutapps.GDPR-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		14A6CDDE24EE63F8007B58DA /* Build configuration list for PBXNativeTarget "Example2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14A6CDDF24EE63F8007B58DA /* Debug */,
+				14A6CDE024EE63F8007B58DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		14A8452F24EA9C2C00FEEBC9 /* Build configuration list for PBXProject "GDPR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -322,6 +760,15 @@
 			buildConfigurations = (
 				14A8453E24EA9C2C00FEEBC9 /* Debug */,
 				14A8453F24EA9C2C00FEEBC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14A8455524EA9DAD00FEEBC9 /* Build configuration list for PBXNativeTarget "GDPR Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14A8455624EA9DAD00FEEBC9 /* Debug */,
+				14A8455724EA9DAD00FEEBC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
