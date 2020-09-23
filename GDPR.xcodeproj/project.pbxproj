@@ -23,7 +23,6 @@
 		14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456024EC399D00FEEBC9 /* GDPRManager.swift */; };
 		14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */; };
 		14A8456B24ED162900FEEBC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14A8456A24ED162900FEEBC9 /* .swiftlint.yml */; };
-		14A8457124ED1ACF00FEEBC9 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */; };
 		14BA088A2514BDDE00CA22C6 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA08892514BDDE00CA22C6 /* Strings.swift */; };
 		14BA088E2519E1CE00CA22C6 /* PolicyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA088D2519E1CE00CA22C6 /* PolicyItem.swift */; };
 		14BA0890251A106000CA22C6 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA088F251A106000CA22C6 /* ConfirmationView.swift */; };
@@ -77,7 +76,6 @@
 		14A8456024EC399D00FEEBC9 /* GDPRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRManager.swift; sourceTree = "<group>"; };
 		14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesWebView.swift; sourceTree = "<group>"; };
 		14A8456A24ED162900FEEBC9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		14BA08892514BDDE00CA22C6 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		14BA088D2519E1CE00CA22C6 /* PolicyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyItem.swift; sourceTree = "<group>"; };
 		14BA088F251A106000CA22C6 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 		14A8453724EA9C2C00FEEBC9 /* GDPR */ = {
 			isa = PBXGroup;
 			children = (
-				14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */,
 				14A8456424ED0B6F00FEEBC9 /* Views */,
 				14A8456324ED0B6500FEEBC9 /* Temp */,
 				14A8453824EA9C2C00FEEBC9 /* GDPR.h */,
@@ -328,7 +325,6 @@
 				1474A6CC250E98E5004F3D98 /* Package.swift in Sources */,
 				14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */,
 				14BA089C251B360800CA22C6 /* TrackingSettingsView.swift in Sources */,
-				14A8457124ED1ACF00FEEBC9 /* UIView+AutoLayout.swift in Sources */,
 				14A6CDE724EE77EB007B58DA /* PrivacyPolicyView.swift in Sources */,
 				14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */,
 				14BA088E2519E1CE00CA22C6 /* PolicyItem.swift in Sources */,

@@ -24,7 +24,7 @@ struct TermsItem: View {
                 Text(Strings.termsTitle)
             }.sheet(isPresented: self.$showWebView) {
                 NavigationView {
-                    ServiceWebView(url: URL(string: ""))
+                    ServiceWebView(url: URL(string: GDPRManager.termsURL ?? ""))
                         .navigationBarTitle(Text(Strings.termsTitle), displayMode: .inline)
                 }
                 
