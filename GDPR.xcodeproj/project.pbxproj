@@ -8,15 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1474A6CC250E98E5004F3D98 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474A6CB250E98E4004F3D98 /* Package.swift */; };
-		14A6CDB324ED58CF007B58DA /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDB224ED58CF007B58DA /* ServiceTableViewCell.swift */; };
-		14A6CDD024EE63F6007B58DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDCF24EE63F6007B58DA /* AppDelegate.swift */; };
-		14A6CDD224EE63F7007B58DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDD124EE63F7007B58DA /* SceneDelegate.swift */; };
-		14A6CDD424EE63F7007B58DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDD324EE63F7007B58DA /* ContentView.swift */; };
-		14A6CDD624EE63F8007B58DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A6CDD524EE63F8007B58DA /* Assets.xcassets */; };
-		14A6CDD924EE63F8007B58DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A6CDD824EE63F8007B58DA /* Preview Assets.xcassets */; };
-		14A6CDDC24EE63F8007B58DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A6CDDA24EE63F8007B58DA /* LaunchScreen.storyboard */; };
-		14A6CDE324EE7539007B58DA /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE124EE752B007B58DA /* ItemRow.swift */; };
-		14A6CDE524EE758B007B58DA /* PolicyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE424EE758B007B58DA /* PolicyItem.swift */; };
+		14A6CDE524EE758B007B58DA /* TermsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE424EE758B007B58DA /* TermsItem.swift */; };
 		14A6CDE724EE77EB007B58DA /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */; };
 		14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */; };
 		14A8453A24EA9C2C00FEEBC9 /* GDPR.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A8453824EA9C2C00FEEBC9 /* GDPR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,12 +22,16 @@
 		14A8455A24EA9DD300FEEBC9 /* GDPR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8453524EA9C2C00FEEBC9 /* GDPR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456024EC399D00FEEBC9 /* GDPRManager.swift */; };
 		14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */; };
-		14A8456924ED140300FEEBC9 /* PolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456824ED140300FEEBC9 /* PolicyTableViewCell.swift */; };
 		14A8456B24ED162900FEEBC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14A8456A24ED162900FEEBC9 /* .swiftlint.yml */; };
-		14A8456D24ED193C00FEEBC9 /* TosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456C24ED193C00FEEBC9 /* TosViewController.swift */; };
-		14A8456F24ED19F700FEEBC9 /* TosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456E24ED19F700FEEBC9 /* TosViewModel.swift */; };
 		14A8457124ED1ACF00FEEBC9 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */; };
-		14A8457324ED234400FEEBC9 /* PolicyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8457224ED234400FEEBC9 /* PolicyModel.swift */; };
+		14BA088A2514BDDE00CA22C6 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA08892514BDDE00CA22C6 /* Strings.swift */; };
+		14BA088E2519E1CE00CA22C6 /* PolicyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA088D2519E1CE00CA22C6 /* PolicyItem.swift */; };
+		14BA0890251A106000CA22C6 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA088F251A106000CA22C6 /* ConfirmationView.swift */; };
+		14BA0894251A6D1F00CA22C6 /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0893251A6D1F00CA22C6 /* ConfirmationViewModel.swift */; };
+		14BA0896251A6F9300CA22C6 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0895251A6F9300CA22C6 /* Status.swift */; };
+		14BA0898251A71EB00CA22C6 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */; };
+		14BA089A251B337F00CA22C6 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0899251B337F00CA22C6 /* ServiceModel.swift */; };
+		14BA089C251B360800CA22C6 /* TrackingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA089B251B360800CA22C6 /* TrackingSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,17 +60,7 @@
 
 /* Begin PBXFileReference section */
 		1474A6CB250E98E4004F3D98 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		14A6CDB224ED58CF007B58DA /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
-		14A6CDCD24EE63F6007B58DA /* Example2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		14A6CDCF24EE63F6007B58DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		14A6CDD124EE63F7007B58DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		14A6CDD324EE63F7007B58DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		14A6CDD524EE63F8007B58DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		14A6CDD824EE63F8007B58DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		14A6CDDB24EE63F8007B58DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14A6CDDD24EE63F8007B58DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14A6CDE124EE752B007B58DA /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
-		14A6CDE424EE758B007B58DA /* PolicyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyItem.swift; sourceTree = "<group>"; };
+		14A6CDE424EE758B007B58DA /* TermsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsItem.swift; sourceTree = "<group>"; };
 		14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
 		14A8453524EA9C2C00FEEBC9 /* GDPR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDPR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,22 +76,19 @@
 		14A8455424EA9DAD00FEEBC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A8456024EC399D00FEEBC9 /* GDPRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRManager.swift; sourceTree = "<group>"; };
 		14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesWebView.swift; sourceTree = "<group>"; };
-		14A8456824ED140300FEEBC9 /* PolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyTableViewCell.swift; sourceTree = "<group>"; };
 		14A8456A24ED162900FEEBC9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		14A8456C24ED193C00FEEBC9 /* TosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TosViewController.swift; sourceTree = "<group>"; };
-		14A8456E24ED19F700FEEBC9 /* TosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TosViewModel.swift; sourceTree = "<group>"; };
 		14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
-		14A8457224ED234400FEEBC9 /* PolicyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyModel.swift; sourceTree = "<group>"; };
+		14BA08892514BDDE00CA22C6 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		14BA088D2519E1CE00CA22C6 /* PolicyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyItem.swift; sourceTree = "<group>"; };
+		14BA088F251A106000CA22C6 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		14BA0893251A6D1F00CA22C6 /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
+		14BA0895251A6F9300CA22C6 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		14BA0899251B337F00CA22C6 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		14BA089B251B360800CA22C6 /* TrackingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		14A6CDCA24EE63F6007B58DA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		14A8453224EA9C2C00FEEBC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,39 +107,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14A6CDCE24EE63F6007B58DA /* Example2 */ = {
-			isa = PBXGroup;
-			children = (
-				14A6CDCF24EE63F6007B58DA /* AppDelegate.swift */,
-				14A6CDD124EE63F7007B58DA /* SceneDelegate.swift */,
-				14A6CDD324EE63F7007B58DA /* ContentView.swift */,
-				14A6CDE124EE752B007B58DA /* ItemRow.swift */,
-				14A6CDD524EE63F8007B58DA /* Assets.xcassets */,
-				14A6CDDA24EE63F8007B58DA /* LaunchScreen.storyboard */,
-				14A6CDDD24EE63F8007B58DA /* Info.plist */,
-				14A6CDD724EE63F8007B58DA /* Preview Content */,
-			);
-			path = Example2;
-			sourceTree = "<group>";
-		};
-		14A6CDD724EE63F8007B58DA /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				14A6CDD824EE63F8007B58DA /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		14A6CDE824EEB178007B58DA /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				14A6CDB224ED58CF007B58DA /* ServiceTableViewCell.swift */,
-				14A8456824ED140300FEEBC9 /* PolicyTableViewCell.swift */,
-				14A8456C24ED193C00FEEBC9 /* TosViewController.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		14A8452B24EA9C2C00FEEBC9 = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +114,6 @@
 				14A8456A24ED162900FEEBC9 /* .swiftlint.yml */,
 				14A8453724EA9C2C00FEEBC9 /* GDPR */,
 				14A8454524EA9DAC00FEEBC9 /* GDPR Example */,
-				14A6CDCE24EE63F6007B58DA /* Example2 */,
 				14A8453624EA9C2C00FEEBC9 /* Products */,
 				14A8455824EA9DD300FEEBC9 /* Frameworks */,
 			);
@@ -175,7 +124,6 @@
 			children = (
 				14A8453524EA9C2C00FEEBC9 /* GDPR.framework */,
 				14A8454424EA9DAC00FEEBC9 /* GDPR Example.app */,
-				14A6CDCD24EE63F6007B58DA /* Example2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,13 +132,16 @@
 			isa = PBXGroup;
 			children = (
 				14A8457024ED1ACF00FEEBC9 /* UIView+AutoLayout.swift */,
-				14A8456424ED0B6F00FEEBC9 /* PrivacyPolicy */,
-				14A8456324ED0B6500FEEBC9 /* Tos */,
-				14A8456224ED0B5400FEEBC9 /* Settings */,
+				14A8456424ED0B6F00FEEBC9 /* Views */,
+				14A8456324ED0B6500FEEBC9 /* Temp */,
 				14A8453824EA9C2C00FEEBC9 /* GDPR.h */,
 				14A8453924EA9C2C00FEEBC9 /* Info.plist */,
 				14A8456024EC399D00FEEBC9 /* GDPRManager.swift */,
-				14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */,
+				14BA08892514BDDE00CA22C6 /* Strings.swift */,
+				14BA0893251A6D1F00CA22C6 /* ConfirmationViewModel.swift */,
+				14BA0895251A6F9300CA22C6 /* Status.swift */,
+				14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */,
+				14BA0899251B337F00CA22C6 /* ServiceModel.swift */,
 			);
 			path = GDPR;
 			sourceTree = "<group>";
@@ -216,31 +167,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		14A8456224ED0B5400FEEBC9 /* Settings */ = {
+		14A8456324ED0B6500FEEBC9 /* Temp */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		14A8456324ED0B6500FEEBC9 /* Tos */ = {
-			isa = PBXGroup;
-			children = (
-				14A6CDE824EEB178007B58DA /* UIKit */,
-				14A8457224ED234400FEEBC9 /* PolicyModel.swift */,
-				14A8456E24ED19F700FEEBC9 /* TosViewModel.swift */,
-				14A6CDE424EE758B007B58DA /* PolicyItem.swift */,
 				14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */,
-				14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */,
 			);
-			path = Tos;
+			path = Temp;
 			sourceTree = "<group>";
 		};
-		14A8456424ED0B6F00FEEBC9 /* PrivacyPolicy */ = {
+		14A8456424ED0B6F00FEEBC9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				14BA088F251A106000CA22C6 /* ConfirmationView.swift */,
+				14BA088D2519E1CE00CA22C6 /* PolicyItem.swift */,
+				14A6CDE424EE758B007B58DA /* TermsItem.swift */,
+				14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */,
+				14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */,
+				14BA089B251B360800CA22C6 /* TrackingSettingsView.swift */,
 			);
-			path = PrivacyPolicy;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,23 +202,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		14A6CDCC24EE63F6007B58DA /* Example2 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14A6CDDE24EE63F8007B58DA /* Build configuration list for PBXNativeTarget "Example2" */;
-			buildPhases = (
-				14A6CDC924EE63F6007B58DA /* Sources */,
-				14A6CDCA24EE63F6007B58DA /* Frameworks */,
-				14A6CDCB24EE63F6007B58DA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Example2;
-			productName = Example2;
-			productReference = 14A6CDCD24EE63F6007B58DA /* Example2.app */;
-			productType = "com.apple.product-type.application";
-		};
 		14A8453424EA9C2C00FEEBC9 /* GDPR */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14A8453D24EA9C2C00FEEBC9 /* Build configuration list for PBXNativeTarget "GDPR" */;
@@ -322,9 +250,6 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "All About Apps";
 				TargetAttributes = {
-					14A6CDCC24EE63F6007B58DA = {
-						CreatedOnToolsVersion = 11.6;
-					};
 					14A8453424EA9C2C00FEEBC9 = {
 						CreatedOnToolsVersion = 11.6;
 						LastSwiftMigration = 1160;
@@ -349,22 +274,11 @@
 			targets = (
 				14A8453424EA9C2C00FEEBC9 /* GDPR */,
 				14A8454324EA9DAC00FEEBC9 /* GDPR Example */,
-				14A6CDCC24EE63F6007B58DA /* Example2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		14A6CDCB24EE63F6007B58DA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A6CDDC24EE63F8007B58DA /* LaunchScreen.storyboard in Resources */,
-				14A6CDD924EE63F8007B58DA /* Preview Assets.xcassets in Resources */,
-				14A6CDD624EE63F8007B58DA /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		14A8453324EA9C2C00FEEBC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,33 +321,25 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		14A6CDC924EE63F6007B58DA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14A6CDD024EE63F6007B58DA /* AppDelegate.swift in Sources */,
-				14A6CDD224EE63F7007B58DA /* SceneDelegate.swift in Sources */,
-				14A6CDD424EE63F7007B58DA /* ContentView.swift in Sources */,
-				14A6CDE324EE7539007B58DA /* ItemRow.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		14A8453124EA9C2C00FEEBC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1474A6CC250E98E5004F3D98 /* Package.swift in Sources */,
 				14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */,
-				14A6CDB324ED58CF007B58DA /* ServiceTableViewCell.swift in Sources */,
+				14BA089C251B360800CA22C6 /* TrackingSettingsView.swift in Sources */,
 				14A8457124ED1ACF00FEEBC9 /* UIView+AutoLayout.swift in Sources */,
 				14A6CDE724EE77EB007B58DA /* PrivacyPolicyView.swift in Sources */,
 				14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */,
-				14A6CDE524EE758B007B58DA /* PolicyItem.swift in Sources */,
+				14BA088E2519E1CE00CA22C6 /* PolicyItem.swift in Sources */,
+				14BA0898251A71EB00CA22C6 /* PersistenceManager.swift in Sources */,
+				14A6CDE524EE758B007B58DA /* TermsItem.swift in Sources */,
+				14BA088A2514BDDE00CA22C6 /* Strings.swift in Sources */,
 				14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */,
-				14A8456924ED140300FEEBC9 /* PolicyTableViewCell.swift in Sources */,
-				14A8457324ED234400FEEBC9 /* PolicyModel.swift in Sources */,
-				14A8456F24ED19F700FEEBC9 /* TosViewModel.swift in Sources */,
-				14A8456D24ED193C00FEEBC9 /* TosViewController.swift in Sources */,
+				14BA0896251A6F9300CA22C6 /* Status.swift in Sources */,
+				14BA089A251B337F00CA22C6 /* ServiceModel.swift in Sources */,
+				14BA0890251A106000CA22C6 /* ConfirmationView.swift in Sources */,
+				14BA0894251A6D1F00CA22C6 /* ConfirmationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,14 +364,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		14A6CDDA24EE63F8007B58DA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14A6CDDB24EE63F8007B58DA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		14A8454C24EA9DAC00FEEBC9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -485,46 +383,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		14A6CDDF24EE63F8007B58DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Example2/Preview Content\"";
-				DEVELOPMENT_TEAM = 2B6FWRNH2M;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Example2/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = allaboutapps.Example2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		14A6CDE024EE63F8007B58DA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Example2/Preview Content\"";
-				DEVELOPMENT_TEAM = 2B6FWRNH2M;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Example2/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = allaboutapps.Example2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		14A8453B24EA9C2C00FEEBC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -737,15 +595,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14A6CDDE24EE63F8007B58DA /* Build configuration list for PBXNativeTarget "Example2" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14A6CDDF24EE63F8007B58DA /* Debug */,
-				14A6CDE024EE63F8007B58DA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		14A8452F24EA9C2C00FEEBC9 /* Build configuration list for PBXProject "GDPR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

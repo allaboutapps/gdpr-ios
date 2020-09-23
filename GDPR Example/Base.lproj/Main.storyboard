@@ -15,18 +15,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnA-jx-htT">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="presentTos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5I8-Wf-VCr"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-CD-4rq">
+                                <rect key="frame" x="20" y="108" width="104" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnA-jx-htT">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="TOS"/>
+                                        <connections>
+                                            <action selector="presentTos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5I8-Wf-VCr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2j-ka-7jW">
+                                        <rect key="frame" x="0.0" y="30" width="104" height="30"/>
+                                        <state key="normal" title="TOS + Settings"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vnA-jx-htT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dM8-Hy-mot"/>
-                            <constraint firstItem="vnA-jx-htT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vm7-vE-APt"/>
+                            <constraint firstItem="x3u-CD-4rq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="iCC-03-Cvl"/>
+                            <constraint firstItem="x3u-CD-4rq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ylb-Ds-3b0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

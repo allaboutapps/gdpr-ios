@@ -10,14 +10,27 @@ import SwiftUI
 
 struct ServiceItem: View {
     @State var toggable: Bool = false
+    var model: ServiceModel?
     var body: some View {
         VStack(alignment: .leading) {
             Toggle(isOn: $toggable) {
-                Text("Service Title")
+                Text(model?.name ?? "")
                     .font(.body)
             }
-            Text("details to show about the service")
+            Text(model?.description ?? "")
                 .font(.subheadline)
+            if model?.supportDeletion ?? false{
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.model?.deleteData?()
+                    }) {
+                        Text(Strings.deleteData)
+                    }
+                }
+
+            }
+            
         }
     }
 }

@@ -19,15 +19,21 @@ public struct PrivacyPolicyView: View {
     
 public var body: some View {
     List {
-        PolicyItem()
-        
         ForEach (1...3, id: \.self) { _ in
             ServiceItem()
         }
         
-        
+        Button(action: {
+            print("Hi")
+        }) {
+            Text("Save")
+        }
+    .padding(EdgeInsets(top: 8, leading: 50, bottom: 8, trailing: 50))
+        .background(Color.orange)
+    .clipShape(RoundedRectangle(cornerRadius: 10))
+        .foregroundColor(.white)
+
     }
-        
         
     .navigationBarTitle(Text("Privacy Policy"), displayMode: .inline)
     

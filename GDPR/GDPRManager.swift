@@ -10,25 +10,32 @@ import Foundation
 
 public class GDPRManager {
     public static var shared = GDPRManager()
+    public static var termsURL: String?
     
     // function to view tos with (requireTOS, showSettings)
-    public func presentTos() -> PrivacyPolicyView {
-        let tosViewController = TosViewController()
-        var services = [PolicyModel]()
-        let service = PolicyModel()
-        service.title = "Title"
-        service.details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipcillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        service.agreement = true
-        service.linkTitle = "Click me"
-        services.append(service)
-        let secondService = PolicyModel()
-        secondService.title = "Title"
-        secondService.details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquipcillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        secondService.agreement = false
-        services.append(secondService)
-        tosViewController.viewModel = TosViewModel(services: services)
-        PrivacyPolicyView()
-        return PrivacyPolicyView()
-//        return tosViewController
+    public func presentTos() -> ConfirmationView {
+        let confirmationViewModel = ConfirmationViewModel(itemDescription: Strings.privacyDescription, itemLinkTitle: Strings.privacyTitle, itemURL: "")
+        return confirmationViewModel.confirmationView(showSettings: true)
+        
+    }
+    
+    public func shouldPresentTOS() -> Bool {
+        var latestPolicyChange = Date() //need to get this from the server
+        let persistenceManager = PersistenceManager()
+        let currentStatus = persistenceManager.retrieveStatus()
+        
+        let shouldPresent: Bool
+        switch currentStatus?.lastAcceptedPrivacy {
+        case .accepted(let at):
+            shouldPresent = at < latestPolicyChange
+        case .rejected:
+            shouldPresent = true
+        case .undefined:
+            shouldPresent = false
+        case .none:
+            return false
+        }
+        return shouldPresent
     }
 }
+
