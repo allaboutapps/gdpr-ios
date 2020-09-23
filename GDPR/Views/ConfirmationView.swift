@@ -27,7 +27,11 @@ public struct ConfirmationView: View {
                     TermsItem(isToggle: $isEnabled)
                     PolicyItem(descritpion: viewModel?.itemDescription ?? "", linkTitle: viewModel?.itemLinkTitle ?? "", url: viewModel?.itemURL ?? "")
                 }
+                ForEach(0..<GDPRManager.servicesList.count, id: \.self) { index in
+                    ServiceItem(toggable: true, model: GDPRManager.servicesList[index])
+               }
             }
+            
             Button(action: {
                 self.viewModel?.savePolicy()
                 self.presentation.wrappedValue.dismiss()

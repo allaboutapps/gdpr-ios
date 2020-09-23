@@ -8,14 +8,19 @@
 
 import Foundation
 
-public class ServiceModel {
+public class ServiceModel: ObservableObject {
+
     var id: String?
     var name: String?
     var description: String?
-    var isOptIn: Bool?
+    @Published var isOptIn = false {
+        didSet {
+            print(isOptIn)
+        }
+    }
     var supportDeletion: Bool?
     
-    init(id: String, name: String, description: String?, isOptIn: Bool = false, supportDeletion: Bool?) {
+    public init(id: String = "", name: String = "", description: String? = "", isOptIn: Bool = false, supportDeletion: Bool? = false) {
         self.id = id
         self.name = name
         self.description = description
@@ -23,6 +28,4 @@ public class ServiceModel {
         self.supportDeletion = supportDeletion
     }
     
-    public var optOut: (()->Void)?
-    public var deleteData: (()->Void)?
 }

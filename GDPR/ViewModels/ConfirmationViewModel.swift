@@ -21,7 +21,7 @@ class ConfirmationViewModel {
         self.itemURL = itemURL
     }
     
-    func confirmationView(showSettings: Bool) -> ConfirmationView {
+    func confirmationView(requireTOS: Bool, showSettings: Bool) -> ConfirmationView { // deal with the two thingies
         var confirmationView = ConfirmationView()
         confirmationView.viewModel = self
         return confirmationView

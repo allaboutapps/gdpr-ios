@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1474A6CC250E98E5004F3D98 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474A6CB250E98E4004F3D98 /* Package.swift */; };
 		14A6CDE524EE758B007B58DA /* TermsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE424EE758B007B58DA /* TermsItem.swift */; };
-		14A6CDE724EE77EB007B58DA /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */; };
 		14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */; };
 		14A8453A24EA9C2C00FEEBC9 /* GDPR.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A8453824EA9C2C00FEEBC9 /* GDPR.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14A8454724EA9DAC00FEEBC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8454624EA9DAC00FEEBC9 /* AppDelegate.swift */; };
@@ -30,7 +29,6 @@
 		14BA0896251A6F9300CA22C6 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0895251A6F9300CA22C6 /* Status.swift */; };
 		14BA0898251A71EB00CA22C6 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */; };
 		14BA089A251B337F00CA22C6 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0899251B337F00CA22C6 /* ServiceModel.swift */; };
-		14BA089C251B360800CA22C6 /* TrackingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA089B251B360800CA22C6 /* TrackingSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +58,6 @@
 /* Begin PBXFileReference section */
 		1474A6CB250E98E4004F3D98 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		14A6CDE424EE758B007B58DA /* TermsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsItem.swift; sourceTree = "<group>"; };
-		14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
 		14A8453524EA9C2C00FEEBC9 /* GDPR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDPR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A8453824EA9C2C00FEEBC9 /* GDPR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPR.h; sourceTree = "<group>"; };
@@ -83,7 +80,6 @@
 		14BA0895251A6F9300CA22C6 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		14BA0899251B337F00CA22C6 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
-		14BA089B251B360800CA22C6 /* TrackingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,15 +125,14 @@
 		14A8453724EA9C2C00FEEBC9 /* GDPR */ = {
 			isa = PBXGroup;
 			children = (
+				14A8456024EC399D00FEEBC9 /* GDPRManager.swift */,
+				14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */,
+				14BA089D251B3BBC00CA22C6 /* ViewModels */,
 				14A8456424ED0B6F00FEEBC9 /* Views */,
-				14A8456324ED0B6500FEEBC9 /* Temp */,
 				14A8453824EA9C2C00FEEBC9 /* GDPR.h */,
 				14A8453924EA9C2C00FEEBC9 /* Info.plist */,
-				14A8456024EC399D00FEEBC9 /* GDPRManager.swift */,
 				14BA08892514BDDE00CA22C6 /* Strings.swift */,
-				14BA0893251A6D1F00CA22C6 /* ConfirmationViewModel.swift */,
 				14BA0895251A6F9300CA22C6 /* Status.swift */,
-				14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */,
 				14BA0899251B337F00CA22C6 /* ServiceModel.swift */,
 			);
 			path = GDPR;
@@ -164,14 +159,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		14A8456324ED0B6500FEEBC9 /* Temp */ = {
-			isa = PBXGroup;
-			children = (
-				14A6CDE624EE77EB007B58DA /* PrivacyPolicyView.swift */,
-			);
-			path = Temp;
-			sourceTree = "<group>";
-		};
 		14A8456424ED0B6F00FEEBC9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +167,16 @@
 				14A6CDE424EE758B007B58DA /* TermsItem.swift */,
 				14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */,
 				14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */,
-				14BA089B251B360800CA22C6 /* TrackingSettingsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		14BA089D251B3BBC00CA22C6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				14BA0893251A6D1F00CA22C6 /* ConfirmationViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,8 +318,6 @@
 			files = (
 				1474A6CC250E98E5004F3D98 /* Package.swift in Sources */,
 				14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */,
-				14BA089C251B360800CA22C6 /* TrackingSettingsView.swift in Sources */,
-				14A6CDE724EE77EB007B58DA /* PrivacyPolicyView.swift in Sources */,
 				14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */,
 				14BA088E2519E1CE00CA22C6 /* PolicyItem.swift in Sources */,
 				14BA0898251A71EB00CA22C6 /* PersistenceManager.swift in Sources */,
@@ -556,7 +548,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2B6FWRNH2M;
+				DEVELOPMENT_TEAM = M8F9QH57A6;
 				INFOPLIST_FILE = "GDPR Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -575,7 +567,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2B6FWRNH2M;
+				DEVELOPMENT_TEAM = M8F9QH57A6;
 				INFOPLIST_FILE = "GDPR Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

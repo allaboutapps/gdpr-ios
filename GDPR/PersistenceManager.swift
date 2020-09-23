@@ -10,6 +10,8 @@ import Foundation
 
 class PersistenceManager {
     
+    public static var shared = PersistenceManager()
+    
     private let url = FileManager().urls(for: .documentDirectory,
                                          in: .userDomainMask).first!.appendingPathComponent("gdpr.json")
     public func saveStatus(status: Status) {

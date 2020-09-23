@@ -28,6 +28,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2j-ka-7jW">
                                         <rect key="frame" x="0.0" y="30" width="104" height="30"/>
                                         <state key="normal" title="TOS + Settings"/>
+                                        <connections>
+                                            <action selector="presentTosAndSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OXy-9c-35o"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

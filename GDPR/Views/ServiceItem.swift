@@ -9,24 +9,24 @@
 import SwiftUI
 
 struct ServiceItem: View {
-    @State var toggable: Bool = false
-    var model: ServiceModel?
+    @State var toggable: Bool?
+    @ObservedObject var model = ServiceModel()
     var body: some View {
-        VStack(alignment: .leading) {
-            Toggle(isOn: $toggable) {
-                Text(model?.name ?? "")
+        VStack(alignment: .leading, spacing: 8) {
+            Toggle(isOn: $model.isOptIn) {
+                Text(model.name ?? "Testing")
                     .font(.body)
             }
-            Text(model?.description ?? "")
+            Text(model.description ?? "Testing")
                 .font(.subheadline)
-            if model?.supportDeletion ?? false{
+            if model.supportDeletion ?? true{
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.model?.deleteData?()
+//                        self.model?.deleteData?() fimd a different way
                     }) {
                         Text(Strings.deleteData)
-                    }
+                    }.buttonStyle(PlainButtonStyle())
                 }
 
             }
