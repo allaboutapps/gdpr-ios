@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class ConfirmationViewModel{
+class ConfirmationViewModel: ObservableObject{
     
     var title: String?
     var requireTOS: Bool?
@@ -18,10 +18,19 @@ class ConfirmationViewModel{
     var showPrivacyPolicy: Bool?
     var policyURL: String?
     var termsURL: String?
+    var servicesList = [ServiceModel]()
+    @Published var acceptAll = false {
+        didSet {
+            for service in servicesList {
+                service.isOptIn = true
+            }
+        }
+    }
     
     func confirmationView(title: String, requireTOS: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool) -> ConfirmationView {
         var confirmationView = ConfirmationView()
         confirmationView.viewModel = self
+        self.servicesList = GDPRManager.servicesList
         self.title = title
         self.requireTOS = requireTOS
         self.showSettings = showSettings

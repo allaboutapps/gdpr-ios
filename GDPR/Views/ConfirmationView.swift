@@ -12,7 +12,7 @@ public struct ConfirmationView: View {
     
     @State var isEnabled = false
     @Environment(\.presentationMode) var presentation
-    var viewModel: ConfirmationViewModel?
+    @ObservedObject var viewModel = ConfirmationViewModel()
     
     public init() {
         if #available(iOS 14.0, *) {
@@ -25,27 +25,27 @@ public struct ConfirmationView: View {
         VStack {
             List {
                 VStack(alignment: .leading, spacing: 50) {
-                    if viewModel?.requireTOS ?? true {
-                        TermsItem(isToggle: $isEnabled, termsURL: viewModel?.termsURL ?? "")
+                    if viewModel.requireTOS ?? true {
+                        TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL ?? "")
                     }
-                    if viewModel?.showPrivacyPolicy ?? true {
-                        PolicyItem(url: viewModel?.policyURL ?? "")
+                    if viewModel.showPrivacyPolicy ?? true {
+                        PolicyItem(url: viewModel.policyURL ?? "")
                     }
-                    if viewModel?.showSettings ?? true{
-                        TrackingItem(url: viewModel?.policyURL ?? "")
+                    if viewModel.showSettings ?? true{
+                        TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL ?? "")
                     }
                 }
                 
-                if viewModel?.showSettings ?? true {
+                if viewModel.showSettings ?? true {
                     ForEach(0..<GDPRManager.servicesList.count, id: \.self) { index in
-                        ServiceItem(toggable: true, model: GDPRManager.servicesList[index])
+                        ServiceItem(model: GDPRManager.servicesList[index])
                     }
                 }
             }
             
-            if viewModel?.showSaveButton ?? true {
+            if viewModel.showSaveButton ?? true {
                 Button(action: {
-                    self.viewModel?.savePolicy()
+                    self.viewModel.savePolicy()
                     self.presentation.wrappedValue.dismiss()
                 }) {
                     Text(Strings.confirm)
@@ -57,7 +57,7 @@ public struct ConfirmationView: View {
                 .disabled(!isEnabled)
             }
         }
-        .navigationBarTitle(viewModel?.title ?? "") 
+        .navigationBarTitle(viewModel.title ?? "")
         .padding(8)
     }
 }

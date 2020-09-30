@@ -11,6 +11,7 @@ import SwiftUI
 struct TrackingItem: View {
     
     @State private var showWebView: Bool = false
+    @Binding var acceptAll: Bool
     var url: String
     
     var body: some View {
@@ -19,7 +20,7 @@ struct TrackingItem: View {
                 .font(.headline)
             Text(Strings.trackingDescription)
                 .font(.body)
-            HStack (alignment: .center, spacing: 8) {
+            HStack(alignment: .center, spacing: 8) {
                 Button(action: {
                     self.showWebView.toggle()
                     
@@ -36,7 +37,7 @@ struct TrackingItem: View {
                 .font(.callout)
                 Spacer()
                 Button(action: {
-                   
+                    self.acceptAll = true
                 }) {
                     Text(Strings.allowAll)
                         .font(.subheadline)
@@ -49,6 +50,6 @@ struct TrackingItem: View {
 
 struct TrackingItem_Previews: PreviewProvider {
     static var previews: some View {
-        TrackingItem(url: "")
+        TrackingItem(acceptAll: .constant(false), url: "")
     }
 }

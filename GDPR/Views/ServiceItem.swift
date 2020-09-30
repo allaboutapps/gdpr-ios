@@ -9,15 +9,14 @@
 import SwiftUI
 
 struct ServiceItem: View {
-    @State var toggable: Bool?
     @ObservedObject var model = ServiceModel()
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Toggle(isOn: $model.isOptIn) {
-                Text(model.name ?? "Testing")
+            Toggle(isOn: $model.isOptIn ) {
+                Text(model.name ?? "")
                     .font(.body)
             }
-            Text(model.description ?? "Testing")
+            Text(model.description ?? "")
                 .font(.subheadline)
             if model.supportDeletion ?? true{
                 HStack {
