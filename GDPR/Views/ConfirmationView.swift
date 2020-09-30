@@ -9,6 +9,7 @@
 import SwiftUI
 
 public struct ConfirmationView: View {
+    
     @State var isEnabled = false
     @Environment(\.presentationMode) var presentation
     var viewModel: ConfirmationViewModel?
@@ -23,28 +24,41 @@ public struct ConfirmationView: View {
     public var body: some View {
         VStack {
             List {
-                VStack(alignment: .leading, spacing: 16) {
-                    TermsItem(isToggle: $isEnabled)
-                    PolicyItem(descritpion: viewModel?.itemDescription ?? "", linkTitle: viewModel?.itemLinkTitle ?? "", url: viewModel?.itemURL ?? "")
+                VStack(alignment: .leading, spacing: 50) {
+                    if viewModel?.requireTOS ?? true {
+                        TermsItem(isToggle: $isEnabled, termsURL: viewModel?.termsURL ?? "")
+                    }
+                    if viewModel?.showPrivacyPolicy ?? true {
+                        PolicyItem(url: viewModel?.policyURL ?? "")
+                    }
+                    if viewModel?.showSettings ?? true{
+                        TrackingItem(url: viewModel?.policyURL ?? "")
+                    }
                 }
-                ForEach(0..<GDPRManager.servicesList.count, id: \.self) { index in
-                    ServiceItem(toggable: true, model: GDPRManager.servicesList[index])
-               }
+                
+                if viewModel?.showSettings ?? true {
+                    ForEach(0..<GDPRManager.servicesList.count, id: \.self) { index in
+                        ServiceItem(toggable: true, model: GDPRManager.servicesList[index])
+                    }
+                }
             }
             
-            Button(action: {
-                self.viewModel?.savePolicy()
-                self.presentation.wrappedValue.dismiss()
-            }) {
-                Text(Strings.confirm)
+            if viewModel?.showSaveButton ?? true {
+                Button(action: {
+                    self.viewModel?.savePolicy()
+                    self.presentation.wrappedValue.dismiss()
+                }) {
+                    Text(Strings.confirm)
+                }
+                .padding(EdgeInsets(top: 8, leading: 50, bottom: 8, trailing: 50))
+                .background(Color.orange)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .accentColor(.white)
+                .disabled(!isEnabled)
             }
-            .padding(EdgeInsets(top: 8, leading: 50, bottom: 8, trailing: 50))
-            .background(Color.orange)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .accentColor(.white)
-            .disabled(!isEnabled)
-            
         }
+        .navigationBarTitle(viewModel?.title ?? "") 
+        .padding(8)
     }
 }
 

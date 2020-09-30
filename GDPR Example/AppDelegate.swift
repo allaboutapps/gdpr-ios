@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import GDPR
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let service = ServiceModel(id: "S1", name: "Firebase", description: "Something about Firebase", isOptIn: true, supportDeletion: true)
+        let service2 = ServiceModel(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", isOptIn: false, supportDeletion: false)
+        GDPRManager.servicesList.append(service)
+        GDPRManager.servicesList.append(service2)
         return true
     }
 

@@ -7,25 +7,29 @@
 //
 
 import Foundation
+import Combine
 
-class ConfirmationViewModel {
-
-    var itemDescription: String?
-    var itemLinkTitle: String?
-    var itemURL: String?
+class ConfirmationViewModel{
+    
+    var title: String?
+    var requireTOS: Bool?
     var showSettings: Bool?
+    var showSaveButton: Bool?
+    var showPrivacyPolicy: Bool?
+    var policyURL: String?
+    var termsURL: String?
     
-    init(itemDescription: String?, itemLinkTitle: String?, itemURL: String?) {
-        self.itemDescription = itemDescription
-        self.itemLinkTitle = itemLinkTitle
-        self.itemURL = itemURL
-    }
-    
-    func confirmationView(requireTOS: Bool, showSettings: Bool) -> ConfirmationView { // deal with the two thingies
+    func confirmationView(title: String, requireTOS: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool) -> ConfirmationView {
         var confirmationView = ConfirmationView()
         confirmationView.viewModel = self
+        self.title = title
+        self.requireTOS = requireTOS
+        self.showSettings = showSettings
+        self.showPrivacyPolicy = showPrivacyPolicy
+        self.showSaveButton = showSaveButton
         return confirmationView
     }
+    
     func savePolicy() {
         let persistenceManager = PersistenceManager()
         persistenceManager.saveStatus(status: Status(lastAcceptedPrivacy: .accepted(at: Date())))

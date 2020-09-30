@@ -16,20 +16,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-CD-4rq">
-                                <rect key="frame" x="20" y="108" width="104" height="60"/>
+                                <rect key="frame" x="20" y="108" width="223" height="240"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnA-jx-htT">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                        <state key="normal" title="TOS"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
+                                        <state key="normal" title="Require Tos"/>
                                         <connections>
                                             <action selector="presentTos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5I8-Wf-VCr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2j-ka-7jW">
-                                        <rect key="frame" x="0.0" y="30" width="104" height="30"/>
-                                        <state key="normal" title="TOS + Settings"/>
+                                        <rect key="frame" x="0.0" y="30" width="223" height="30"/>
+                                        <state key="normal" title="Require Tos and prompt settings"/>
                                         <connections>
                                             <action selector="presentTosAndSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OXy-9c-35o"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpT-1w-IYV">
+                                        <rect key="frame" x="0.0" y="60" width="111" height="30"/>
+                                        <state key="normal" title="Prompt Settings"/>
+                                        <connections>
+                                            <action selector="promptSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MTT-wj-ShY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpn-by-c7d">
+                                        <rect key="frame" x="0.0" y="90" width="120" height="30"/>
+                                        <state key="normal" title="Tracking Settings"/>
+                                        <connections>
+                                            <action selector="trackingSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lQK-xI-sEv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unn-VY-XrL">
+                                        <rect key="frame" x="0.0" y="120" width="176" height="30"/>
+                                        <state key="normal" title="Tracking settings with tos"/>
+                                        <connections>
+                                            <action selector="trackingSettingsWithTos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8AF-Ff-Gfp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELb-Nj-cBE">
+                                        <rect key="frame" x="0.0" y="150" width="95" height="30"/>
+                                        <state key="normal" title="Privacy Policy"/>
+                                        <connections>
+                                            <action selector="privacyPolicy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ROl-OC-maH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-b2-0Eq">
+                                        <rect key="frame" x="0.0" y="180" width="116" height="30"/>
+                                        <state key="normal" title="Terms of Service"/>
+                                        <connections>
+                                            <action selector="termsOfService:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mwD-if-04X"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2H-cT-gMu">
+                                        <rect key="frame" x="0.0" y="210" width="158" height="30"/>
+                                        <state key="normal" title="Privacy changed Alarm"/>
+                                        <connections>
+                                            <action selector="privacyChangedAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7U5-Zp-hez"/>
                                         </connections>
                                     </button>
                                 </subviews>

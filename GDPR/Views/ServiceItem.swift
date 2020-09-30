@@ -23,9 +23,10 @@ struct ServiceItem: View {
                 HStack {
                     Spacer()
                     Button(action: {
-//                        self.model?.deleteData?() fimd a different way
+//                        self.model?.deleteData?() find a different way
                     }) {
                         Text(Strings.deleteData)
+                            .font(.subheadline)
                     }.buttonStyle(PlainButtonStyle())
                 }
 
@@ -34,6 +35,7 @@ struct ServiceItem: View {
         }
     }
 }
+
 
 struct ServiceItem_Previews: PreviewProvider {
     static var previews: some View {

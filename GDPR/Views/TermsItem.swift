@@ -11,6 +11,8 @@ import SwiftUI
 struct TermsItem: View {
     @Binding public var isToggle: Bool
     @State private var showWebView: Bool = false
+    var termsURL: String
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(Strings.termsTitle)
@@ -24,7 +26,7 @@ struct TermsItem: View {
                 Text(Strings.termsTitle)
             }.sheet(isPresented: self.$showWebView) {
                 NavigationView {
-                    ServiceWebView(url: URL(string: GDPRManager.termsURL ?? ""))
+                    ServiceWebView(url: URL(string: self.termsURL))
                         .navigationBarTitle(Text(Strings.termsTitle), displayMode: .inline)
                 }
                 
@@ -43,20 +45,7 @@ struct TermsItem: View {
 
 struct TermsItem_Previews: PreviewProvider {
     static var previews: some View {
-        StatefulPreviewWrapper(false) { TermsItem(isToggle: $0) }
+         TermsItem(isToggle: .constant(false), termsURL: "") 
     }
 }
 
-struct StatefulPreviewWrapper<Value, Content: View>: View {
-    @State var value: Value
-    var content: (Binding<Value>) -> Content
-    
-    var body: some View {
-        content($value)
-    }
-    
-    init(_ value: Value, content: @escaping (Binding<Value>) -> Content) {
-        self._value = State(wrappedValue: value)
-        self.content = content
-    }
-}

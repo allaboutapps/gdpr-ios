@@ -15,7 +15,9 @@ struct ServiceWebView: UIViewRepresentable {
     var url: URL?
     
     init(url: URL?) {
-        self.url = url
+        let temp = Bundle.main.url(forResource: "privacy_policy", withExtension: "html")
+//        let temp = Bundle.main.URLForResource("privacy_policy", withExtension:"html")
+        self.url = temp
     }
     
     func makeUIView(context: Context) -> WKWebView {

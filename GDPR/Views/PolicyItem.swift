@@ -10,18 +10,18 @@ import SwiftUI
 
 struct PolicyItem: View {
     @State private var showWebView: Bool = false
-    var descritpion: String
-    var linkTitle: String
     var url: String
+    
     var body: some View {
          VStack(alignment: .leading, spacing: 8) {
-                   Text(descritpion)
+
+            Text(Strings.privacyDescription)
                        .font(.body)
                    Button(action: {
                        self.showWebView.toggle()
                        
                    }) {
-                    Text(linkTitle)
+                    Text(Strings.privacyTitle)
                    }.sheet(isPresented: self.$showWebView) {
                        NavigationView {
                         ServiceWebView(url: URL(string: self.url))
@@ -37,6 +37,6 @@ struct PolicyItem: View {
 
 struct PolicyItem_Previews: PreviewProvider {
     static var previews: some View {
-        PolicyItem(descritpion: "Test Desc", linkTitle: "Link", url: "" )
+        PolicyItem(url: "")
     }
 }

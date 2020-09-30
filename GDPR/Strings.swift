@@ -17,4 +17,8 @@ struct Strings {
     static var privacyTitle = "Datenschutzbestimmungen"
     static var confirm = "Bestätigen"
     static var deleteData = "Daten Löschen"
+    static var trackingHeader = "Tracking Services"
+    static var trackingDescription = "Du kannst ein paar, aber auch alle Services aktivieren um anonyme Nutzungsdaten zu teilen und uns beim Verbessern der App zu helfen."
+    static var trackingSettingsHeader = "Tracking-Einstellungen"
+    static var allowAll = "Allen Zustimmen"
 }
