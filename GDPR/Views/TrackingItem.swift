@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct TrackingItem: View {
-    
     @State private var showWebView: Bool = false
     @Binding var acceptAll: Bool
     var url: String
@@ -24,24 +23,23 @@ struct TrackingItem: View {
                 Button(action: {
                     self.showWebView.toggle()
                     
-                }) {
+                }, label: {
                     Text(Strings.privacyTitle)
-                }.sheet(isPresented: self.$showWebView) {
+                }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: URL(string: self.url))
                             .navigationBarTitle(Text(Strings.privacyTitle), displayMode: .inline)
                     }
-                    
                 }
                 .foregroundColor(.orange)
                 .font(.callout)
                 Spacer()
                 Button(action: {
                     self.acceptAll = true
-                }) {
+                }, label: {
                     Text(Strings.allowAll)
                         .font(.subheadline)
-                }.buttonStyle(PlainButtonStyle())
+                }).buttonStyle(PlainButtonStyle())
             }
             
         }.buttonStyle(PlainButtonStyle())

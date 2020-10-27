@@ -9,18 +9,17 @@
 import SwiftUI
 
 public struct ConfirmationView: View {
-    
     @State var isEnabled = false
     @Environment(\.presentationMode) var presentation
     @ObservedObject var viewModel = ConfirmationViewModel()
     
     public init() {
         if #available(iOS 14.0, *) {
-            
         } else {
             UITableView.appearance().tableFooterView = UIView()
         }
     }
+
     public var body: some View {
         VStack {
             List {
@@ -31,14 +30,14 @@ public struct ConfirmationView: View {
                     if viewModel.showPrivacyPolicy ?? true {
                         PolicyItem(url: viewModel.policyURL ?? "")
                     }
-                    if viewModel.showSettings ?? true{
+                    if viewModel.showSettings ?? true {
                         TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL ?? "")
                     }
                 }
                 
                 if viewModel.showSettings ?? true {
-                    ForEach(0..<GDPRManager.servicesList.count, id: \.self) { index in
-                        ServiceItem(model: GDPRManager.servicesList[index])
+                    ForEach(0 ..< viewModel.servicesList.count, id: \.self) { index in
+                        ServiceItem(model: viewModel.servicesList[index])
                     }
                 }
             }
@@ -47,9 +46,9 @@ public struct ConfirmationView: View {
                 Button(action: {
                     self.viewModel.savePolicy()
                     self.presentation.wrappedValue.dismiss()
-                }) {
+                }, label: {
                     Text(Strings.confirm)
-                }
+                })
                 .padding(EdgeInsets(top: 8, leading: 50, bottom: 8, trailing: 50))
                 .background(Color.orange)
                 .clipShape(RoundedRectangle(cornerRadius: 10))

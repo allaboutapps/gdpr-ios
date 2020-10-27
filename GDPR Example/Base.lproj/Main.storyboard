@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-CD-4rq">
-                                <rect key="frame" x="20" y="108" width="223" height="240"/>
+                                <rect key="frame" x="20" y="108" width="223" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnA-jx-htT">
                                         <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
@@ -51,27 +51,6 @@
                                         <state key="normal" title="Tracking settings with tos"/>
                                         <connections>
                                             <action selector="trackingSettingsWithTos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8AF-Ff-Gfp"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELb-Nj-cBE">
-                                        <rect key="frame" x="0.0" y="150" width="95" height="30"/>
-                                        <state key="normal" title="Privacy Policy"/>
-                                        <connections>
-                                            <action selector="privacyPolicy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ROl-OC-maH"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-b2-0Eq">
-                                        <rect key="frame" x="0.0" y="180" width="116" height="30"/>
-                                        <state key="normal" title="Terms of Service"/>
-                                        <connections>
-                                            <action selector="termsOfService:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mwD-if-04X"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2H-cT-gMu">
-                                        <rect key="frame" x="0.0" y="210" width="158" height="30"/>
-                                        <state key="normal" title="Privacy changed Alarm"/>
-                                        <connections>
-                                            <action selector="privacyChangedAlarm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7U5-Zp-hez"/>
                                         </connections>
                                     </button>
                                 </subviews>

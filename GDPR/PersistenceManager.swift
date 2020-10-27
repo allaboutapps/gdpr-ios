@@ -9,12 +9,12 @@
 import Foundation
 
 class PersistenceManager {
-    
     public static var shared = PersistenceManager()
     
     private let url = FileManager().urls(for: .documentDirectory,
                                          in: .userDomainMask).first!.appendingPathComponent("gdpr.json")
     public func saveStatus(status: Status) {
+        print(url)
         DispatchQueue.global().sync {
             do {
                 let encoder = JSONEncoder()
@@ -27,17 +27,17 @@ class PersistenceManager {
         }
     }
     
-    public func retrieveStatus() -> Status? {
+    public func retrieveStatus() -> Status {
         guard FileManager().fileExists(atPath: url.relativePath) else {
-            return Status(lastAcceptedPrivacy: .undefined)
+            return Status(lastAcceptedPrivacy: .undefined, services: [])
         }
         
         do {
             let data = try Data(contentsOf: url)
             let currenStatus = try JSONDecoder().decode(Status.self, from: data)
-             return currenStatus
+            return currenStatus
         } catch {
-            return nil
+            return Status(lastAcceptedPrivacy: .undefined, services: [])
         }
     }
 }

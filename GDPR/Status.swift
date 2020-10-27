@@ -10,6 +10,7 @@ import Foundation
 
 struct Status: Codable {
     var lastAcceptedPrivacy: TermState
+    var services: [ServiceModel]
 }
 
 enum TermState: Codable {

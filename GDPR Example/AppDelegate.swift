@@ -13,10 +13,9 @@ import GDPR
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let service = ServiceModel(id: "S1", name: "Firebase", description: "Something about Firebase", isOptIn: true, supportDeletion: true)
-        let service2 = ServiceModel(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", isOptIn: false, supportDeletion: false)
-        GDPRManager.servicesList.append(service)
-        GDPRManager.servicesList.append(service2)
+        GDPRManager.shared.setService(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
+        GDPRManager.shared.setService(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
+        GDPRManager.shared.setService(id: "S3", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
         return true
     }
 

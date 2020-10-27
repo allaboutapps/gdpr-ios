@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class ConfirmationViewModel: ObservableObject{
+class ConfirmationViewModel: ObservableObject {
     
     var title: String?
     var requireTOS: Bool?
@@ -18,6 +18,7 @@ class ConfirmationViewModel: ObservableObject{
     var showPrivacyPolicy: Bool?
     var policyURL: String?
     var termsURL: String?
+    
     var servicesList = [ServiceModel]()
     @Published var acceptAll = false {
         didSet {
@@ -30,7 +31,7 @@ class ConfirmationViewModel: ObservableObject{
     func confirmationView(title: String, requireTOS: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool) -> ConfirmationView {
         var confirmationView = ConfirmationView()
         confirmationView.viewModel = self
-        self.servicesList = GDPRManager.servicesList
+        self.servicesList = GDPRManager.shared.currentStatus.services
         self.title = title
         self.requireTOS = requireTOS
         self.showSettings = showSettings
@@ -41,6 +42,6 @@ class ConfirmationViewModel: ObservableObject{
     
     func savePolicy() {
         let persistenceManager = PersistenceManager()
-        persistenceManager.saveStatus(status: Status(lastAcceptedPrivacy: .accepted(at: Date())))
+        persistenceManager.saveStatus(status: Status(lastAcceptedPrivacy: .accepted(at: Date()), services: servicesList))
     }
 }

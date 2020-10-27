@@ -9,35 +9,32 @@
 import SwiftUI
 
 struct ServiceItem: View {
-    @ObservedObject var model = ServiceModel()
+    @ObservedObject var model: ServiceModel
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Toggle(isOn: $model.isOptIn ) {
-                Text(model.name ?? "")
+            Toggle(isOn: $model.isOptIn) {
+                Text(model.name)
                     .font(.body)
             }
-            Text(model.description ?? "")
+            Text(model.description)
                 .font(.subheadline)
-            if model.supportDeletion ?? true{
+            if model.supportDeletion ?? true {
                 HStack {
                     Spacer()
                     Button(action: {
-//                        self.model?.deleteData?() find a different way
-                    }) {
+                        self.model.delete()
+                    }, label: {
                         Text(Strings.deleteData)
                             .font(.subheadline)
-                    }.buttonStyle(PlainButtonStyle())
+                    }).buttonStyle(PlainButtonStyle())
                 }
-
             }
-            
         }
     }
 }
 
-
 struct ServiceItem_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceItem()
+        ServiceItem(model: ServiceModel(id: "id", name: "name", description: "desc", isOptIn: true))
     }
 }

@@ -11,8 +11,9 @@ import SwiftUI
 struct TermsItem: View {
     @Binding public var isToggle: Bool
     @State private var showWebView: Bool = false
+
     var termsURL: String
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(Strings.termsTitle)
@@ -21,15 +22,14 @@ struct TermsItem: View {
                 .font(.body)
             Button(action: {
                 self.showWebView.toggle()
-                
-            }) {
+
+            }, label: {
                 Text(Strings.termsTitle)
-            }.sheet(isPresented: self.$showWebView) {
+            }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: URL(string: self.termsURL))
                         .navigationBarTitle(Text(Strings.termsTitle), displayMode: .inline)
                 }
-                
             }
             .foregroundColor(.orange)
             .font(.callout)
@@ -37,15 +37,13 @@ struct TermsItem: View {
                 Text(Strings.termsAcceptance)
                     .font(.subheadline)
             }
-            
+
         }.buttonStyle(PlainButtonStyle())
-        
     }
 }
 
 struct TermsItem_Previews: PreviewProvider {
     static var previews: some View {
-         TermsItem(isToggle: .constant(false), termsURL: "") 
+        TermsItem(isToggle: .constant(false), termsURL: "")
     }
 }
-

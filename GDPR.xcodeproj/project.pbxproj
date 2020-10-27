@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142BC9E525475486006E0DC0 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142BC9E425475486006E0DC0 /* Appearance.swift */; };
 		14360D0225242C00009CD8DA /* TrackingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14360D0125242C00009CD8DA /* TrackingItem.swift */; };
 		1474A6CC250E98E5004F3D98 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474A6CB250E98E4004F3D98 /* Package.swift */; };
+		14A3FAB2253EC2FB0081272C /* GDPRDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */; };
 		14A6CDE524EE758B007B58DA /* TermsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE424EE758B007B58DA /* TermsItem.swift */; };
 		14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */; };
 		14A8453A24EA9C2C00FEEBC9 /* GDPR.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A8453824EA9C2C00FEEBC9 /* GDPR.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,8 +61,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		142BC9E425475486006E0DC0 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		14360D0125242C00009CD8DA /* TrackingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingItem.swift; sourceTree = "<group>"; };
 		1474A6CB250E98E4004F3D98 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRDelegate.swift; sourceTree = "<group>"; };
 		14A6CDE424EE758B007B58DA /* TermsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsItem.swift; sourceTree = "<group>"; };
 		14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
 		14A8453524EA9C2C00FEEBC9 /* GDPR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDPR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,14 +136,16 @@
 			isa = PBXGroup;
 			children = (
 				14A8456024EC399D00FEEBC9 /* GDPRManager.swift */,
+				14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */,
 				14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */,
+				14BA0899251B337F00CA22C6 /* ServiceModel.swift */,
 				14BA089D251B3BBC00CA22C6 /* ViewModels */,
 				14A8456424ED0B6F00FEEBC9 /* Views */,
 				14A8453824EA9C2C00FEEBC9 /* GDPR.h */,
 				14A8453924EA9C2C00FEEBC9 /* Info.plist */,
 				14BA08892514BDDE00CA22C6 /* Strings.swift */,
 				14BA0895251A6F9300CA22C6 /* Status.swift */,
-				14BA0899251B337F00CA22C6 /* ServiceModel.swift */,
+				142BC9E425475486006E0DC0 /* Appearance.swift */,
 			);
 			path = GDPR;
 			sourceTree = "<group>";
@@ -247,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "All About Apps";
 				TargetAttributes = {
 					14A8453424EA9C2C00FEEBC9 = {
@@ -337,7 +343,9 @@
 				14BA088A2514BDDE00CA22C6 /* Strings.swift in Sources */,
 				14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */,
 				14BA0896251A6F9300CA22C6 /* Status.swift in Sources */,
+				142BC9E525475486006E0DC0 /* Appearance.swift in Sources */,
 				14BA089A251B337F00CA22C6 /* ServiceModel.swift in Sources */,
+				14A3FAB2253EC2FB0081272C /* GDPRDelegate.swift in Sources */,
 				14BA0890251A106000CA22C6 /* ConfirmationView.swift in Sources */,
 				14BA0894251A6D1F00CA22C6 /* ConfirmationViewModel.swift in Sources */,
 			);
@@ -409,6 +417,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -472,6 +481,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

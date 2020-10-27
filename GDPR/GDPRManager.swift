@@ -11,15 +11,23 @@ import Foundation
 public class GDPRManager {
     public static var shared = GDPRManager()
     public static var termsURL: String?
-    public static var servicesList = [ServiceModel]()
-    var currentStatus: Status?
+    var currentStatus: Status
     var confirmationViewModel = ConfirmationViewModel()
+    static var delegate: GDPRDelegate?
     
     private init() {
-        currentStatus = PersistenceManager.shared.retrieveStatus()
-    // get latest policy change
-        
+        self.currentStatus = PersistenceManager.shared.retrieveStatus()
     }
+    
+    public func setService(id: String, name: String, description: String, supportDeletion: Bool) {
+        for service in currentStatus.services where id == service.id {
+            return
+        }
+        
+        currentStatus.services.append(ServiceModel(id: id, name: name, description: description, supportDeletion: supportDeletion, isOptIn: false))
+        PersistenceManager.shared.saveStatus(status: currentStatus)
+    }
+    
     // function to view tos with (requireTOS, showSettings)
     public func presentConformationForm(requireTOS: Bool, showSettings: Bool) -> ConfirmationView {
         var title: String
@@ -48,19 +56,17 @@ public class GDPRManager {
     }
     
     public func shouldPresentTOS() -> Bool {
-        let latestPolicyChange = Date() //need to get this from the server
+        let latestPolicyChange = Date() // need to get this from the server
         let currentStatus = PersistenceManager.shared.retrieveStatus()
         
         let shouldPresent: Bool
-        switch currentStatus?.lastAcceptedPrivacy {
+        switch currentStatus.lastAcceptedPrivacy {
         case .accepted(let at):
             shouldPresent = at < latestPolicyChange
         case .rejected:
             shouldPresent = true
         case .undefined:
             shouldPresent = false
-        case .none:
-            return false
         }
         return shouldPresent
     }
