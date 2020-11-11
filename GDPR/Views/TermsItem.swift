@@ -17,9 +17,9 @@ struct TermsItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(Strings.termsTitle)
-                .font(.headline)
+                .font(GDPRAppearance.headline)
             Text(Strings.termsDescription)
-                .font(.body)
+                .font(GDPRAppearance.body)
             Button(action: {
                 self.showWebView.toggle()
 
@@ -31,11 +31,11 @@ struct TermsItem: View {
                         .navigationBarTitle(Text(Strings.termsTitle), displayMode: .inline)
                 }
             }
-            .foregroundColor(.orange)
-            .font(.callout)
+            .foregroundColor(GDPRAppearance.primaryColor)
+            .font(GDPRAppearance.callout)
             Toggle(isOn: $isToggle) {
                 Text(Strings.termsAcceptance)
-                    .font(.subheadline)
+                    .font(GDPRAppearance.subheader)
             }
 
         }.buttonStyle(PlainButtonStyle())

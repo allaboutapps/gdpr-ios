@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
+        GDPRAppearance.primaryColor = .blue
     }
 
     @IBAction func presentTos(_ sender: Any) {

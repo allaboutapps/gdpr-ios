@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		142BC9E525475486006E0DC0 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142BC9E425475486006E0DC0 /* Appearance.swift */; };
+		142BC9E525475486006E0DC0 /* GDPRAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142BC9E425475486006E0DC0 /* GDPRAppearance.swift */; };
 		14360D0225242C00009CD8DA /* TrackingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14360D0125242C00009CD8DA /* TrackingItem.swift */; };
 		1474A6CC250E98E5004F3D98 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474A6CB250E98E4004F3D98 /* Package.swift */; };
 		14A3FAB2253EC2FB0081272C /* GDPRDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */; };
@@ -61,7 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		142BC9E425475486006E0DC0 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		142BC9E425475486006E0DC0 /* GDPRAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRAppearance.swift; sourceTree = "<group>"; };
 		14360D0125242C00009CD8DA /* TrackingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingItem.swift; sourceTree = "<group>"; };
 		1474A6CB250E98E4004F3D98 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRDelegate.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				14A8453924EA9C2C00FEEBC9 /* Info.plist */,
 				14BA08892514BDDE00CA22C6 /* Strings.swift */,
 				14BA0895251A6F9300CA22C6 /* Status.swift */,
-				142BC9E425475486006E0DC0 /* Appearance.swift */,
+				142BC9E425475486006E0DC0 /* GDPRAppearance.swift */,
 			);
 			path = GDPR;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				14BA088A2514BDDE00CA22C6 /* Strings.swift in Sources */,
 				14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */,
 				14BA0896251A6F9300CA22C6 /* Status.swift in Sources */,
-				142BC9E525475486006E0DC0 /* Appearance.swift in Sources */,
+				142BC9E525475486006E0DC0 /* GDPRAppearance.swift in Sources */,
 				14BA089A251B337F00CA22C6 /* ServiceModel.swift in Sources */,
 				14A3FAB2253EC2FB0081272C /* GDPRDelegate.swift in Sources */,
 				14BA0890251A106000CA22C6 /* ConfirmationView.swift in Sources */,

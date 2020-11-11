@@ -51,7 +51,7 @@ public struct ConfirmationView: View {
                     Text(Strings.confirm)
                 })
                 .padding(EdgeInsets(top: 8, leading: 50, bottom: 8, trailing: 50))
-                .background(Color.orange)
+                .background(GDPRAppearance.primaryColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .accentColor(.white)
                 .disabled(!isEnabled)

@@ -11,6 +11,10 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GDPRDelegate {
+    func termsAndConditionsAccepted() {
+        print("Terms accepted")
+    }
+    
     func serviceValueDidChange(id: String, value: Bool) {
         print("service: \(id) changed value to \(value)")
     }
