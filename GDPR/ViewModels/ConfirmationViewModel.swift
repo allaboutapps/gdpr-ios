@@ -6,18 +6,17 @@
 //  Copyright © 2020 All About Apps. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class ConfirmationViewModel: ObservableObject {
-    
-    var title: String?
-    var requireTOS: Bool?
-    var showSettings: Bool?
-    var showSaveButton: Bool?
-    var showPrivacyPolicy: Bool?
-    var policyURL: String?
-    var termsURL: String?
+    var title: String
+    var requireTOS: Bool
+    var showSettings: Bool
+    var showSaveButton: Bool
+    var showPrivacyPolicy: Bool
+    var policyURL: URL
+    var termsURL: URL
     
     var servicesList = [ServiceModel]()
     @Published var acceptAll = false {
@@ -28,15 +27,21 @@ class ConfirmationViewModel: ObservableObject {
         }
     }
     
-    func confirmationView(title: String, requireTOS: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool) -> ConfirmationView {
-        var confirmationView = ConfirmationView()
-        confirmationView.viewModel = self
-        self.servicesList = GDPRManager.shared.currentStatus.services
+    init(title: String, requireTOS: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool, policyURL: URL, termsURL: URL, services: [ServiceModel]?) {
+        if let services = services {
+            servicesList = services
+        }
         self.title = title
         self.requireTOS = requireTOS
         self.showSettings = showSettings
         self.showPrivacyPolicy = showPrivacyPolicy
         self.showSaveButton = showSaveButton
+        self.policyURL = policyURL
+        self.termsURL = termsURL
+    }
+    
+    func confirmationView() -> ConfirmationView {
+        let confirmationView = ConfirmationView(viewModel: self)
         return confirmationView
     }
     

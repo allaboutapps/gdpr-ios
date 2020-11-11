@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol GDPRDelegate: AnyObject {
-    func valueDidChange(id: String, value: Bool)
+public protocol GDPRDelegate: AnyObject {
+    func serviceValueDidChange(id: String, value: Bool)
     func deleteDate(id: String)
+    func termsAndConditionsAccepted()
 }

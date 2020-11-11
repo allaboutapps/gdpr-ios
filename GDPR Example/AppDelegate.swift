@@ -6,16 +6,28 @@
 //  Copyright © 2020 All About Apps. All rights reserved.
 //
 
-import UIKit
 import GDPR
+import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GDPRDelegate {
+    func serviceValueDidChange(id: String, value: Bool) {
+        print("service: \(id) changed value to \(value)")
+    }
+    
+    func deleteDate(id: String) {
+        print("Data deleted: \(id)")
+    }
+    
+    public var gdpr: GDPRManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GDPRManager.shared.setService(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
-        GDPRManager.shared.setService(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
-        GDPRManager.shared.setService(id: "S3", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
+        gdpr = GDPRManager(termsURL: Bundle.main.url(forResource: "terms_of_service", withExtension: "html")!, privacyPolicyURL: Bundle.main.url(forResource: "privacy_policy", withExtension: "html")!)
+        GDPRManager.delegate = self
+        gdpr?.setService(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
+        gdpr?.setService(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
+        gdpr?.setService(id: "S3", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
+
         return true
     }
 
@@ -32,5 +44,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
 }

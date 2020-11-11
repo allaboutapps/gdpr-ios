@@ -9,21 +9,23 @@
 import Foundation
 
 public class GDPRManager {
-    public static var shared = GDPRManager()
-    public static var termsURL: String?
+    var termsURL: URL
+    var privacyPolicyURL: URL
     var currentStatus: Status
-    var confirmationViewModel = ConfirmationViewModel()
-    static var delegate: GDPRDelegate?
+    var confirmationViewModel: ConfirmationViewModel?
     
-    private init() {
+    public static var delegate: GDPRDelegate?
+    
+    public init(termsURL: URL, privacyPolicyURL: URL) {
         self.currentStatus = PersistenceManager.shared.retrieveStatus()
+        self.termsURL = termsURL
+        self.privacyPolicyURL = privacyPolicyURL
     }
     
     public func setService(id: String, name: String, description: String, supportDeletion: Bool) {
         for service in currentStatus.services where id == service.id {
             return
         }
-        
         currentStatus.services.append(ServiceModel(id: id, name: name, description: description, supportDeletion: supportDeletion, isOptIn: false))
         PersistenceManager.shared.saveStatus(status: currentStatus)
     }
@@ -48,11 +50,19 @@ public class GDPRManager {
             tos = false
             privacyPolicy = false
         }
-        return confirmationViewModel.confirmationView(title: title, requireTOS: tos, showPrivacyPolicy: privacyPolicy, showSettings: showSettings, showSaveButton: true)
+        confirmationViewModel = ConfirmationViewModel(title: title, requireTOS: tos, showPrivacyPolicy: privacyPolicy, showSettings: showSettings, showSaveButton: true, policyURL: privacyPolicyURL, termsURL: termsURL, services: currentStatus.services)
+        return confirmationViewModel!.confirmationView()
     }
     
     public func presentSettings(showTOS: Bool = false) -> ConfirmationView {
-        return confirmationViewModel.confirmationView(title: Strings.trackingSettingsHeader, requireTOS: showTOS, showPrivacyPolicy: false, showSettings: true, showSaveButton: false)
+        confirmationViewModel = ConfirmationViewModel(title: Strings.trackingSettingsHeader,
+                                                      requireTOS: showTOS, showPrivacyPolicy: false,
+                                                      showSettings: true,
+                                                      showSaveButton: false,
+                                                      policyURL: privacyPolicyURL,
+                                                      termsURL: termsURL,
+                                                      services: currentStatus.services)
+        return confirmationViewModel!.confirmationView()
     }
     
     public func shouldPresentTOS() -> Bool {

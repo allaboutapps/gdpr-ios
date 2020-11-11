@@ -11,38 +11,39 @@ import SwiftUI
 public struct ConfirmationView: View {
     @State var isEnabled = false
     @Environment(\.presentationMode) var presentation
-    @ObservedObject var viewModel = ConfirmationViewModel()
+    @ObservedObject var viewModel: ConfirmationViewModel
     
-    public init() {
+    init(viewModel: ConfirmationViewModel) {
         if #available(iOS 14.0, *) {
         } else {
             UITableView.appearance().tableFooterView = UIView()
         }
+        self.viewModel = viewModel
     }
 
     public var body: some View {
         VStack {
             List {
                 VStack(alignment: .leading, spacing: 50) {
-                    if viewModel.requireTOS ?? true {
-                        TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL ?? "")
+                    if viewModel.requireTOS {
+                        TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL)
                     }
-                    if viewModel.showPrivacyPolicy ?? true {
-                        PolicyItem(url: viewModel.policyURL ?? "")
+                    if viewModel.showPrivacyPolicy {
+                        PolicyItem(url: viewModel.policyURL)
                     }
-                    if viewModel.showSettings ?? true {
-                        TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL ?? "")
+                    if viewModel.showSettings {
+                        TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
                     }
                 }
                 
-                if viewModel.showSettings ?? true {
+                if viewModel.showSettings {
                     ForEach(0 ..< viewModel.servicesList.count, id: \.self) { index in
                         ServiceItem(model: viewModel.servicesList[index])
                     }
                 }
             }
             
-            if viewModel.showSaveButton ?? true {
+            if viewModel.showSaveButton {
                 Button(action: {
                     self.viewModel.savePolicy()
                     self.presentation.wrappedValue.dismiss()
@@ -56,13 +57,13 @@ public struct ConfirmationView: View {
                 .disabled(!isEnabled)
             }
         }
-        .navigationBarTitle(viewModel.title ?? "")
+        .navigationBarTitle(viewModel.title )
         .padding(8)
     }
 }
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView()
+        ConfirmationView(viewModel: ConfirmationViewModel(title: "", requireTOS: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil))
     }
 }

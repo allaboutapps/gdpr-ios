@@ -14,7 +14,7 @@ class ServiceModel: Codable, ObservableObject {
     var description: String
     @Published var isOptIn: Bool {
         didSet {
-            GDPRManager.delegate?.valueDidChange(id: id, value: isOptIn)
+            GDPRManager.delegate?.serviceValueDidChange(id: id, value: isOptIn)
         }
     }
 

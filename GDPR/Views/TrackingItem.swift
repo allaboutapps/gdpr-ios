@@ -11,7 +11,7 @@ import SwiftUI
 struct TrackingItem: View {
     @State private var showWebView: Bool = false
     @Binding var acceptAll: Bool
-    var url: String
+    var url: URL
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -27,7 +27,7 @@ struct TrackingItem: View {
                     Text(Strings.privacyTitle)
                 }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
-                        ServiceWebView(url: URL(string: self.url))
+                        ServiceWebView(url: url)
                             .navigationBarTitle(Text(Strings.privacyTitle), displayMode: .inline)
                     }
                 }
@@ -48,6 +48,6 @@ struct TrackingItem: View {
 
 struct TrackingItem_Previews: PreviewProvider {
     static var previews: some View {
-        TrackingItem(acceptAll: .constant(false), url: "")
+        TrackingItem(acceptAll: .constant(false), url: URL(string: "")!)
     }
 }

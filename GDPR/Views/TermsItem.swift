@@ -12,7 +12,7 @@ struct TermsItem: View {
     @Binding public var isToggle: Bool
     @State private var showWebView: Bool = false
 
-    var termsURL: String
+    var termsURL: URL
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -27,7 +27,7 @@ struct TermsItem: View {
                 Text(Strings.termsTitle)
             }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
-                    ServiceWebView(url: URL(string: self.termsURL))
+                    ServiceWebView(url: termsURL)
                         .navigationBarTitle(Text(Strings.termsTitle), displayMode: .inline)
                 }
             }
@@ -44,6 +44,6 @@ struct TermsItem: View {
 
 struct TermsItem_Previews: PreviewProvider {
     static var previews: some View {
-        TermsItem(isToggle: .constant(false), termsURL: "")
+        TermsItem(isToggle: .constant(false), termsURL: URL(string: "")!)
     }
 }
