@@ -6,7 +6,7 @@
 //  Copyright © 2020 All About Apps. All rights reserved.
 //
 
-import GDPR
+import gdpr_ioa
 import SwiftUI
 
 class ViewController: UIViewController {

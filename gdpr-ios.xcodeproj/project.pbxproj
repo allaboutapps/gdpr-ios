@@ -20,8 +20,8 @@
 		14A8454E24EA9DAC00FEEBC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A8454C24EA9DAC00FEEBC9 /* Main.storyboard */; };
 		14A8455024EA9DAD00FEEBC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A8454F24EA9DAD00FEEBC9 /* Assets.xcassets */; };
 		14A8455324EA9DAD00FEEBC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A8455124EA9DAD00FEEBC9 /* LaunchScreen.storyboard */; };
-		14A8455924EA9DD300FEEBC9 /* GDPR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8453524EA9C2C00FEEBC9 /* GDPR.framework */; };
-		14A8455A24EA9DD300FEEBC9 /* GDPR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8453524EA9C2C00FEEBC9 /* GDPR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14A8455924EA9DD300FEEBC9 /* gdpr_ioa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8453524EA9C2C00FEEBC9 /* gdpr_ioa.framework */; };
+		14A8455A24EA9DD300FEEBC9 /* gdpr_ioa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8453524EA9C2C00FEEBC9 /* gdpr_ioa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14A8456124EC399D00FEEBC9 /* GDPRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456024EC399D00FEEBC9 /* GDPRManager.swift */; };
 		14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */; };
 		14A8456B24ED162900FEEBC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 14A8456A24ED162900FEEBC9 /* .swiftlint.yml */; };
@@ -53,7 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14A8455A24EA9DD300FEEBC9 /* GDPR.framework in Embed Frameworks */,
+				14A8455A24EA9DD300FEEBC9 /* gdpr_ioa.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +67,7 @@
 		14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRDelegate.swift; sourceTree = "<group>"; };
 		14A6CDE424EE758B007B58DA /* TermsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsItem.swift; sourceTree = "<group>"; };
 		14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
-		14A8453524EA9C2C00FEEBC9 /* GDPR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDPR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A8453524EA9C2C00FEEBC9 /* gdpr_ioa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gdpr_ioa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A8453824EA9C2C00FEEBC9 /* GDPR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDPR.h; sourceTree = "<group>"; };
 		14A8453924EA9C2C00FEEBC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A8454424EA9DAC00FEEBC9 /* GDPR Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GDPR Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A8455924EA9DD300FEEBC9 /* GDPR.framework in Frameworks */,
+				14A8455924EA9DD300FEEBC9 /* gdpr_ioa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			children = (
 				14759F62255D0FD4002A1E36 /* README.md */,
 				14A8456A24ED162900FEEBC9 /* .swiftlint.yml */,
-				14A8453724EA9C2C00FEEBC9 /* GDPR */,
+				14A8453724EA9C2C00FEEBC9 /* gdpr-ios */,
 				14A8454524EA9DAC00FEEBC9 /* GDPR Example */,
 				14A8453624EA9C2C00FEEBC9 /* Products */,
 				14A8455824EA9DD300FEEBC9 /* Frameworks */,
@@ -126,13 +126,13 @@
 		14A8453624EA9C2C00FEEBC9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				14A8453524EA9C2C00FEEBC9 /* GDPR.framework */,
+				14A8453524EA9C2C00FEEBC9 /* gdpr_ioa.framework */,
 				14A8454424EA9DAC00FEEBC9 /* GDPR Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		14A8453724EA9C2C00FEEBC9 /* GDPR */ = {
+		14A8453724EA9C2C00FEEBC9 /* gdpr-ios */ = {
 			isa = PBXGroup;
 			children = (
 				14A8456024EC399D00FEEBC9 /* GDPRManager.swift */,
@@ -147,7 +147,7 @@
 				14BA0895251A6F9300CA22C6 /* Status.swift */,
 				142BC9E425475486006E0DC0 /* GDPRAppearance.swift */,
 			);
-			path = GDPR;
+			path = "gdpr-ios";
 			sourceTree = "<group>";
 		};
 		14A8454524EA9DAC00FEEBC9 /* GDPR Example */ = {
@@ -208,9 +208,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		14A8453424EA9C2C00FEEBC9 /* GDPR */ = {
+		14A8453424EA9C2C00FEEBC9 /* gdpr-ioa */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 14A8453D24EA9C2C00FEEBC9 /* Build configuration list for PBXNativeTarget "GDPR" */;
+			buildConfigurationList = 14A8453D24EA9C2C00FEEBC9 /* Build configuration list for PBXNativeTarget "gdpr-ioa" */;
 			buildPhases = (
 				14A8453024EA9C2C00FEEBC9 /* Headers */,
 				14A8453124EA9C2C00FEEBC9 /* Sources */,
@@ -222,9 +222,9 @@
 			);
 			dependencies = (
 			);
-			name = GDPR;
+			name = "gdpr-ioa";
 			productName = GDPR;
-			productReference = 14A8453524EA9C2C00FEEBC9 /* GDPR.framework */;
+			productReference = 14A8453524EA9C2C00FEEBC9 /* gdpr_ioa.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		14A8454324EA9DAC00FEEBC9 /* GDPR Example */ = {
@@ -278,7 +278,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				14A8453424EA9C2C00FEEBC9 /* GDPR */,
+				14A8453424EA9C2C00FEEBC9 /* gdpr-ioa */,
 				14A8454324EA9DAC00FEEBC9 /* GDPR Example */,
 			);
 		};
@@ -366,7 +366,7 @@
 /* Begin PBXTargetDependency section */
 		14A8455C24EA9DD300FEEBC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14A8453424EA9C2C00FEEBC9 /* GDPR */;
+			target = 14A8453424EA9C2C00FEEBC9 /* gdpr-ioa */;
 			targetProxy = 14A8455B24EA9DD300FEEBC9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -523,7 +523,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GDPR/Info.plist;
+				INFOPLIST_FILE = "gdpr-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,7 +549,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GDPR/Info.plist;
+				INFOPLIST_FILE = "gdpr-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,7 +614,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		14A8453D24EA9C2C00FEEBC9 /* Build configuration list for PBXNativeTarget "GDPR" */ = {
+		14A8453D24EA9C2C00FEEBC9 /* Build configuration list for PBXNativeTarget "gdpr-ioa" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14A8453E24EA9C2C00FEEBC9 /* Debug */,
