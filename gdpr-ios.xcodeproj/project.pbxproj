@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		142BC9E525475486006E0DC0 /* GDPRAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142BC9E425475486006E0DC0 /* GDPRAppearance.swift */; };
 		14360D0225242C00009CD8DA /* TrackingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14360D0125242C00009CD8DA /* TrackingItem.swift */; };
-		1474A6CC250E98E5004F3D98 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474A6CB250E98E4004F3D98 /* Package.swift */; };
+		14759F63255D0FD4002A1E36 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 14759F62255D0FD4002A1E36 /* README.md */; };
 		14A3FAB2253EC2FB0081272C /* GDPRDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */; };
 		14A6CDE524EE758B007B58DA /* TermsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE424EE758B007B58DA /* TermsItem.swift */; };
 		14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */; };
@@ -63,7 +63,7 @@
 /* Begin PBXFileReference section */
 		142BC9E425475486006E0DC0 /* GDPRAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRAppearance.swift; sourceTree = "<group>"; };
 		14360D0125242C00009CD8DA /* TrackingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingItem.swift; sourceTree = "<group>"; };
-		1474A6CB250E98E4004F3D98 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		14759F62255D0FD4002A1E36 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRDelegate.swift; sourceTree = "<group>"; };
 		14A6CDE424EE758B007B58DA /* TermsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsItem.swift; sourceTree = "<group>"; };
 		14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		14A8452B24EA9C2C00FEEBC9 = {
 			isa = PBXGroup;
 			children = (
-				1474A6CB250E98E4004F3D98 /* Package.swift */,
+				14759F62255D0FD4002A1E36 /* README.md */,
 				14A8456A24ED162900FEEBC9 /* .swiftlint.yml */,
 				14A8453724EA9C2C00FEEBC9 /* GDPR */,
 				14A8454524EA9DAC00FEEBC9 /* GDPR Example */,
@@ -265,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 14A8452F24EA9C2C00FEEBC9 /* Build configuration list for PBXProject "GDPR" */;
+			buildConfigurationList = 14A8452F24EA9C2C00FEEBC9 /* Build configuration list for PBXProject "gdpr-ios" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -289,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14759F63255D0FD4002A1E36 /* README.md in Resources */,
 				14A8456B24ED162900FEEBC9 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1474A6CC250E98E5004F3D98 /* Package.swift in Sources */,
 				14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */,
 				14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */,
 				14BA088E2519E1CE00CA22C6 /* PolicyItem.swift in Sources */,
@@ -605,7 +605,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		14A8452F24EA9C2C00FEEBC9 /* Build configuration list for PBXProject "GDPR" */ = {
+		14A8452F24EA9C2C00FEEBC9 /* Build configuration list for PBXProject "gdpr-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				14A8453B24EA9C2C00FEEBC9 /* Debug */,

@@ -11,7 +11,7 @@ import Foundation
 
 class ConfirmationViewModel: ObservableObject {
     var title: String
-    var requireTOS: Bool
+    var showTermsOfService: Bool
     var showSettings: Bool
     var showSaveButton: Bool
     var showPrivacyPolicy: Bool
@@ -27,22 +27,17 @@ class ConfirmationViewModel: ObservableObject {
         }
     }
     
-    init(title: String, requireTOS: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool, policyURL: URL, termsURL: URL, services: [ServiceModel]?) {
+    init(title: String, showTermsOfService: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool, policyURL: URL, termsURL: URL, services: [ServiceModel]?) {
         if let services = services {
             servicesList = services
         }
         self.title = title
-        self.requireTOS = requireTOS
+        self.showTermsOfService = showTermsOfService
         self.showSettings = showSettings
         self.showPrivacyPolicy = showPrivacyPolicy
         self.showSaveButton = showSaveButton
         self.policyURL = policyURL
         self.termsURL = termsURL
-    }
-    
-    func confirmationView() -> ConfirmationView {
-        let confirmationView = ConfirmationView(viewModel: self)
-        return confirmationView
     }
     
     func savePolicy() {

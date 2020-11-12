@@ -31,38 +31,45 @@ public class GDPRManager {
     }
     
     // function to view tos with (requireTOS, showSettings)
-    public func presentConformationForm(requireTOS: Bool, showSettings: Bool) -> ConfirmationView {
+    public func presentConformationForm(showTermsOfService: Bool, showSettings: Bool) -> ConfirmationView {
         var title: String
-        var tos: Bool
-        var privacyPolicy: Bool
+        var shouldTermsOfService: Bool
+        var showPrivacyPolicy: Bool
      
-        if requireTOS {
+        if showTermsOfService {
             title = Strings.termsTitle
-            tos = true
+            shouldTermsOfService = true
             if !showSettings {
-                privacyPolicy = true
+                showPrivacyPolicy = true
             } else {
-                privacyPolicy = false
+                showPrivacyPolicy = false
             }
             
         } else {
             title = Strings.trackingSettingsHeader
-            tos = false
-            privacyPolicy = false
+            shouldTermsOfService = false
+            showPrivacyPolicy = false
         }
-        confirmationViewModel = ConfirmationViewModel(title: title, requireTOS: tos, showPrivacyPolicy: privacyPolicy, showSettings: showSettings, showSaveButton: true, policyURL: privacyPolicyURL, termsURL: termsURL, services: currentStatus.services)
-        return confirmationViewModel!.confirmationView()
+        confirmationViewModel = ConfirmationViewModel(title: title,
+                                                      showTermsOfService: shouldTermsOfService,
+                                                      showPrivacyPolicy: showPrivacyPolicy,
+                                                      showSettings: showSettings,
+                                                      showSaveButton: true,
+                                                      policyURL: privacyPolicyURL,
+                                                      termsURL: termsURL,
+                                                      services: currentStatus.services)
+        return ConfirmationView(viewModel: confirmationViewModel!)
     }
     
     public func presentSettings(showTOS: Bool = false) -> ConfirmationView {
         confirmationViewModel = ConfirmationViewModel(title: Strings.trackingSettingsHeader,
-                                                      requireTOS: showTOS, showPrivacyPolicy: false,
+                                                      showTermsOfService: showTOS, showPrivacyPolicy: false,
                                                       showSettings: true,
                                                       showSaveButton: false,
                                                       policyURL: privacyPolicyURL,
                                                       termsURL: termsURL,
                                                       services: currentStatus.services)
-        return confirmationViewModel!.confirmationView()
+        return ConfirmationView(viewModel: confirmationViewModel!)
     }
     
     public func shouldPresentTOS() -> Bool {

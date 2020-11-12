@@ -25,7 +25,7 @@ public struct ConfirmationView: View {
         VStack {
             List {
                 VStack(alignment: .leading, spacing: 50) {
-                    if viewModel.requireTOS {
+                    if viewModel.showTermsOfService {
                         TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL)
                     }
                     if viewModel.showPrivacyPolicy {
@@ -64,6 +64,6 @@ public struct ConfirmationView: View {
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(viewModel: ConfirmationViewModel(title: "", requireTOS: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil))
+        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showTermsOfService: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil))
     }
 }

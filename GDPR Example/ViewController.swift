@@ -18,13 +18,13 @@ class ViewController: UIViewController {
 
     @IBAction func presentTos(_ sender: Any) {
         let manager = appDelegate?.gdpr
-        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(requireTOS: true, showSettings: false))
+        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(showTermsOfService: true, showSettings: false))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
     @IBAction func presentTosAndSettings(_ sender: Any) {
         let manager = appDelegate?.gdpr
-        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(requireTOS: true, showSettings: true))
+        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(showTermsOfService: true, showSettings: true))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
