@@ -5,10 +5,7 @@ import PackageDescription
 let package = Package(
     name: "GDPR",
     platforms: [
-        .macOS(.v10_12),
-        .iOS(.v11),
-        .tvOS(.v11),
-        .watchOS(.v3)
+        .iOS(.v13)
     ],
     products: [
         .library(name: "GDPR", targets: ["GDPR"])
