@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "GDPR", targets: ["GDPR"])
     ],
     targets: [
-        .target(name: "GDPR", dependencies: [], path: "GDPR/", exclude: "GDPR/Info.plist")
+        .target(name: "GDPR", dependencies: [], path: "GDPR/", exclude: ["GDPR/Info.plist"])
     ],
     swiftLanguageVersions: [.v5]
 )
