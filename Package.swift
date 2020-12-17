@@ -1,9 +1,9 @@
-//swift-tools-version:5.0
+// swift-tools-version:5.3
 
 import PackageDescription
 
 let package = Package(
-    name: "GDPR",
+    name: "gdpr-ios",
     platforms: [
         .macOS(.v10_12),
         .iOS(.v11),
@@ -11,10 +11,10 @@ let package = Package(
         .watchOS(.v3)
     ],
     products: [
-        .library(name: "GDPR", targets: ["GDPR"])
+        .library(name: "gdpr-ios", targets: ["gdpr-ios"])
     ],
     targets: [
-        .target(name: "GDPR", dependencies: [], path: "GDPR/")
+        .target(name: "gdpr-ios", dependencies: [], path: "gdpr-ios/")
     ],
     swiftLanguageVersions: [.v5]
 )
