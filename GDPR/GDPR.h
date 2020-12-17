@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 //! Project version number for GDPR.
-FOUNDATION_EXPORT double gdpr_iosVersionNumber;
+FOUNDATION_EXPORT double GDPRVersionNumber;
 
 //! Project version string for GDPR.
-FOUNDATION_EXPORT const unsigned char gdpr_iosVersionString[];
+FOUNDATION_EXPORT const unsigned char GDPRVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <GDPR/PublicHeader.h>
 

@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "gdpr-ios",
+    name: "GDPR",
     platforms: [
         .macOS(.v10_12),
         .iOS(.v11),
@@ -11,10 +11,10 @@ let package = Package(
         .watchOS(.v3)
     ],
     products: [
-        .library(name: "gdpr-ios", targets: ["gdpr-ios"])
+        .library(name: "GDPR", targets: ["GDPR"])
     ],
     targets: [
-        .target(name: "gdpr-ios", dependencies: [], path: "gdpr-ios/")
+        .target(name: "GDPR", dependencies: [], path: "GDPR/")
     ],
     swiftLanguageVersions: [.v5]
 )

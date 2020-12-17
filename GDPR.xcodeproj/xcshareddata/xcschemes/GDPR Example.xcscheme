@@ -17,7 +17,7 @@
                BlueprintIdentifier = "14A8454324EA9DAC00FEEBC9"
                BuildableName = "GDPR Example.app"
                BlueprintName = "GDPR Example"
-               ReferencedContainer = "container:gdpr-ios.xcodeproj">
+               ReferencedContainer = "container:GDPR.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "14A8454324EA9DAC00FEEBC9"
             BuildableName = "GDPR Example.app"
             BlueprintName = "GDPR Example"
-            ReferencedContainer = "container:gdpr-ios.xcodeproj">
+            ReferencedContainer = "container:GDPR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "14A8454324EA9DAC00FEEBC9"
             BuildableName = "GDPR Example.app"
             BlueprintName = "GDPR Example"
-            ReferencedContainer = "container:gdpr-ios.xcodeproj">
+            ReferencedContainer = "container:GDPR.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

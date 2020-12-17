@@ -6,7 +6,7 @@
 //  Copyright © 2020 All About Apps. All rights reserved.
 //
 
-import gdpr_ios
+import GDPR
 import UIKit
 
 @UIApplicationMain
@@ -23,14 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GDPRDelegate {
         print("Data deleted: \(id)")
     }
     
-    public var gdpr: GDPRManager?
+    public var gdprManager: GDPRManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        gdpr = GDPRManager(termsURL: Bundle.main.url(forResource: "terms_of_service", withExtension: "html")!, privacyPolicyURL: Bundle.main.url(forResource: "privacy_policy", withExtension: "html")!)
+        gdprManager = GDPRManager(termsURL: Bundle.main.url(forResource: "terms_of_service", withExtension: "html")!, privacyPolicyURL: Bundle.main.url(forResource: "privacy_policy", withExtension: "html")!)
         GDPRManager.delegate = self
-        gdpr?.setService(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
-        gdpr?.setService(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
-        gdpr?.setService(id: "S3", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
+        
+        gdprManager?.setService(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
+        gdprManager?.setService(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
+        gdprManager?.setService(id: "S3", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
 
         return true
     }
