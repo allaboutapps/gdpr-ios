@@ -11,10 +11,10 @@ let package = Package(
         .watchOS(.v3)
     ],
     products: [
-        .library(name: "GDPR", targets: ["GDPR"])
+        .library(name: "gdpr-iOS", targets: ["gdpr-iOS"])
     ],
     targets: [
-        .target(name: "GDPR", dependencies: [], path: "GDPR/")
+        .target(name: "gdpr-iOS", dependencies: [], path: "gdpr-iOS/")
     ],
     swiftLanguageVersions: [.v5]
 )
