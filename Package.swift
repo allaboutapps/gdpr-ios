@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "gdpr-iOSs",
+    name: "gdpr-iOS",
     platforms: [
         .macOS(.v10_12),
         .iOS(.v11),
