@@ -11,13 +11,14 @@ import SwiftUI
 struct ServiceItem: View {
     @ObservedObject var model: ServiceModel
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Toggle(isOn: $model.isOptIn) {
                 Text(model.name)
-                    .font(GDPRAppearance.body)
+                    .font(GDPRAppearance.subheader)
             }
             Text(model.description)
-                .font(GDPRAppearance.subheader)
+                .font(GDPRAppearance.body)
+                .multilineTextAlignment(.leading)
             if model.supportDeletion ?? true {
                 HStack {
                     Spacer()
@@ -25,7 +26,8 @@ struct ServiceItem: View {
                         self.model.delete()
                     }, label: {
                         Text(Strings.deleteData)
-                            .font(GDPRAppearance.subheader)
+                            .font(GDPRAppearance.controls)
+                            .foregroundColor(GDPRAppearance.controlColor)
                     }).buttonStyle(PlainButtonStyle())
                 }
             }

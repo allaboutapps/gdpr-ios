@@ -14,12 +14,12 @@ struct TrackingItem: View {
     var url: URL
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Text(Strings.trackingHeader)
                 .font(GDPRAppearance.headline)
             Text(Strings.trackingDescription)
                 .font(GDPRAppearance.body)
-            HStack(alignment: .center, spacing: 8) {
+            HStack(alignment: .center, spacing: GDPRAppearance.Padding.single) {
                 Button(action: {
                     self.showWebView.toggle()
                     
@@ -32,13 +32,14 @@ struct TrackingItem: View {
                     }
                 }
                 .foregroundColor(GDPRAppearance.primaryColor)
-                .font(GDPRAppearance.callout)
+                .font(GDPRAppearance.link)
                 Spacer()
                 Button(action: {
                     self.acceptAll = true
                 }, label: {
                     Text(Strings.allowAll)
-                        .font(GDPRAppearance.subheader)
+                        .font(GDPRAppearance.controls)
+                        .foregroundColor(GDPRAppearance.controlColor)
                 }).buttonStyle(PlainButtonStyle())
             }
             
