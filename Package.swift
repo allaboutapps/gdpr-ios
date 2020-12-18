@@ -4,6 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "GDPR",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v13)
     ],
