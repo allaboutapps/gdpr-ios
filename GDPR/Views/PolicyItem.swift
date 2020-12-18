@@ -13,7 +13,7 @@ struct PolicyItem: View {
     var url: URL
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Text(Strings.privacyDescription)
                 .font(GDPRAppearance.body)
             Button(action: {
@@ -28,7 +28,7 @@ struct PolicyItem: View {
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)
-            .font(GDPRAppearance.callout)
+            .font(GDPRAppearance.link)
         }.buttonStyle(PlainButtonStyle())
     }
 }

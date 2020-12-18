@@ -15,7 +15,7 @@ struct TermsItem: View {
     var termsURL: URL
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Text(Strings.termsTitle)
                 .font(GDPRAppearance.headline)
             Text(Strings.termsDescription)
@@ -32,10 +32,10 @@ struct TermsItem: View {
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)
-            .font(GDPRAppearance.callout)
+            .font(GDPRAppearance.link)
             Toggle(isOn: $isToggle) {
                 Text(Strings.termsAcceptance)
-                    .font(GDPRAppearance.subheader)
+                    .font(GDPRAppearance.body)
             }
 
         }.buttonStyle(PlainButtonStyle())

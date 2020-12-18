@@ -24,9 +24,18 @@ public class GDPRManager {
     
     public func setService(id: String, name: String, description: String, supportDeletion: Bool) {
         for service in currentStatus.services where id == service.id {
+            service.description = description
+            service.name = name
+            service.supportDeletion = supportDeletion
             return
         }
         currentStatus.services.append(ServiceModel(id: id, name: name, description: description, supportDeletion: supportDeletion, isOptIn: false))
+        PersistenceManager.shared.saveStatus(status: currentStatus)
+    }
+    
+    public func deleteService(id: String) {
+        currentStatus.services = currentStatus.services.filter { $0.id != id }
+        
         PersistenceManager.shared.saveStatus(status: currentStatus)
     }
     
