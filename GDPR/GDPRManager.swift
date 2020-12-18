@@ -46,7 +46,8 @@ public class GDPRManager {
         var showPrivacyPolicy: Bool
      
         if showTermsOfService {
-            title = Strings.termsTitle
+//            title = Strings.termsTitle
+            title = NSLocalizedString("termsTitle", comment: "")
             shouldTermsOfService = true
             if !showSettings {
                 showPrivacyPolicy = true
@@ -55,7 +56,7 @@ public class GDPRManager {
             }
             
         } else {
-            title = Strings.trackingSettingsHeader
+            title = NSLocalizedString("trackingSettingsHeader", comment: "")
             shouldTermsOfService = false
             showPrivacyPolicy = false
         }
@@ -71,7 +72,7 @@ public class GDPRManager {
     }
     
     public func presentSettings(showTOS: Bool = false) -> ConfirmationView {
-        confirmationViewModel = ConfirmationViewModel(title: Strings.trackingSettingsHeader,
+        confirmationViewModel = ConfirmationViewModel(title: NSLocalizedString("trackingSettingsHeader", comment: ""),
                                                       showTermsOfService: showTOS, showPrivacyPolicy: false,
                                                       showSettings: true,
                                                       showSaveButton: false,

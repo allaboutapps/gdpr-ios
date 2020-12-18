@@ -16,25 +16,25 @@ struct TermsItem: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Text(Strings.termsTitle)
+            Text("termsTitle")
                 .font(GDPRAppearance.headline)
-            Text(Strings.termsDescription)
+            Text("termsDescription")
                 .font(GDPRAppearance.body)
             Button(action: {
                 self.showWebView.toggle()
 
             }, label: {
-                Text(Strings.termsTitle)
+                Text("termsTitle")
             }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: termsURL)
-                        .navigationBarTitle(Text(Strings.termsTitle), displayMode: .inline)
+                        .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)
             .font(GDPRAppearance.link)
             Toggle(isOn: $isToggle) {
-                Text(Strings.termsAcceptance)
+                Text("termsAcceptance")
                     .font(GDPRAppearance.body)
             }
 

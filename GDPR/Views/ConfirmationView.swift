@@ -48,7 +48,7 @@ public struct ConfirmationView: View {
                     self.viewModel.savePolicy()
                     self.presentation.wrappedValue.dismiss()
                 }, label: {
-                    Text(Strings.confirm)
+                    Text("confirm")
                 })
                 .padding(EdgeInsets(top: 8, leading: 50, bottom: 8, trailing: 50))
                 .background(GDPRAppearance.primaryColor)
