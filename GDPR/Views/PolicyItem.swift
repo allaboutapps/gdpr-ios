@@ -15,7 +15,7 @@ struct PolicyItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Text("privacyDescription")
-                .font(GDPRAppearance.body)
+                .font(GDPRAppearance.bodyFont)
             Button(action: {
                 self.showWebView.toggle()
 
@@ -28,7 +28,7 @@ struct PolicyItem: View {
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)
-            .font(GDPRAppearance.link)
+            .font(GDPRAppearance.linkFont)
         }.buttonStyle(PlainButtonStyle())
     }
 }

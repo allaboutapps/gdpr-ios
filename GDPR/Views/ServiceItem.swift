@@ -14,10 +14,10 @@ struct ServiceItem: View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Toggle(isOn: $model.isOptIn) {
                 Text(model.name)
-                    .font(GDPRAppearance.subheader)
+                    .font(GDPRAppearance.subheaderFont)
             }
             Text(model.description)
-                .font(GDPRAppearance.body)
+                .font(GDPRAppearance.bodyFont)
                 .multilineTextAlignment(.leading)
             if model.supportDeletion ?? true {
                 HStack {
@@ -26,7 +26,7 @@ struct ServiceItem: View {
                         self.model.delete()
                     }, label: {
                         Text("deleteData")
-                            .font(GDPRAppearance.controls)
+                            .font(GDPRAppearance.controlsFont)
                             .foregroundColor(GDPRAppearance.controlColor)
                     }).buttonStyle(PlainButtonStyle())
                 }

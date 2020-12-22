@@ -16,9 +16,9 @@ struct TrackingItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Text("trackingHeader")
-                .font(GDPRAppearance.headline)
+                .font(GDPRAppearance.headlineFont)
             Text("trackingDescription")
-                .font(GDPRAppearance.body)
+                .font(GDPRAppearance.bodyFont)
             HStack(alignment: .center, spacing: GDPRAppearance.Padding.single) {
                 Button(action: {
                     self.showWebView.toggle()
@@ -32,13 +32,13 @@ struct TrackingItem: View {
                     }
                 }
                 .foregroundColor(GDPRAppearance.primaryColor)
-                .font(GDPRAppearance.link)
+                .font(GDPRAppearance.linkFont)
                 Spacer()
                 Button(action: {
                     self.acceptAll = true
                 }, label: {
                     Text("allowAll")
-                        .font(GDPRAppearance.controls)
+                        .font(GDPRAppearance.controlsFont)
                         .foregroundColor(GDPRAppearance.controlColor)
                 }).buttonStyle(PlainButtonStyle())
             }
