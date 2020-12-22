@@ -16,7 +16,7 @@ struct TermsItem: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Text("termsTitle")
+            Text("termsTitle",bundle: Bundle.module)
                 .font(GDPRAppearance.headlineFont)
             Text("termsDescription")
                 .font(GDPRAppearance.bodyFont)
