@@ -24,7 +24,7 @@ struct TermsItem: View {
                 self.showWebView.toggle()
 
             }, label: {
-                Text("termsTitle")
+                Text("termsTitle",bundle: Bundle.module)
             }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: termsURL)
