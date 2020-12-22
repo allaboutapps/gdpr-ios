@@ -28,13 +28,13 @@ struct TermsItem: View {
             }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: termsURL)
-                        .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
+                        .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)
             .font(GDPRAppearance.linkFont)
             Toggle(isOn: $isToggle) {
-                Text("termsAcceptance")
+                Text("termsAcceptance",bundle: Bundle.module)
                     .font(GDPRAppearance.bodyFont)
             }
 

@@ -25,7 +25,7 @@ struct ServiceItem: View {
                     Button(action: {
                         self.model.delete()
                     }, label: {
-                        Text("deleteData")
+                        Text("deleteData",bundle: Bundle.module)
                             .font(GDPRAppearance.controlsFont)
                             .foregroundColor(GDPRAppearance.controlColor)
                     }).buttonStyle(PlainButtonStyle())
