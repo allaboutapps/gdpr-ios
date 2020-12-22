@@ -117,6 +117,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		143FFC9C2591D9EB00C4072B /* strings */ = {
+			isa = PBXGroup;
+			children = (
+				14E4B2BB258C9D93006F48B9 /* Localizable.strings */,
+			);
+			path = strings;
+			sourceTree = "<group>";
+		};
 		14A8452B24EA9C2C00FEEBC9 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +149,7 @@
 		14A8453724EA9C2C00FEEBC9 /* GDPR */ = {
 			isa = PBXGroup;
 			children = (
+				143FFC9C2591D9EB00C4072B /* strings */,
 				14A8453824EA9C2C00FEEBC9 /* GDPR.h */,
 				142BC9E425475486006E0DC0 /* GDPRAppearance.swift */,
 				14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */,
@@ -152,7 +161,6 @@
 				14BA08892514BDDE00CA22C6 /* Strings.swift */,
 				14BA089D251B3BBC00CA22C6 /* ViewModels */,
 				14A8456424ED0B6F00FEEBC9 /* Views */,
-				14E4B2BB258C9D93006F48B9 /* Localizable.strings */,
 			);
 			path = GDPR;
 			sourceTree = "<group>";

@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "GDPR", targets: ["GDPR"])
     ],
     targets: [
-        .target(name: "GDPR", path: "GDPR", exclude: ["Info.plist"])
+        .target(name: "GDPR", path: "GDPR", exclude: ["Info.plist"], resources: [.process("strings")])
     ],
     swiftLanguageVersions: [.v5]
 )
