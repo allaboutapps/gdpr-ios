@@ -15,6 +15,7 @@ class ServiceModel: Codable, ObservableObject {
     @Published var isOptIn: Bool {
         didSet {
             GDPRManager.shared.delegate?.serviceValueDidChange(id: id, value: isOptIn)
+            PersistenceManager.shared.saveStatus(status: GDPRManager.shared.currentStatus!)
         }
     }
 

@@ -42,6 +42,6 @@ class ConfirmationViewModel: ObservableObject {
     
     func savePolicy() {
         let persistenceManager = PersistenceManager()
-        persistenceManager.saveStatus(status: Status(lastAcceptedPrivacy: .accepted(at: Date()), services: servicesList))
+        persistenceManager.saveStatus(status: Status(latestPolicyChange: GDPRManager.shared.currentStatus?.latestPolicyChange, lastAcceptedPrivacy: .accepted(at: Date()), services: servicesList))
     }
 }

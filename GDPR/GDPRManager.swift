@@ -14,19 +14,18 @@ public class GDPRManager {
     var currentStatus: Status?
     var confirmationViewModel: ConfirmationViewModel?
     
-    public var delegate: GDPRDelegate?
+    public weak var delegate: GDPRDelegate?
     
     public static var shared = GDPRManager()
     
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
-        self.currentStatus = PersistenceManager.shared.retrieveStatus()
+        currentStatus = PersistenceManager.shared.retrieveStatus()
         self.termsURL = termsURL
         self.privacyPolicyURL = privacyPolicyURL
     }
     
-    
     public func setService(id: String, name: String, description: String, supportDeletion: Bool) {
-        guard let currentStatus = currentStatus else {return}
+        guard let currentStatus = currentStatus else { return }
         for service in currentStatus.services where id == service.id {
             service.description = description
             service.name = name
@@ -35,6 +34,14 @@ public class GDPRManager {
         }
         self.currentStatus?.services.append(ServiceModel(id: id, name: name, description: description, supportDeletion: supportDeletion, isOptIn: false))
         PersistenceManager.shared.saveStatus(status: currentStatus)
+    }
+    
+    public func updateLatestPolicyTimestamp(date: Date) {
+        if currentStatus == nil {
+            return
+        }
+        currentStatus!.latestPolicyChange = date
+        PersistenceManager.shared.saveStatus(status: currentStatus!)
     }
     
     public func deleteService(id: String) {
@@ -97,13 +104,14 @@ public class GDPRManager {
     }
     
     public func shouldPresentTOS() -> Bool {
-        let latestPolicyChange = Date() // need to get this from the server
+        
         let currentStatus = PersistenceManager.shared.retrieveStatus()
+        let latestPolicyChange = currentStatus.latestPolicyChange
         
         let shouldPresent: Bool
         switch currentStatus.lastAcceptedPrivacy {
         case .accepted(let at):
-            shouldPresent = at < latestPolicyChange
+            shouldPresent = at < latestPolicyChange ?? Date()
         case .rejected:
             shouldPresent = true
         case .undefined:
