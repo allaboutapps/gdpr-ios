@@ -9,6 +9,7 @@
 import Foundation
 
 struct Status: Codable {
+//    var latestPolicyChange: Date
     var lastAcceptedPrivacy: TermState
     var services: [ServiceModel]
 }

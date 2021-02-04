@@ -26,8 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GDPRDelegate {
     public var gdprManager: GDPRManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        gdprManager = GDPRManager(termsURL: Bundle.main.url(forResource: "terms_of_service", withExtension: "html")!, privacyPolicyURL: Bundle.main.url(forResource: "privacy_policy", withExtension: "html")!)
-        GDPRManager.delegate = self
+        gdprManager = GDPRManager.shared
+        gdprManager?.setURLs(termsURL: Bundle.main.url(forResource: "terms_of_service", withExtension: "html")!, privacyPolicyURL: Bundle.main.url(forResource: "privacy_policy", withExtension: "html")!)
+        gdprManager?.delegate = self
         
         gdprManager?.setService(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
         gdprManager?.setService(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)

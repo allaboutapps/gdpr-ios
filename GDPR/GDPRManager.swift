@@ -9,45 +9,50 @@
 import Foundation
 
 public class GDPRManager {
-    var termsURL: URL
-    var privacyPolicyURL: URL
-    var currentStatus: Status
+    var termsURL: URL?
+    var privacyPolicyURL: URL?
+    var currentStatus: Status?
     var confirmationViewModel: ConfirmationViewModel?
     
+    public var delegate: GDPRDelegate?
     
-    public static var delegate: GDPRDelegate?
+    public static var shared = GDPRManager()
     
-    public init(termsURL: URL, privacyPolicyURL: URL) {
+    public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
         self.currentStatus = PersistenceManager.shared.retrieveStatus()
         self.termsURL = termsURL
         self.privacyPolicyURL = privacyPolicyURL
     }
     
+    
     public func setService(id: String, name: String, description: String, supportDeletion: Bool) {
+        guard let currentStatus = currentStatus else {return}
         for service in currentStatus.services where id == service.id {
             service.description = description
             service.name = name
             service.supportDeletion = supportDeletion
             return
         }
-        currentStatus.services.append(ServiceModel(id: id, name: name, description: description, supportDeletion: supportDeletion, isOptIn: false))
+        self.currentStatus?.services.append(ServiceModel(id: id, name: name, description: description, supportDeletion: supportDeletion, isOptIn: false))
         PersistenceManager.shared.saveStatus(status: currentStatus)
     }
     
     public func deleteService(id: String) {
-        currentStatus.services = currentStatus.services.filter { $0.id != id }
+        if currentStatus == nil {
+            return
+        }
+        currentStatus!.services = currentStatus!.services.filter { $0.id != id }
         
-        PersistenceManager.shared.saveStatus(status: currentStatus)
+        PersistenceManager.shared.saveStatus(status: currentStatus!)
     }
     
     // function to view tos with (requireTOS, showSettings)
-    public func presentConformationForm(showTermsOfService: Bool, showSettings: Bool) -> ConfirmationView {
+    public func presentConformationForm(showTermsOfService: Bool, showSettings: Bool) -> ConfirmationView? {
         var title: String
         var shouldTermsOfService: Bool
         var showPrivacyPolicy: Bool
      
         if showTermsOfService {
-//            title = Strings.termsTitle
             title = NSLocalizedString("termsTitle", comment: "")
             shouldTermsOfService = true
             if !showSettings {
@@ -61,23 +66,31 @@ public class GDPRManager {
             shouldTermsOfService = false
             showPrivacyPolicy = false
         }
+        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
+            print("Missing terms URL or policy URL")
+            return nil
+        }
         confirmationViewModel = ConfirmationViewModel(title: title,
                                                       showTermsOfService: shouldTermsOfService,
                                                       showPrivacyPolicy: showPrivacyPolicy,
                                                       showSettings: showSettings,
                                                       showSaveButton: true,
-                                                      policyURL: privacyPolicyURL,
+                                                      policyURL: policyURL,
                                                       termsURL: termsURL,
                                                       services: currentStatus.services)
         return ConfirmationView(viewModel: confirmationViewModel!)
     }
     
-    public func presentSettings(showTOS: Bool = false) -> ConfirmationView {
+    public func presentSettings(showTOS: Bool = false) -> ConfirmationView? {
+        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
+            print("Missing terms URL or policy URL")
+            return nil
+        }
         confirmationViewModel = ConfirmationViewModel(title: NSLocalizedString("trackingSettingsHeader", comment: ""),
                                                       showTermsOfService: showTOS, showPrivacyPolicy: false,
                                                       showSettings: true,
                                                       showSaveButton: false,
-                                                      policyURL: privacyPolicyURL,
+                                                      policyURL: policyURL,
                                                       termsURL: termsURL,
                                                       services: currentStatus.services)
         return ConfirmationView(viewModel: confirmationViewModel!)

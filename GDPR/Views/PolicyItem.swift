@@ -14,17 +14,20 @@ struct PolicyItem: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Text("privacyDescription",bundle: Bundle.module)
+//            Text("privacyDescription",bundle: Bundle.module)
+            Text("privacyDescription")
                 .font(GDPRAppearance.bodyFont)
             Button(action: {
                 self.showWebView.toggle()
 
             }, label: {
-                Text("privacyTitle",bundle: Bundle.module)
+//                Text("privacyTitle",bundle: Bundle.module)
+                Text("privacyTitle")
             }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: url)
-                        .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
+//                        .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
+                        .navigationBarTitle(Text("privacyTitle"), displayMode: .inline)
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)

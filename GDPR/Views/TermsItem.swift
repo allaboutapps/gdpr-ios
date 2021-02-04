@@ -16,7 +16,8 @@ struct TermsItem: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Text("termsTitle",bundle: Bundle.module)
+//            Text("termsTitle",bundle: Bundle.module)
+            Text("termsTitle")
                 .font(GDPRAppearance.headlineFont)
             Text("termsDescription")
                 .font(GDPRAppearance.bodyFont)
@@ -24,17 +25,20 @@ struct TermsItem: View {
                 self.showWebView.toggle()
 
             }, label: {
-                Text("termsTitle",bundle: Bundle.module)
+//                Text("termsTitle",bundle: Bundle.module)
+                Text("termsTitle")
             }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: termsURL)
-                        .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
+//                        .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
+                        .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)
             .font(GDPRAppearance.linkFont)
             Toggle(isOn: $isToggle) {
-                Text("termsAcceptance",bundle: Bundle.module)
+//                Text("termsAcceptance",bundle: Bundle.module)
+                Text("termsAcceptance")
                     .font(GDPRAppearance.bodyFont)
             }
 
