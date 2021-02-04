@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GDPRAppearance.primaryColor = .blue
+        GDPRAppearance.headlineFont = Font.system(size: 17)
     }
 
     @IBAction func presentTos(_ sender: Any) {

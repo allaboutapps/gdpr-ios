@@ -14,6 +14,7 @@ public class GDPRManager {
     var currentStatus: Status
     var confirmationViewModel: ConfirmationViewModel?
     
+    
     public static var delegate: GDPRDelegate?
     
     public init(termsURL: URL, privacyPolicyURL: URL) {
