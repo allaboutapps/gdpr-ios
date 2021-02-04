@@ -15,30 +15,30 @@ struct TrackingItem: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Text(Strings.trackingHeader)
-                .font(GDPRAppearance.headline)
-            Text(Strings.trackingDescription)
-                .font(GDPRAppearance.body)
+            Text("trackingHeader",bundle: Bundle.module)
+                .font(GDPRAppearance.headlineFont)
+            Text("trackingDescription",bundle: Bundle.module)
+                .font(GDPRAppearance.bodyFont)
             HStack(alignment: .center, spacing: GDPRAppearance.Padding.single) {
                 Button(action: {
                     self.showWebView.toggle()
                     
                 }, label: {
-                    Text(Strings.privacyTitle)
+                    Text("privacyTitle",bundle: Bundle.module)
                 }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: url)
-                            .navigationBarTitle(Text(Strings.privacyTitle), displayMode: .inline)
+                            .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
                     }
                 }
                 .foregroundColor(GDPRAppearance.primaryColor)
-                .font(GDPRAppearance.link)
+                .font(GDPRAppearance.linkFont)
                 Spacer()
                 Button(action: {
                     self.acceptAll = true
                 }, label: {
-                    Text(Strings.allowAll)
-                        .font(GDPRAppearance.controls)
+                    Text("allowAll",bundle: Bundle.module)
+                        .font(GDPRAppearance.controlsFont)
                         .foregroundColor(GDPRAppearance.controlColor)
                 }).buttonStyle(PlainButtonStyle())
             }
