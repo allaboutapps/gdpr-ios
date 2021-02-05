@@ -21,6 +21,7 @@ struct TermsItem: View {
                 .font(GDPRAppearance.headlineFont)
             Text("termsDescription")
                 .font(GDPRAppearance.bodyFont)
+                .foregroundColor(GDPRAppearance.bodyColor)
             Button(action: {
                 self.showWebView.toggle()
 
@@ -41,6 +42,7 @@ struct TermsItem: View {
                 Text("termsAcceptance")
                     .font(GDPRAppearance.bodyFont)
             }
+            .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
 
         }.buttonStyle(PlainButtonStyle())
     }

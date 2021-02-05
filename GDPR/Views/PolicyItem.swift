@@ -17,6 +17,7 @@ struct PolicyItem: View {
 //            Text("privacyDescription",bundle: Bundle.module)
             Text("privacyDescription")
                 .font(GDPRAppearance.bodyFont)
+                .foregroundColor(GDPRAppearance.bodyColor)
             Button(action: {
                 self.showWebView.toggle()
 

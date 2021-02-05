@@ -21,6 +21,7 @@ struct TrackingItem: View {
 //            Text("trackingDescription",bundle: Bundle.module)
             Text("trackingDescription")
                 .font(GDPRAppearance.bodyFont)
+                .foregroundColor(GDPRAppearance.bodyColor)
             HStack(alignment: .center, spacing: GDPRAppearance.Padding.single) {
                 Button(action: {
                     self.showWebView.toggle()
@@ -44,7 +45,7 @@ struct TrackingItem: View {
 //                    Text("allowAll",bundle: Bundle.module)
                     Text("allowAll")
                         .font(GDPRAppearance.controlsFont)
-                        .foregroundColor(GDPRAppearance.controlColor)
+                        .foregroundColor(GDPRAppearance.primaryColor)
                 }).buttonStyle(PlainButtonStyle())
             }
             

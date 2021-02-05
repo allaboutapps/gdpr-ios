@@ -10,35 +10,34 @@ import GDPR
 import SwiftUI
 
 class ViewController: UIViewController {
-    weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GDPRAppearance.primaryColor = .blue
-        GDPRAppearance.headlineFont = Font.system(size: 17)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Example App"
     }
 
     @IBAction func presentTos(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(showTermsOfService: true, showSettings: false))
+        let manager = GDPRManager.shared
+        let hostingView = UIHostingController(rootView: manager.presentConformationForm(showTermsOfService: true, showSettings: false))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
     @IBAction func presentTosAndSettings(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(showTermsOfService: true, showSettings: true))
+        let manager = GDPRManager.shared
+        let hostingView = UIHostingController(rootView: manager.presentConformationForm(showTermsOfService: true, showSettings: true))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
     @IBAction func trackingSettings(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentSettings())
+        let manager = GDPRManager.shared
+        let hostingView = UIHostingController(rootView: manager.presentSettings())
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
     @IBAction func trackingSettingsWithTos(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentSettings(showTOS: true))
+        let manager = GDPRManager.shared
+        let hostingView = UIHostingController(rootView: manager.presentSettings(showTOS: true))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 

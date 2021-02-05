@@ -58,8 +58,7 @@ public struct ConfirmationView: View {
                 .disabled(!isEnabled)
             }
         }
-        .navigationBarTitle(viewModel.title )
-        .padding(8)
+        .navigationBarTitle(viewModel.title, displayMode: .large )
     }
 }
 

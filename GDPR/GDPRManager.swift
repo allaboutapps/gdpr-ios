@@ -15,7 +15,6 @@ public class GDPRManager {
     var confirmationViewModel: ConfirmationViewModel?
     
     public weak var delegate: GDPRDelegate?
-    
     public static var shared = GDPRManager()
     
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
