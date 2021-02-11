@@ -8,14 +8,20 @@
 
 import SwiftUI
 
-struct PolicyItem: View {
+public struct PolicyItem: View {
     @State private var showWebView: Bool = false
     var url: URL
 
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Text("privacyDescription",bundle: Bundle.module)
+            Text("privacyTitle")
+                .font(GDPRAppearance.headlineFont,bundle: Bundle.module)
+            
+            Text("privacyDescription")
+                .fixedSize(horizontal: false, vertical: true)
                 .font(GDPRAppearance.bodyFont)
+                .foregroundColor(GDPRAppearance.bodyColor)
+            
             Button(action: {
                 self.showWebView.toggle()
 
@@ -25,10 +31,19 @@ struct PolicyItem: View {
                 NavigationView {
                     ServiceWebView(url: url)
                         .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
+                        .toolbar(content: {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("cancelButton",bundle: Bundle.module) {
+                                    self.showWebView.toggle()
+                                }
+                            }
+                        })
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)
             .font(GDPRAppearance.linkFont)
+            
+            Divider()
         }.buttonStyle(PlainButtonStyle())
     }
 }

@@ -14,7 +14,6 @@ class PersistenceManager {
     private let url = FileManager().urls(for: .documentDirectory,
                                          in: .userDomainMask).first!.appendingPathComponent("gdpr.json")
     public func saveStatus(status: Status) {
-        print(url)
         DispatchQueue.global().sync {
             do {
                 let encoder = JSONEncoder()

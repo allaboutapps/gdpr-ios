@@ -16,9 +16,13 @@ struct ServiceItem: View {
                 Text(model.name)
                     .font(GDPRAppearance.subheaderFont)
             }
+            .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
+            
             Text(model.description)
-                .font(GDPRAppearance.bodyFont)
-                .multilineTextAlignment(.leading)
+                .font(GDPRAppearance.serviceBodyFont)
+                .fixedSize(horizontal: false, vertical: true)
+                .foregroundColor(GDPRAppearance.bodyColor)
+            
             if model.supportDeletion ?? true {
                 HStack {
                     Spacer()
@@ -27,7 +31,7 @@ struct ServiceItem: View {
                     }, label: {
                         Text("deleteData",bundle: Bundle.module)
                             .font(GDPRAppearance.controlsFont)
-                            .foregroundColor(GDPRAppearance.controlColor)
+                            .foregroundColor(GDPRAppearance.primaryColor)
                     }).buttonStyle(PlainButtonStyle())
                 }
             }

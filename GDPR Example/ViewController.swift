@@ -10,41 +10,41 @@ import GDPR
 import SwiftUI
 
 class ViewController: UIViewController {
-    weak var appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
+    let manager = GDPRManager.shared
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        GDPRAppearance.primaryColor = .blue
-        GDPRAppearance.headlineFont = Font.system(size: 17)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Example App"
     }
 
-    @IBAction func presentTos(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(showTermsOfService: true, showSettings: false))
+    // Show settings without confirmation button
+    @IBAction func showSettings(_ sender: Any) {
+        let hostingView = UIHostingController(rootView: manager.showSettings(title: "Legal Settings"))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
-    @IBAction func presentTosAndSettings(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentConformationForm(showTermsOfService: true, showSettings: true))
+    // Show Setting with confirmation button
+    @IBAction func showForm(_ sender: Any) {
+        let hostingView = UIHostingController(rootView: manager.showForm(title: "Legal Settings", onConfirm: { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+            print("Confirmed!")
+        }))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
-    @IBAction func trackingSettings(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentSettings())
-        navigationController?.pushViewController(hostingView, animated: true)
+    @IBAction func privacyChangedAlarm(_ sender: Any) {
+        manager.updateLatestPolicyTimestamp(date: Date())
+        if manager.shouldPresentTOS() {
+            let alert = manager.showAlert(title: "Legal Settings") { [weak self] view in
+                let hostingView = UIHostingController(rootView: view)
+                self?.navigationController?.pushViewController(hostingView, animated: true)
+            }
+            present(alert, animated: true, completion: nil)
+        }
     }
 
-    @IBAction func trackingSettingsWithTos(_ sender: Any) {
-        let manager = appDelegate?.gdprManager
-        let hostingView = UIHostingController(rootView: manager?.presentSettings(showTOS: true))
-        navigationController?.pushViewController(hostingView, animated: true)
+    @IBAction func acceptTerms(_ sender: Any) {
+        manager.acceptTermsAndPolicy()
     }
-
-    @IBAction func privacyPolicy(_ sender: Any) {}
-
-    @IBAction func termsOfService(_ sender: Any) {}
-
-    @IBAction func privacyChangedAlarm(_ sender: Any) {}
 }

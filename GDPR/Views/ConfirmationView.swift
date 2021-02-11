@@ -10,28 +10,30 @@ import SwiftUI
 
 public struct ConfirmationView: View {
     @State var isEnabled = false
-    @Environment(\.presentationMode) var presentation
     @ObservedObject var viewModel: ConfirmationViewModel
     
-    init(viewModel: ConfirmationViewModel) {
+    var onConfirm: (() -> Void)?
+    
+    init(viewModel: ConfirmationViewModel, onConfirm: (() -> Void)? ) {
         if #available(iOS 14.0, *) {
         } else {
             UITableView.appearance().tableFooterView = UIView()
         }
         self.viewModel = viewModel
+        self.onConfirm = onConfirm
     }
 
     public var body: some View {
         VStack {
             List {
-                VStack(alignment: .leading, spacing: 50) {
+                VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
                     if viewModel.showTermsOfService {
-                        TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL)
+                        TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL, showSwitch: viewModel.showTermsSwitch)
                     }
                     if viewModel.showPrivacyPolicy {
                         PolicyItem(url: viewModel.policyURL)
                     }
-                    if viewModel.showSettings {
+                    if viewModel.servicesList.count != 0 {
                         TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
                     }
                 }
@@ -46,24 +48,23 @@ public struct ConfirmationView: View {
             if viewModel.showSaveButton {
                 Button(action: {
                     self.viewModel.savePolicy()
-                    self.presentation.wrappedValue.dismiss()
+                    self.onConfirm?()
                 }, label: {
                     Text("confirm",bundle: Bundle.module)
                 })
-                .padding(EdgeInsets(top: 8, leading: 50, bottom: 8, trailing: 50))
-                .background(GDPRAppearance.primaryColor)
+                .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
+                .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .accentColor(.white)
                 .disabled(!isEnabled)
             }
         }
-        .navigationBarTitle(viewModel.title )
-        .padding(8)
+        .navigationBarTitle(viewModel.title, displayMode: .large )
     }
 }
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showTermsOfService: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil))
+        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showTermsOfService: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil, showTermsSwitch: true), onConfirm: nil)
     }
 }
