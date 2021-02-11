@@ -18,6 +18,10 @@ public class GDPRManager {
     public weak var delegate: GDPRDelegate?
     public static var shared = GDPRManager()
     
+    init() {
+        //
+    }
+    
     // MARK: - Use Cases
     
     public func showSettings(title: String) -> ConfirmationView? {
