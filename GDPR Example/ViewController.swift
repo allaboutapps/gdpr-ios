@@ -20,13 +20,13 @@ class ViewController: UIViewController {
 
     // Show settings without confirmation button
     @IBAction func showSettings(_ sender: Any) {
-        let hostingView = UIHostingController(rootView: manager.showSettings())
+        let hostingView = UIHostingController(rootView: manager.showSettings(title: "Legal Settings"))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 
     // Show Setting with confirmation button
     @IBAction func showForm(_ sender: Any) {
-        let hostingView = UIHostingController(rootView: manager.showForm(onConfirm: { [weak self] in
+        let hostingView = UIHostingController(rootView: manager.showForm(title: "Legal Settings", onConfirm: { [weak self] in
             self?.navigationController?.popViewController(animated: true)
             print("Confirmed!")
         }))
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     @IBAction func privacyChangedAlarm(_ sender: Any) {
         manager.updateLatestPolicyTimestamp(date: Date())
         if manager.shouldPresentTOS() {
-            let alert = manager.showAlert { [weak self] view in
+            let alert = manager.showAlert(title: "Legal Settings") { [weak self] view in
                 let hostingView = UIHostingController(rootView: view)
                 self?.navigationController?.pushViewController(hostingView, animated: true)
             }

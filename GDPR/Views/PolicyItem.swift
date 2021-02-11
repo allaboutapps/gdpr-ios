@@ -14,10 +14,15 @@ public struct PolicyItem: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
+            Text("privacyTitle")
+                .font(GDPRAppearance.headlineFont)
 //            Text("privacyDescription",bundle: Bundle.module)
+            
             Text("privacyDescription")
+                .fixedSize(horizontal: false, vertical: true)
                 .font(GDPRAppearance.bodyFont)
                 .foregroundColor(GDPRAppearance.bodyColor)
+            
             Button(action: {
                 self.showWebView.toggle()
 
@@ -33,6 +38,8 @@ public struct PolicyItem: View {
             }
             .foregroundColor(GDPRAppearance.primaryColor)
             .font(GDPRAppearance.linkFont)
+            
+            Divider()
         }.buttonStyle(PlainButtonStyle())
     }
 }

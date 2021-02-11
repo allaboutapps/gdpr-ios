@@ -20,8 +20,9 @@ struct ServiceItem: View {
             
             Text(model.description)
                 .font(GDPRAppearance.serviceBodyFont)
-                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(GDPRAppearance.bodyColor)
+            
             if model.supportDeletion ?? true {
                 HStack {
                     Spacer()

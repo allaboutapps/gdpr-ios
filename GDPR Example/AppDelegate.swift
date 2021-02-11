@@ -32,11 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GDPRDelegate {
         
         gdprManager?.setService(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
         gdprManager?.setService(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
-        gdprManager?.setService(id: "S3", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
-        
-        print(gdprManager?.shouldPresentTOS())
-        
-        gdprManager?.deleteService(id: "S2")
 
         return true
     }

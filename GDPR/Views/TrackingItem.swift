@@ -20,24 +20,10 @@ struct TrackingItem: View {
                 .font(GDPRAppearance.headlineFont)
 //            Text("trackingDescription",bundle: Bundle.module)
             Text("trackingDescription")
+                .fixedSize(horizontal: false, vertical: true)
                 .font(GDPRAppearance.bodyFont)
                 .foregroundColor(GDPRAppearance.bodyColor)
             HStack(alignment: .center, spacing: GDPRAppearance.Padding.single) {
-                Button(action: {
-                    self.showWebView.toggle()
-                    
-                }, label: {
-//                    Text("privacyTitle",bundle: Bundle.module)
-                    Text("privacyTitle")
-                }).sheet(isPresented: self.$showWebView) {
-                    NavigationView {
-                        ServiceWebView(url: url)
-//                            .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
-                            .navigationBarTitle(Text("privacyTitle"), displayMode: .inline)
-                    }
-                }
-                .foregroundColor(GDPRAppearance.primaryColor)
-                .font(GDPRAppearance.linkFont)
                 Spacer()
                 Button(action: {
                     self.acceptAll = true

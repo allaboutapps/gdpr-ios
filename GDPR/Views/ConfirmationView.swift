@@ -26,14 +26,14 @@ public struct ConfirmationView: View {
     public var body: some View {
         VStack {
             List {
-                VStack(alignment: .leading, spacing: 50) {
+                VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
                     if viewModel.showTermsOfService {
                         TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL, showSwitch: viewModel.showTermsSwitch)
                     }
                     if viewModel.showPrivacyPolicy {
                         PolicyItem(url: viewModel.policyURL)
                     }
-                    if viewModel.showSettings {
+                    if viewModel.servicesList.count != 0 {
                         TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
                     }
                 }

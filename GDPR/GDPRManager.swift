@@ -20,8 +20,7 @@ public class GDPRManager {
     
     // MARK: - Use Cases
     
-    public func showSettings() -> ConfirmationView? {
-        let title = NSLocalizedString("termsTitle", comment: "")
+    public func showSettings(title: String) -> ConfirmationView? {
      
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
@@ -39,8 +38,7 @@ public class GDPRManager {
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: nil)
     }
     
-    public func showForm(onConfirm: @escaping () -> Void) -> ConfirmationView? {
-        let title = NSLocalizedString("termsTitle", comment: "")
+    public func showForm(title: String, onConfirm: @escaping () -> Void) -> ConfirmationView? {
      
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
@@ -119,13 +117,13 @@ public class GDPRManager {
         confirmationViewModel?.savePolicy()
     }
     
-    public func showAlert(showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
+    public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
         let alert = UIAlertController(title: "Our privacy policy has changed", message: "Please note that we updated both our privacy as well as our terms of use. Read through the changes and learn more about the rights. In order to continue using the app, please accept the updated privacy policy.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Read and understood", style: .default, handler: { [weak self] _ in
             self?.confirmationViewModel?.savePolicy()
         }))
         alert.addAction(UIAlertAction(title: "View privacy policy", style: .default, handler: { [weak self] _ in
-            let view = self?.showSettings()
+            let view = self?.showSettings(title: title)
             showConfirmationView(view)
         }))
         return alert
