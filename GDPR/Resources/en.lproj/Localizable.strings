@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  GDPR
+
+  Created by Lyn Almasri on 18.12.20.
+  Copyright © 2020 All About Apps. All rights reserved.
+*/
+
+"termsTitle" = "Terms of Service";
+"termsDescription" = "To use this app you have to agree to our Terms of Service. Please read them carefully before you accept them.";
+"termsHeader" = "Accept Terms and Conditions";
+"termsAcceptance" = "I accept the Terms and Conditions";
+"privacyDescription" = "By continuing you agree to our privacy policy";
+"privacyTitle" = "Privacy Policy";
+"confirm" = "Confirm";
+"deleteData" = "Clear Data";
+"trackingHeader" = "Tracking Services";
+"trackingDescription" = "You may choose to allow all or some tracking of your data to help improve the application.";
+"trackingSettingsHeader" = "Tracking Settings";
+"allowAll" = "Allow All";
+"cancelButton" = "Cancel";
+"alertViewTitle" = "Our privacy policy has changed";
+"alertViewDescritption" = "Please note that we updated both our privacy as well as our terms of use. Read through the changes and learn more about the rights. In order to continue using the app, please accept the updated privacy policy.";
+"alertViewFirstButton" = "Read and understood";
+"alertViewSecondButton" = "View privacy policy";

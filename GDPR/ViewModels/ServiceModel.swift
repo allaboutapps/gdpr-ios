@@ -14,7 +14,8 @@ class ServiceModel: Codable, ObservableObject {
     var description: String
     @Published var isOptIn: Bool {
         didSet {
-            GDPRManager.delegate?.serviceValueDidChange(id: id, value: isOptIn)
+            GDPRManager.shared.delegate?.serviceValueDidChange(id: id, value: isOptIn)
+            PersistenceManager.shared.saveStatus(status: GDPRManager.shared.currentStatus!)
         }
     }
 
@@ -55,6 +56,6 @@ class ServiceModel: Codable, ObservableObject {
     }
     
     func delete() {
-        GDPRManager.delegate?.deleteDate(id: self.id)
+        GDPRManager.shared.delegate?.deleteDate(id: self.id)
     }
 }

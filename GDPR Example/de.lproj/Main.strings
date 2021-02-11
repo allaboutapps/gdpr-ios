@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Tracking Settings"; ObjectID = "Qpn-by-c7d"; */
+"Qpn-by-c7d.normalTitle" = "Tracking Settings";
+
+/* Class = "UIButton"; normalTitle = "Tracking settings with tos"; ObjectID = "Unn-VY-XrL"; */
+"Unn-VY-XrL.normalTitle" = "Tracking settings with tos";
+
+/* Class = "UIButton"; normalTitle = "Require Tos and prompt settings"; ObjectID = "j2j-ka-7jW"; */
+"j2j-ka-7jW.normalTitle" = "Require Tos and prompt settings";
+
+/* Class = "UIButton"; normalTitle = "Require Tos"; ObjectID = "vnA-jx-htT"; */
+"vnA-jx-htT.normalTitle" = "Require Tos";
