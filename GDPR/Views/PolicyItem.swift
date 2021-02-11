@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-struct PolicyItem: View {
+public struct PolicyItem: View {
     @State private var showWebView: Bool = false
     var url: URL
 
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
 //            Text("privacyDescription",bundle: Bundle.module)
             Text("privacyDescription")

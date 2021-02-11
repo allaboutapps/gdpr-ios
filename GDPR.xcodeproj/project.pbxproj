@@ -31,6 +31,7 @@
 		14BA0896251A6F9300CA22C6 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0895251A6F9300CA22C6 /* Status.swift */; };
 		14BA0898251A71EB00CA22C6 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */; };
 		14BA089A251B337F00CA22C6 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BA0899251B337F00CA22C6 /* ServiceModel.swift */; };
+		14D798C825CD575D00AD6952 /* ConfirmationToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D798C725CD575D00AD6952 /* ConfirmationToggleView.swift */; };
 		14E06A65251C9E60005A4B89 /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = 14E06A63251C9E60005A4B89 /* terms_of_service.html */; };
 		14E06A66251C9E60005A4B89 /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 14E06A64251C9E60005A4B89 /* privacy_policy.html */; };
 		14E4B2B9258C9D93006F48B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14E4B2BB258C9D93006F48B9 /* Localizable.strings */; };
@@ -88,6 +89,7 @@
 		14BA0895251A6F9300CA22C6 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		14BA0897251A71EB00CA22C6 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		14BA0899251B337F00CA22C6 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		14D798C725CD575D00AD6952 /* ConfirmationToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationToggleView.swift; sourceTree = "<group>"; };
 		14E06A63251C9E60005A4B89 /* terms_of_service.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_of_service.html; sourceTree = "<group>"; };
 		14E06A64251C9E60005A4B89 /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
 		14E4B2B3258C9D3B006F48B9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				14A6CDE424EE758B007B58DA /* TermsItem.swift */,
 				14A8456524ED0D0200FEEBC9 /* ServicesWebView.swift */,
 				14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */,
+				14D798C725CD575D00AD6952 /* ConfirmationToggleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A8456624ED0D0200FEEBC9 /* ServicesWebView.swift in Sources */,
+				14D798C825CD575D00AD6952 /* ConfirmationToggleView.swift in Sources */,
 				14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */,
 				14BA088E2519E1CE00CA22C6 /* PolicyItem.swift in Sources */,
 				14BA0898251A71EB00CA22C6 /* PersistenceManager.swift in Sources */,

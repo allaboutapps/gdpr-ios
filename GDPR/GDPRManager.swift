@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class GDPRManager {
     var termsURL: URL?
@@ -16,6 +17,52 @@ public class GDPRManager {
     
     public weak var delegate: GDPRDelegate?
     public static var shared = GDPRManager()
+    
+    // MARK: - Use Cases
+    
+    public func showSettings() -> ConfirmationView? {
+        let title = NSLocalizedString("termsTitle", comment: "")
+     
+        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
+            print("Missing terms URL or policy URL")
+            return nil
+        }
+        confirmationViewModel = ConfirmationViewModel(title: title,
+                                                      showTermsOfService: true,
+                                                      showPrivacyPolicy: true,
+                                                      showSettings: true,
+                                                      showSaveButton: false,
+                                                      policyURL: policyURL,
+                                                      termsURL: termsURL,
+                                                      services: currentStatus.services,
+                                                      showTermsSwitch: true)
+        return ConfirmationView(viewModel: confirmationViewModel!)
+    }
+    
+    public func showForm() -> ConfirmationView? {
+        let title = NSLocalizedString("termsTitle", comment: "")
+     
+        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
+            print("Missing terms URL or policy URL")
+            return nil
+        }
+        confirmationViewModel = ConfirmationViewModel(title: title,
+                                                      showTermsOfService: true,
+                                                      showPrivacyPolicy: true,
+                                                      showSettings: true,
+                                                      showSaveButton: true,
+                                                      policyURL: policyURL,
+                                                      termsURL: termsURL,
+                                                      services: currentStatus.services,
+                                                      showTermsSwitch: true)
+        return ConfirmationView(viewModel: confirmationViewModel!)
+    }
+    
+    public func toggleView() -> ConfirmationToggleView {
+        return ConfirmationToggleView()
+    }
+    
+    // MARK: - Helper Functions
     
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
         currentStatus = PersistenceManager.shared.retrieveStatus()
@@ -52,58 +99,7 @@ public class GDPRManager {
         PersistenceManager.shared.saveStatus(status: currentStatus!)
     }
     
-    // function to view tos with (requireTOS, showSettings)
-    public func presentConformationForm(showTermsOfService: Bool, showSettings: Bool) -> ConfirmationView? {
-        var title: String
-        var shouldTermsOfService: Bool
-        var showPrivacyPolicy: Bool
-     
-        if showTermsOfService {
-            title = NSLocalizedString("termsTitle", comment: "")
-            shouldTermsOfService = true
-            if !showSettings {
-                showPrivacyPolicy = true
-            } else {
-                showPrivacyPolicy = false
-            }
-            
-        } else {
-            title = NSLocalizedString("trackingSettingsHeader", comment: "")
-            shouldTermsOfService = false
-            showPrivacyPolicy = false
-        }
-        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
-            print("Missing terms URL or policy URL")
-            return nil
-        }
-        confirmationViewModel = ConfirmationViewModel(title: title,
-                                                      showTermsOfService: shouldTermsOfService,
-                                                      showPrivacyPolicy: showPrivacyPolicy,
-                                                      showSettings: showSettings,
-                                                      showSaveButton: true,
-                                                      policyURL: policyURL,
-                                                      termsURL: termsURL,
-                                                      services: currentStatus.services)
-        return ConfirmationView(viewModel: confirmationViewModel!)
-    }
-    
-    public func presentSettings(showTOS: Bool = false) -> ConfirmationView? {
-        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
-            print("Missing terms URL or policy URL")
-            return nil
-        }
-        confirmationViewModel = ConfirmationViewModel(title: NSLocalizedString("trackingSettingsHeader", comment: ""),
-                                                      showTermsOfService: showTOS, showPrivacyPolicy: false,
-                                                      showSettings: true,
-                                                      showSaveButton: false,
-                                                      policyURL: policyURL,
-                                                      termsURL: termsURL,
-                                                      services: currentStatus.services)
-        return ConfirmationView(viewModel: confirmationViewModel!)
-    }
-    
     public func shouldPresentTOS() -> Bool {
-        
         let currentStatus = PersistenceManager.shared.retrieveStatus()
         let latestPolicyChange = currentStatus.latestPolicyChange
         
@@ -114,8 +110,24 @@ public class GDPRManager {
         case .rejected:
             shouldPresent = true
         case .undefined:
-            shouldPresent = false
+            shouldPresent = true
         }
         return shouldPresent
+    }
+    
+    public func acceptTermsAndPolicy() {
+        confirmationViewModel?.savePolicy()
+    }
+    
+    public func showAlert(showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
+        let alert = UIAlertController(title: "Our privacy policy has changed", message: "Please note that we updated both our privacy as well as our terms of use. Read through the changes and learn more about the rights. In order to continue using the app, please accept the updated privacy policy.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Read and understood", style: .default, handler: { [weak self] _ in
+            self?.confirmationViewModel?.savePolicy()
+        }))
+        alert.addAction(UIAlertAction(title: "View privacy policy", style: .default, handler: { [weak self] _ in
+            let view = self?.showSettings()
+            showConfirmationView(view)
+        }))
+        return alert
     }
 }

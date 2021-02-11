@@ -13,6 +13,7 @@ struct TermsItem: View {
     @State private var showWebView: Bool = false
 
     var termsURL: URL
+    var showSwitch: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
@@ -37,19 +38,20 @@ struct TermsItem: View {
             }
             .foregroundColor(GDPRAppearance.primaryColor)
             .font(GDPRAppearance.linkFont)
-            Toggle(isOn: $isToggle) {
-//                Text("termsAcceptance",bundle: Bundle.module)
-                Text("termsAcceptance")
-                    .font(GDPRAppearance.bodyFont)
+            if showSwitch {
+                Toggle(isOn: $isToggle) {
+                    //Text("termsAcceptance",bundle: Bundle.module)
+                    Text("termsAcceptance")
+                        .font(GDPRAppearance.bodyFont)
+                }
+                .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
             }
-            .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
-
         }.buttonStyle(PlainButtonStyle())
     }
 }
 
 struct TermsItem_Previews: PreviewProvider {
     static var previews: some View {
-        TermsItem(isToggle: .constant(false), termsURL: URL(string: "")!)
+        TermsItem(isToggle: .constant(false), termsURL: URL(string: "")!, showSwitch: true)
     }
 }

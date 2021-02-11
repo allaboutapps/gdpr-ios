@@ -17,6 +17,7 @@ class ConfirmationViewModel: ObservableObject {
     var showPrivacyPolicy: Bool
     var policyURL: URL
     var termsURL: URL
+    var showTermsSwitch: Bool
     
     var servicesList = [ServiceModel]()
     @Published var acceptAll = false {
@@ -27,7 +28,7 @@ class ConfirmationViewModel: ObservableObject {
         }
     }
     
-    init(title: String, showTermsOfService: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool, policyURL: URL, termsURL: URL, services: [ServiceModel]?) {
+    init(title: String, showTermsOfService: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool, policyURL: URL, termsURL: URL, services: [ServiceModel]?, showTermsSwitch: Bool) {
         if let services = services {
             servicesList = services
         }
@@ -38,6 +39,7 @@ class ConfirmationViewModel: ObservableObject {
         self.showSaveButton = showSaveButton
         self.policyURL = policyURL
         self.termsURL = termsURL
+        self.showTermsSwitch = showTermsSwitch
     }
     
     func savePolicy() {
