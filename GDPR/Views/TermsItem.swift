@@ -51,8 +51,7 @@ struct TermsItem: View {
             if showSwitch {
                 Divider()
                 Toggle(isOn: $isToggle) {
-                    // Text("termsAcceptance",bundle: Bundle.module)
-                    Text("termsAcceptance")
+                     Text("termsAcceptance",bundle: Bundle.module)
                         .font(GDPRAppearance.bodyFont)
                         .fixedSize(horizontal: false, vertical: true)
                 }
