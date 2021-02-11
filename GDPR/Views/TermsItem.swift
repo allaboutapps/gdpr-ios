@@ -18,10 +18,10 @@ struct TermsItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
             VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
-                Text("termsTitle",bundle: Bundle.module)
+                Text("termsTitle")
                     .font(GDPRAppearance.headlineFont)
 
-                Text("termsDescription",bundle: Bundle.module)
+                Text("termsDescription")
                     .fixedSize(horizontal: false, vertical: true)
                     .font(GDPRAppearance.bodyFont)
                     .foregroundColor(GDPRAppearance.bodyColor)
@@ -30,17 +30,13 @@ struct TermsItem: View {
                     self.showWebView.toggle()
 
                 }, label: {
-                    Text("termsTitle",bundle: Bundle.module)
+                    Text("termsTitle")
                 }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: termsURL)
-                            .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
-                            .toolbar(content: {
-                                ToolbarItem(placement: .navigationBarLeading) {
-                                    Button("cancelButton",bundle: Bundle.module) {
-                                        self.showWebView.toggle()
-                                    }
-                                }
+                            .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
+                            .navigationBarItems(leading: Button("cancelButton") {
+                                self.showWebView.toggle()
                             })
                     }
                 }
@@ -50,12 +46,20 @@ struct TermsItem: View {
 
             if showSwitch {
                 Divider()
-                Toggle(isOn: $isToggle) {
-                     Text("termsAcceptance",bundle: Bundle.module)
-                        .font(GDPRAppearance.bodyFont)
-                        .fixedSize(horizontal: false, vertical: true)
+                if #available(iOS 14.0, *) {
+                    Toggle(isOn: $isToggle) {
+                        Text("termsAcceptance")
+                            .font(GDPRAppearance.bodyFont)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
+                } else {
+                    Toggle(isOn: $isToggle) {
+                        Text("termsAcceptance")
+                            .font(GDPRAppearance.bodyFont)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
-                .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
             }
 
             Divider()

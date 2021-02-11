@@ -50,7 +50,7 @@ public struct ConfirmationView: View {
                     self.viewModel.savePolicy()
                     self.onConfirm?()
                 }, label: {
-                    Text("confirm",bundle: Bundle.module)
+                    Text("confirm")
                 })
                 .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
                 .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
@@ -59,7 +59,7 @@ public struct ConfirmationView: View {
                 .disabled(!isEnabled)
             }
         }
-        .navigationBarTitle(viewModel.title, displayMode: .large )
+        .navigationBarTitle(viewModel.title )
     }
 }
 

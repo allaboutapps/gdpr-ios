@@ -15,9 +15,9 @@ struct TrackingItem: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Text("trackingHeader",bundle: Bundle.module)
+            Text("trackingHeader")
                 .font(GDPRAppearance.headlineFont)
-            Text("trackingDescription",bundle: Bundle.module)
+            Text("trackingDescription")
                 .fixedSize(horizontal: false, vertical: true)
                 .font(GDPRAppearance.bodyFont)
                 .foregroundColor(GDPRAppearance.bodyColor)
@@ -26,7 +26,7 @@ struct TrackingItem: View {
                 Button(action: {
                     self.acceptAll = true
                 }, label: {
-                    Text("allowAll",bundle: Bundle.module)
+                    Text("allowAll")
                         .font(GDPRAppearance.controlsFont)
                         .foregroundColor(GDPRAppearance.primaryColor)
                 }).buttonStyle(PlainButtonStyle())
