@@ -21,12 +21,12 @@ struct TermsItem: View {
                 //            Text("termsTitle",bundle: Bundle.module)
                 Text("termsTitle")
                     .font(GDPRAppearance.headlineFont)
-                
+
                 Text("termsDescription")
                     .fixedSize(horizontal: false, vertical: true)
                     .font(GDPRAppearance.bodyFont)
                     .foregroundColor(GDPRAppearance.bodyColor)
-                
+
                 Button(action: {
                     self.showWebView.toggle()
 
@@ -38,6 +38,13 @@ struct TermsItem: View {
                         ServiceWebView(url: termsURL)
                             //                        .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
                             .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
+                            .toolbar(content: {
+                                ToolbarItem(placement: .navigationBarLeading) {
+                                    Button("cancelButton") {
+                                        self.showWebView.toggle()
+                                    }
+                                }
+                            })
                     }
                 }
                 .foregroundColor(GDPRAppearance.primaryColor)

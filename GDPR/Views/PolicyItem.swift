@@ -34,6 +34,13 @@ public struct PolicyItem: View {
                     ServiceWebView(url: url)
 //                        .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
                         .navigationBarTitle(Text("privacyTitle"), displayMode: .inline)
+                        .toolbar(content: {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("cancelButton") {
+                                    self.showWebView.toggle()
+                                }
+                            }
+                        })
                 }
             }
             .foregroundColor(GDPRAppearance.primaryColor)

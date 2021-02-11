@@ -56,10 +56,6 @@ public class GDPRManager {
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: onConfirm)
     }
     
-    public func toggleView() -> ConfirmationToggleView {
-        return ConfirmationToggleView()
-    }
-    
     // MARK: - Helper Functions
     
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {

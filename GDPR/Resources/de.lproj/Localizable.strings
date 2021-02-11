@@ -18,3 +18,4 @@
 "trackingDescription" = "Du kannst ein paar, aber auch alle Services aktivieren um anonyme Nutzungsdaten zu teilen und uns beim Verbessern der App zu helfen.";
 "trackingSettingsHeader" = "Tracking-Einstellungen";
 "allowAll" = "Allen Zustimmen";
+"cancelButton" = "Abbrechen";

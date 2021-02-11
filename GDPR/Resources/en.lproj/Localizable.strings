@@ -18,3 +18,4 @@
 "trackingDescription" = "You may choose to allow all or some tracking of your data to help improve the application.";
 "trackingSettingsHeader" = "Tracking Settings";
 "allowAll" = "Allow All";
+"cancelButton" = "Cancel";
