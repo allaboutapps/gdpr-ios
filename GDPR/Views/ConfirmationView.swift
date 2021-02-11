@@ -10,15 +10,17 @@ import SwiftUI
 
 public struct ConfirmationView: View {
     @State var isEnabled = false
-    @Environment(\.presentationMode) var presentation
     @ObservedObject var viewModel: ConfirmationViewModel
     
-    init(viewModel: ConfirmationViewModel) {
+    var onConfirm: (() -> Void)?
+    
+    init(viewModel: ConfirmationViewModel, onConfirm: (() -> Void)? ) {
         if #available(iOS 14.0, *) {
         } else {
             UITableView.appearance().tableFooterView = UIView()
         }
         self.viewModel = viewModel
+        self.onConfirm = onConfirm
     }
 
     public var body: some View {
@@ -46,7 +48,7 @@ public struct ConfirmationView: View {
             if viewModel.showSaveButton {
                 Button(action: {
                     self.viewModel.savePolicy()
-                    self.presentation.wrappedValue.dismiss()
+                    self.onConfirm?()
                 }, label: {
 //                    Text("confirm",bundle: Bundle.module)
                     Text("confirm")
@@ -64,6 +66,6 @@ public struct ConfirmationView: View {
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showTermsOfService: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil, showTermsSwitch: true))
+        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showTermsOfService: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil, showTermsSwitch: true), onConfirm: nil)
     }
 }

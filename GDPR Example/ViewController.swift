@@ -26,7 +26,10 @@ class ViewController: UIViewController {
 
     // Show Setting with confirmation button
     @IBAction func showForm(_ sender: Any) {
-        let hostingView = UIHostingController(rootView: manager.showForm())
+        let hostingView = UIHostingController(rootView: manager.showForm(onConfirm: { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+            print("Confirmed!")
+        }))
         navigationController?.pushViewController(hostingView, animated: true)
     }
 

@@ -35,11 +35,11 @@ public class GDPRManager {
                                                       policyURL: policyURL,
                                                       termsURL: termsURL,
                                                       services: currentStatus.services,
-                                                      showTermsSwitch: true)
-        return ConfirmationView(viewModel: confirmationViewModel!)
+                                                      showTermsSwitch: false)
+        return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: nil)
     }
     
-    public func showForm() -> ConfirmationView? {
+    public func showForm(onConfirm: @escaping () -> Void) -> ConfirmationView? {
         let title = NSLocalizedString("termsTitle", comment: "")
      
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
@@ -55,7 +55,7 @@ public class GDPRManager {
                                                       termsURL: termsURL,
                                                       services: currentStatus.services,
                                                       showTermsSwitch: true)
-        return ConfirmationView(viewModel: confirmationViewModel!)
+        return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: onConfirm)
     }
     
     public func toggleView() -> ConfirmationToggleView {
