@@ -15,8 +15,7 @@ public struct PolicyItem: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
             Text("privacyTitle")
-                .font(GDPRAppearance.headlineFont)
-//            Text("privacyDescription",bundle: Bundle.module)
+                .font(GDPRAppearance.headlineFont,bundle: Bundle.module)
             
             Text("privacyDescription")
                 .fixedSize(horizontal: false, vertical: true)
@@ -27,16 +26,14 @@ public struct PolicyItem: View {
                 self.showWebView.toggle()
 
             }, label: {
-//                Text("privacyTitle",bundle: Bundle.module)
-                Text("privacyTitle")
+                Text("privacyTitle",bundle: Bundle.module)
             }).sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: url)
-//                        .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
-                        .navigationBarTitle(Text("privacyTitle"), displayMode: .inline)
+                        .navigationBarTitle(Text("privacyTitle",bundle: Bundle.module), displayMode: .inline)
                         .toolbar(content: {
                             ToolbarItem(placement: .navigationBarLeading) {
-                                Button("cancelButton") {
+                                Button("cancelButton",bundle: Bundle.module) {
                                     self.showWebView.toggle()
                                 }
                             }

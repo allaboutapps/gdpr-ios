@@ -21,7 +21,6 @@ public class GDPRManager {
     // MARK: - Use Cases
     
     public func showSettings(title: String) -> ConfirmationView? {
-     
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
             return nil
@@ -39,7 +38,6 @@ public class GDPRManager {
     }
     
     public func showForm(title: String, onConfirm: @escaping () -> Void) -> ConfirmationView? {
-     
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
             return nil
@@ -114,11 +112,13 @@ public class GDPRManager {
     }
     
     public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
-        let alert = UIAlertController(title: "Our privacy policy has changed", message: "Please note that we updated both our privacy as well as our terms of use. Read through the changes and learn more about the rights. In order to continue using the app, please accept the updated privacy policy.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Read and understood", style: .default, handler: { [weak self] _ in
+        let alert = UIAlertController(title: NSLocalizedString("alertViewTitle", comment: ""),
+                                      message: NSLocalizedString("alertViewDescritption", comment: ""),
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton", comment: ""), style: .default, handler: { [weak self] _ in
             self?.confirmationViewModel?.savePolicy()
         }))
-        alert.addAction(UIAlertAction(title: "View privacy policy", style: .default, handler: { [weak self] _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton", comment: ""), style: .default, handler: { [weak self] _ in
             let view = self?.showSettings(title: title)
             showConfirmationView(view)
         }))

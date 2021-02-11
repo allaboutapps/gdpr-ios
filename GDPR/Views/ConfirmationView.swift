@@ -50,8 +50,7 @@ public struct ConfirmationView: View {
                     self.viewModel.savePolicy()
                     self.onConfirm?()
                 }, label: {
-//                    Text("confirm",bundle: Bundle.module)
-                    Text("confirm")
+                    Text("confirm",bundle: Bundle.module)
                 })
                 .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
                 .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)

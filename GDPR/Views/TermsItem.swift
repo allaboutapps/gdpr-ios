@@ -18,11 +18,10 @@ struct TermsItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
             VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
-                //            Text("termsTitle",bundle: Bundle.module)
-                Text("termsTitle")
+                Text("termsTitle",bundle: Bundle.module)
                     .font(GDPRAppearance.headlineFont)
 
-                Text("termsDescription")
+                Text("termsDescription",bundle: Bundle.module)
                     .fixedSize(horizontal: false, vertical: true)
                     .font(GDPRAppearance.bodyFont)
                     .foregroundColor(GDPRAppearance.bodyColor)
@@ -31,16 +30,14 @@ struct TermsItem: View {
                     self.showWebView.toggle()
 
                 }, label: {
-                    //                Text("termsTitle",bundle: Bundle.module)
-                    Text("termsTitle")
+                    Text("termsTitle",bundle: Bundle.module)
                 }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: termsURL)
-                            //                        .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
-                            .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
+                            .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
                             .toolbar(content: {
                                 ToolbarItem(placement: .navigationBarLeading) {
-                                    Button("cancelButton") {
+                                    Button("cancelButton",bundle: Bundle.module) {
                                         self.showWebView.toggle()
                                     }
                                 }
