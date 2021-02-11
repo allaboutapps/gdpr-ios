@@ -19,7 +19,7 @@ public class GDPRManager {
     public static var shared = GDPRManager()
     
     init() {
-        //
+        GDPRManager.shared = GDPRManager()
     }
     
     // MARK: - Use Cases
