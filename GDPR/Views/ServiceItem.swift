@@ -12,11 +12,18 @@ struct ServiceItem: View {
     @ObservedObject var model: ServiceModel
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
-            Toggle(isOn: $model.isOptIn) {
-                Text(model.name)
-                    .font(GDPRAppearance.subheaderFont)
+            if #available(iOS 14.0, *) {
+                Toggle(isOn: $model.isOptIn) {
+                    Text(model.name)
+                        .font(GDPRAppearance.subheaderFont)
+                }
+                .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
+            } else {
+                Toggle(isOn: $model.isOptIn) {
+                    Text(model.name)
+                        .font(GDPRAppearance.subheaderFont)
+                }
             }
-            .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
             
             Text(model.description)
                 .font(GDPRAppearance.serviceBodyFont)

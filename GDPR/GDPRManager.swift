@@ -112,13 +112,13 @@ public class GDPRManager {
     }
     
     public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
-        let alert = UIAlertController(title: NSLocalizedString("alertViewTitle", comment: ""),
-                                      message: NSLocalizedString("alertViewDescritption", comment: ""),
+        let alert = UIAlertController(title: NSLocalizedString("alertViewTitle", bundle: Bundle.module, comment: ""),
+                                      message: NSLocalizedString("alertViewDescritption", bundle: Bundle.module, comment: ""),
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton", comment: ""), style: .default, handler: { [weak self] _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton", bundle: Bundle.module, comment: ""), style: .default, handler: { [weak self] _ in
             self?.confirmationViewModel?.savePolicy()
         }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton", comment: ""), style: .default, handler: { [weak self] _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton", bundle: Bundle.module, comment: ""), style: .default, handler: { [weak self] _ in
             let view = self?.showSettings(title: title)
             showConfirmationView(view)
         }))

@@ -34,14 +34,12 @@ struct TermsItem: View {
                 }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: termsURL)
-                            .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
-                            .toolbar(content: {
-                                ToolbarItem(placement: .navigationBarLeading) {
-                                    Button("cancelButton",bundle: Bundle.module) {
-                                        self.showWebView.toggle()
-                                    }
-                                }
-                            })
+                            .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
+                            .navigationBarItems(leading: Button(action: {
+                                self.showWebView.toggle()
+                            }, label: {
+                                Text("cancelButton",bundle: Bundle.module)
+                            }))
                     }
                 }
                 .foregroundColor(GDPRAppearance.primaryColor)
@@ -50,12 +48,20 @@ struct TermsItem: View {
 
             if showSwitch {
                 Divider()
-                Toggle(isOn: $isToggle) {
-                     Text("termsAcceptance",bundle: Bundle.module)
-                        .font(GDPRAppearance.bodyFont)
-                        .fixedSize(horizontal: false, vertical: true)
+                if #available(iOS 14.0, *) {
+                    Toggle(isOn: $isToggle) {
+                        Text("termsAcceptance",bundle: Bundle.module)
+                            .font(GDPRAppearance.bodyFont)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
+                } else {
+                    Toggle(isOn: $isToggle) {
+                        Text("termsAcceptance",bundle: Bundle.module)
+                            .font(GDPRAppearance.bodyFont)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
-                .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
             }
 
             Divider()

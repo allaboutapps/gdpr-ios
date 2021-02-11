@@ -59,7 +59,7 @@ public struct ConfirmationView: View {
                 .disabled(!isEnabled)
             }
         }
-        .navigationBarTitle(viewModel.title, displayMode: .large )
+        .navigationBarTitle(viewModel.title )
     }
 }
 
