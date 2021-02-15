@@ -34,7 +34,7 @@ struct TermsItem: View {
                 }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: termsURL)
-                            .navigationBarTitle(Text("termsTitle"), displayMode: .inline)
+                            .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
                             .navigationBarItems(leading: Button(action: {
                                 self.showWebView.toggle()
                             }, label: {
