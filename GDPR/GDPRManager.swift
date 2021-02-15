@@ -107,7 +107,7 @@ public class GDPRManager {
         return shouldPresent
     }
     
-    public func acceptTermsAndPolicy() {
+    public func acceptTermsAndPolicy(date: Date = Date()) {
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
             return 
@@ -123,20 +123,17 @@ public class GDPRManager {
                                                           services: currentStatus.services,
                                                           showTermsSwitch: true)
         }
-        confirmationViewModel?.savePolicy()
+        confirmationViewModel?.savePolicy(date: date)
     }
     
     public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
         let alert = UIAlertController(title: NSLocalizedString("alertViewTitle", bundle: Bundle.module, comment: ""),
-        let alert = UIAlertController(title: NSLocalizedString("alertViewTitle", comment: ""),
                                       message: NSLocalizedString("alertViewDescritption",  comment: ""),
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton", bundle: Bundle.module, comment: ""), style: .default, handler: { [weak self] _ in
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton",  comment: ""), style: .default, handler: { [weak self] _ in
             self?.confirmationViewModel?.savePolicy()
         }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton", bundle: Bundle.module, comment: ""), style: .default, handler: { [weak self] _ in
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton",  comment: ""), style: .default, handler: { [weak self] _ in
             let view = self?.showSettings(title: title)
             showConfirmationView(view)
         }))
