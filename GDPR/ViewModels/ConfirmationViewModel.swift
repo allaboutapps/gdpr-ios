@@ -42,7 +42,7 @@ class ConfirmationViewModel: ObservableObject {
         self.showTermsSwitch = showTermsSwitch
     }
     
-    func savePolicy(date: Date) {
+    func savePolicy(date: Date = Date()) {
         let persistenceManager = PersistenceManager()
         persistenceManager.saveStatus(status: Status(latestPolicyChange: GDPRManager.shared.currentStatus?.latestPolicyChange, lastAcceptedPrivacy: .accepted(at: date), services: servicesList))
     }
