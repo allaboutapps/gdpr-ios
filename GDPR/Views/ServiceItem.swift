@@ -30,7 +30,7 @@ struct ServiceItem: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(GDPRAppearance.bodyColor)
             
-            if model.supportDeletion ?? true {
+            if model.supportDeletion {
                 HStack {
                     Spacer()
                     Button(action: {
@@ -48,6 +48,6 @@ struct ServiceItem: View {
 
 struct ServiceItem_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceItem(model: ServiceModel(id: "id", name: "name", description: "desc", isOptIn: true))
+        ServiceItem(model: ServiceModel(id: "id", name: "name", description: "desc", supportDeletion: true, isOptIn: true))
     }
 }
