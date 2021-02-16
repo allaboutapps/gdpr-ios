@@ -16,6 +16,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Example App"
+        
+        print(FileManager().urls(for: .documentDirectory,
+                                 in: .userDomainMask).first!.appendingPathComponent("gdpr.json"))
     }
 
     // Show settings without confirmation button

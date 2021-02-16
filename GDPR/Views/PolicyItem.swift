@@ -37,6 +37,7 @@ public struct PolicyItem: View {
                             Text("cancelButton",bundle: Bundle.module)
                         }))
                 }
+                .foregroundColor(GDPRAppearance.navigationBarTintColor)
             }
             .foregroundColor(GDPRAppearance.primaryColor)
             .font(GDPRAppearance.linkFont)

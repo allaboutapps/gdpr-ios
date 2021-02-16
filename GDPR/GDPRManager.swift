@@ -10,6 +10,20 @@ import Foundation
 import UIKit
 
 public class GDPRManager {
+    public struct Service {
+        var id: String
+        var name: String
+        var description: String
+        var supportDeletion: Bool
+        
+        public init(id: String, name: String, description: String, supportDeletion: Bool) {
+            self.id = id
+            self.name = name
+            self.supportDeletion = supportDeletion
+            self.description = description
+        }
+    }
+    
     var termsURL: URL?
     var privacyPolicyURL: URL?
     var currentStatus: Status?
@@ -62,15 +76,17 @@ public class GDPRManager {
         self.privacyPolicyURL = privacyPolicyURL
     }
     
-    public func setService(id: String, name: String, description: String, supportDeletion: Bool) {
+    public func setServices(services: [Service]) {
         guard let currentStatus = currentStatus else { return }
-        for service in currentStatus.services where id == service.id {
-            service.description = description
-            service.name = name
-            service.supportDeletion = supportDeletion
-            return
+        for service in services {
+            for singleService in currentStatus.services where service.id == singleService.id {
+                singleService.description = service.description
+                singleService.name = service.name
+                singleService.supportDeletion = service.supportDeletion
+                return
+            }
+            self.currentStatus?.services.append(ServiceModel(id: service.id, name: service.name, description: service.description, supportDeletion: service.supportDeletion, isOptIn: false))
         }
-        self.currentStatus?.services.append(ServiceModel(id: id, name: name, description: description, supportDeletion: supportDeletion, isOptIn: false))
         PersistenceManager.shared.saveStatus(status: currentStatus)
     }
     
@@ -107,8 +123,23 @@ public class GDPRManager {
         return shouldPresent
     }
     
-    public func acceptTermsAndPolicy() {
-        confirmationViewModel?.savePolicy()
+    public func acceptTermsAndPolicy(date: Date = Date()) {
+        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
+            print("Missing terms URL or policy URL")
+            return
+        }
+        if confirmationViewModel == nil {
+            confirmationViewModel = ConfirmationViewModel(title: "title",
+                                                          showTermsOfService: true,
+                                                          showPrivacyPolicy: true,
+                                                          showSettings: true,
+                                                          showSaveButton: true,
+                                                          policyURL: policyURL,
+                                                          termsURL: termsURL,
+                                                          services: currentStatus.services,
+                                                          showTermsSwitch: true)
+        }
+        confirmationViewModel?.savePolicy(date: date)
     }
     
     public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {

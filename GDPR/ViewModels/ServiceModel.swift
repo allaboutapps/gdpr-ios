@@ -19,9 +19,9 @@ class ServiceModel: Codable, ObservableObject {
         }
     }
 
-    var supportDeletion: Bool?
+    var supportDeletion: Bool
 
-    init(id: String, name: String, description: String, supportDeletion: Bool = false, isOptIn: Bool) {
+    init(id: String, name: String, description: String, supportDeletion: Bool, isOptIn: Bool) {
         self.id = id
         self.name = name
         self.isOptIn = isOptIn

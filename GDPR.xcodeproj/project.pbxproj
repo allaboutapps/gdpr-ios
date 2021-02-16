@@ -10,6 +10,7 @@
 		142BC9E525475486006E0DC0 /* GDPRAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142BC9E425475486006E0DC0 /* GDPRAppearance.swift */; };
 		14360D0225242C00009CD8DA /* TrackingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14360D0125242C00009CD8DA /* TrackingItem.swift */; };
 		14759F63255D0FD4002A1E36 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 14759F62255D0FD4002A1E36 /* README.md */; };
+		147CE36225DAC3F000F8A921 /* GDPRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147CE36125DAC3F000F8A921 /* GDPRService.swift */; };
 		14A3FAB2253EC2FB0081272C /* GDPRDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */; };
 		14A6CDE524EE758B007B58DA /* TermsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE424EE758B007B58DA /* TermsItem.swift */; };
 		14A6CDEA24EEB4CB007B58DA /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */; };
@@ -65,6 +66,7 @@
 		142BC9E425475486006E0DC0 /* GDPRAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRAppearance.swift; sourceTree = "<group>"; };
 		14360D0125242C00009CD8DA /* TrackingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingItem.swift; sourceTree = "<group>"; };
 		14759F62255D0FD4002A1E36 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		147CE36125DAC3F000F8A921 /* GDPRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRService.swift; sourceTree = "<group>"; };
 		14A3FAB1253EC2FB0081272C /* GDPRDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDPRDelegate.swift; sourceTree = "<group>"; };
 		14A6CDE424EE758B007B58DA /* TermsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsItem.swift; sourceTree = "<group>"; };
 		14A6CDE924EEB4CB007B58DA /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				14BA0899251B337F00CA22C6 /* ServiceModel.swift */,
 				14BA0895251A6F9300CA22C6 /* Status.swift */,
 				14BA0893251A6D1F00CA22C6 /* ConfirmationViewModel.swift */,
+				147CE36125DAC3F000F8A921 /* GDPRService.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				14BA0896251A6F9300CA22C6 /* Status.swift in Sources */,
 				142BC9E525475486006E0DC0 /* GDPRAppearance.swift in Sources */,
 				14BA089A251B337F00CA22C6 /* ServiceModel.swift in Sources */,
+				147CE36225DAC3F000F8A921 /* GDPRService.swift in Sources */,
 				14A3FAB2253EC2FB0081272C /* GDPRDelegate.swift in Sources */,
 				14BA0890251A106000CA22C6 /* ConfirmationView.swift in Sources */,
 				14BA0894251A6D1F00CA22C6 /* ConfirmationViewModel.swift in Sources */,
@@ -603,6 +607,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "at.allaboutapps.gdpr-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -622,6 +627,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "at.allaboutapps.gdpr-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

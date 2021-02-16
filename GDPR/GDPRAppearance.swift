@@ -11,6 +11,7 @@ import SwiftUI
 
 public class GDPRAppearance {
     public static var primaryColor: Color = Color(red: 175/255, green: 82/255, blue: 222/255)
+    public static var navigationBarTintColor: Color = .blue
     public static var bodyColor: Color = Color(red: 79/255, green: 79/255, blue: 79/255)
     public static var disabledColor: Color = Color(red: 180/255, green: 180/255, blue: 180/255)
     

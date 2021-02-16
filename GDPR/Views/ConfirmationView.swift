@@ -11,10 +11,10 @@ import SwiftUI
 public struct ConfirmationView: View {
     @State var isEnabled = false
     @ObservedObject var viewModel: ConfirmationViewModel
-    
+
     var onConfirm: (() -> Void)?
-    
-    init(viewModel: ConfirmationViewModel, onConfirm: (() -> Void)? ) {
+
+    init(viewModel: ConfirmationViewModel, onConfirm: (() -> Void)?) {
         if #available(iOS 14.0, *) {
         } else {
             UITableView.appearance().tableFooterView = UIView()
@@ -37,29 +37,29 @@ public struct ConfirmationView: View {
                         TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
                     }
                 }
-                
+
                 if viewModel.showSettings {
                     ForEach(0 ..< viewModel.servicesList.count, id: \.self) { index in
                         ServiceItem(model: viewModel.servicesList[index])
                     }
                 }
             }
-            
+
             if viewModel.showSaveButton {
                 Button(action: {
                     self.viewModel.savePolicy()
                     self.onConfirm?()
                 }, label: {
-                    Text("confirm",bundle: Bundle.module)
+                    Text("confirm", bundle: Bundle.module)
                 })
-                .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
-                .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .accentColor(.white)
-                .disabled(!isEnabled)
+                    .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
+                    .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .accentColor(.white)
+                    .disabled(!isEnabled)
             }
         }
-        .navigationBarTitle(viewModel.title )
+        .navigationBarTitle(viewModel.title)
     }
 }
 
