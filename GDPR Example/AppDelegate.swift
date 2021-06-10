@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GDPRDelegate {
         
         let service = GDPRManager.Service(id: "S1", name: "Firebase", description: "Something about Firebase", supportDeletion: true)
         let serivce2 = GDPRManager.Service(id: "S2", name: "Crashlytics", description: "Something about Crashlytics", supportDeletion: false)
-        gdprManager?.setServices(services: [service, service2])
+        gdprManager?.setServices(services: [service, serivce2])
 
         return true
     }

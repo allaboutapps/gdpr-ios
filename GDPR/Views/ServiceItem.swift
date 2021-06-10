@@ -18,11 +18,13 @@ struct ServiceItem: View {
                         .font(GDPRAppearance.subheaderFont)
                 }
                 .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
+                .padding(.trailing, 8)
             } else {
                 Toggle(isOn: $model.isOptIn) {
                     Text(model.name)
                         .font(GDPRAppearance.subheaderFont)
                 }
+                .padding(.trailing, 8)
             }
             
             Text(model.description)
@@ -42,6 +44,7 @@ struct ServiceItem: View {
                     }).buttonStyle(PlainButtonStyle())
                 }
             }
+            Divider()
         }
     }
 }

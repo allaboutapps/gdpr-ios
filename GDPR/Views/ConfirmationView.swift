@@ -24,39 +24,43 @@ public struct ConfirmationView: View {
     }
 
     public var body: some View {
-        VStack {
-            List {
-                VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
-                    if viewModel.showTermsOfService {
-                        TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL, showSwitch: viewModel.showTermsSwitch)
+        ZStack {
+            GDPRAppearance.backgoundColor
+                .edgesIgnoringSafeArea(.bottom)
+            VStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
+                        if viewModel.showTermsOfService {
+                            TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL, showSwitch: viewModel.showTermsSwitch)
+                        }
+                        if viewModel.showPrivacyPolicy {
+                            PolicyItem(url: viewModel.policyURL)
+                        }
+                        if viewModel.servicesList.count != 0 {
+                            TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
+                        }
                     }
-                    if viewModel.showPrivacyPolicy {
-                        PolicyItem(url: viewModel.policyURL)
-                    }
-                    if viewModel.servicesList.count != 0 {
-                        TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
-                    }
-                }
 
-                if viewModel.showSettings {
-                    ForEach(0 ..< viewModel.servicesList.count, id: \.self) { index in
-                        ServiceItem(model: viewModel.servicesList[index])
+                    if viewModel.showSettings {
+                        ForEach(0 ..< viewModel.servicesList.count, id: \.self) { index in
+                            ServiceItem(model: viewModel.servicesList[index])
+                        }
                     }
-                }
-            }
+                }.padding(8)
 
-            if viewModel.showSaveButton {
-                Button(action: {
-                    self.viewModel.savePolicy()
-                    self.onConfirm?()
-                }, label: {
-                    Text("confirm", bundle: Bundle.module)
-                })
-                    .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
-                    .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .accentColor(.white)
-                    .disabled(!isEnabled)
+                if viewModel.showSaveButton {
+                    Button(action: {
+                        self.viewModel.savePolicy()
+                        self.onConfirm?()
+                    }, label: {
+                        Text("confirm", bundle: Bundle.module)
+                    })
+                        .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
+                        .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .accentColor(.white)
+                        .disabled(!isEnabled)
+                }
             }
         }
         .navigationBarTitle(viewModel.title)

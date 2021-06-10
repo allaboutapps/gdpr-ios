@@ -22,6 +22,8 @@ public class GDPRAppearance {
     public static var subheaderFont = Font.system(size: 17)
     public static var controlsFont = Font.system(size: 15)
     
+    public static var backgoundColor = Color.gray
+    
     struct Padding {
         public static var single: CGFloat = 8
         public static var double: CGFloat = 16

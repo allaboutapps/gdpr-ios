@@ -31,7 +31,7 @@ struct TrackingItem: View {
                         .foregroundColor(GDPRAppearance.primaryColor)
                 }).buttonStyle(PlainButtonStyle())
             }
-            
+            Divider()
         }.buttonStyle(PlainButtonStyle())
     }
 }
