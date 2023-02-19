@@ -18,11 +18,11 @@ Each service must have a unique id in order to track its changes.
 
 ```swift
 let gdprManager = GDPRManager.shared
-        GDPRManager.shared.setURLs(termsURL: Bundle.main.url(forResource: "terms_of_service", withExtension: "html")!, privacyPolicyURL: Bundle.main.url(forResource: "privacy_policy", withExtension: "html")!)
-        gdprManager.delegate = self
+GDPRManager.shared.setURLs(termsURL: Bundle.main.url(forResource: "terms_of_service", withExtension: "html")!, privacyPolicyURL: Bundle.main.url(forResource: "privacy_policy", withExtension: "html")!)
+gdprManager.delegate = self
         
-        gdprManager.setService(id: "S1", name: "Service Example 1", description: "Description", supportDeletion: true)
-        gdprManager.setService(id: "S2", name: "Service Example 2", description: "Description", supportDeletion: false)
+gdprManager.setService(id: "S1", name: "Service Example 1", description: "Description", supportDeletion: true)
+gdprManager.setService(id: "S2", name: "Service Example 2", description: "Description", supportDeletion: false)
 }
 ```
 
@@ -40,16 +40,16 @@ GDPRManager.shared.showSettings(title: "Legal Settings")
 #### Show Form
 ```swift
 GDPRManager.shared.showForm(title: "Legal Settings", onConfirm: { [weak self] in
-            // proceed to next step
-            print("Confirmed!")
-        }))
+    // proceed to next step
+    print("Confirmed!")
+}))
 ```
 #### Show Alert
 ```swift
 let alert = GDPRManager.shared.showAlert(title: "Legal Settings") { [weak self] view in
-                // this view is the setting view that can be presented if the user chooses the option to read new terms and conditions
-            }
-            present(alert, animated: true, completion: nil)
+    // this view is the setting view that can be presented if the user chooses the option to read new terms and conditions
+}
+present(alert, animated: true, completion: nil)
 ```
 
 ### Helper Functions
