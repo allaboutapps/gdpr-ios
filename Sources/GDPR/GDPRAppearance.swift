@@ -2,10 +2,10 @@ import Foundation
 import SwiftUI
 
 public enum GDPRAppearance {
-    public static var primaryColor: Color = Color.primary
-    public static var navigationBarTintColor: Color = .blue
-    public static var bodyColor: Color = Color.primary
-    public static var disabledColor: Color = Color.gray
+    public static var primaryColor: Color = .primary
+    public static var navigationBarTintColor: Color = .accentColor
+    public static var bodyColor: Color = .primary
+    public static var disabledColor: Color = Color(white: 0.8)
 
     public static var headlineFont = Font.title3
     public static var bodyFont = Font.body
