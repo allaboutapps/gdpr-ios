@@ -1,20 +1,13 @@
-//
-//  ServiceModel.swift
-//  GDPR
-//
-//  Created by Lyn Almasri on 23.09.20.
-//  Copyright © 2020 All About Apps. All rights reserved.
-//
-
 import Foundation
 
 class ServiceModel: Codable, ObservableObject {
     var id: String
     var name: String
     var description: String
+    
     @Published var isOptIn: Bool {
         didSet {
-            GDPRManager.shared.delegate?.serviceValueDidChange(id: id, value: isOptIn)
+            GDPRManager.shared.delegate?.serviceValueDidChange(id: id, isEnabled: isOptIn)
             PersistenceManager.shared.saveStatus(status: GDPRManager.shared.currentStatus!)
         }
     }
@@ -31,11 +24,11 @@ class ServiceModel: Codable, ObservableObject {
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.isOptIn = try container.decode(Bool.self, forKey: .isOptIn)
-        self.id = try container.decode(String.self, forKey: .id)
-        self.description = try container.decode(String.self, forKey: .description)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.supportDeletion = try container.decode(Bool.self, forKey: .supportDeletion)
+        isOptIn = try container.decode(Bool.self, forKey: .isOptIn)
+        id = try container.decode(String.self, forKey: .id)
+        description = try container.decode(String.self, forKey: .description)
+        name = try container.decode(String.self, forKey: .name)
+        supportDeletion = try container.decode(Bool.self, forKey: .supportDeletion)
     }
 
     enum CodingKeys: CodingKey {
@@ -54,8 +47,8 @@ class ServiceModel: Codable, ObservableObject {
         try container.encode(description, forKey: .description)
         try container.encode(supportDeletion, forKey: .supportDeletion)
     }
-    
+
     func delete() {
-        GDPRManager.shared.delegate?.deleteDate(id: self.id)
+        GDPRManager.shared.delegate?.deleteData(id: id)
     }
 }

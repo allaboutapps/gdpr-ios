@@ -1,11 +1,3 @@
-//
-//  ServiceItem.swift
-//  GDPR
-//
-//  Created by Lyn Almasri on 20.08.20.
-//  Copyright © 2020 All About Apps. All rights reserved.
-//
-
 import SwiftUI
 
 struct ServiceItem: View {
@@ -26,19 +18,19 @@ struct ServiceItem: View {
                 }
                 .padding(.trailing, 8)
             }
-            
+
             Text(model.description)
                 .font(GDPRAppearance.serviceBodyFont)
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(GDPRAppearance.bodyColor)
-            
+
             if model.supportDeletion {
                 HStack {
                     Spacer()
                     Button(action: {
                         self.model.delete()
                     }, label: {
-                        Text("deleteData",bundle: Bundle.module)
+                        Text("deleteData", bundle: Bundle.module)
                             .font(GDPRAppearance.controlsFont)
                             .foregroundColor(GDPRAppearance.primaryColor)
                     }).buttonStyle(PlainButtonStyle())

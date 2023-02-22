@@ -1,6 +1,12 @@
 import Foundation
 import UIKit
 
+public protocol GDPRDelegate: AnyObject {
+    func serviceValueDidChange(id: String, isEnabled: Bool)
+    func deleteData(id: String)
+    func termsAndConditionsAccepted()
+}
+
 public class GDPRManager {
     public struct Service {
         var id: String
@@ -27,22 +33,26 @@ public class GDPRManager {
     public weak var delegate: GDPRDelegate?
     public static var shared = GDPRManager()
 
-    // MARK: - Use Cases
+    // MARK: - Interface
 
-    public func showSettings(title: String) -> ConfirmationView? {
+    public func settingsView(title: String) -> ConfirmationView? {
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
             return nil
         }
-        confirmationViewModel = ConfirmationViewModel(title: title,
-                                                      showTermsOfService: true,
-                                                      showPrivacyPolicy: true,
-                                                      showSettings: true,
-                                                      showSaveButton: false,
-                                                      policyURL: policyURL,
-                                                      termsURL: termsURL,
-                                                      services: currentStatus.services,
-                                                      showTermsSwitch: false)
+
+        confirmationViewModel = ConfirmationViewModel(
+            title: title,
+            showTermsOfService: true,
+            showPrivacyPolicy: true,
+            showSettings: true,
+            showSaveButton: false,
+            policyURL: policyURL,
+            termsURL: termsURL,
+            services: currentStatus.services,
+            showTermsSwitch: false
+        )
+
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: nil)
     }
 
@@ -51,18 +61,22 @@ public class GDPRManager {
             print("Missing terms URL or policy URL")
             return nil
         }
-        confirmationViewModel = ConfirmationViewModel(title: title,
-                                                      showTermsOfService: showTermsOfService,
-                                                      showPrivacyPolicy: true,
-                                                      showSettings: true,
-                                                      showSaveButton: true,
-                                                      policyURL: policyURL,
-                                                      termsURL: termsURL,
-                                                      services: currentStatus.services,
-                                                      showTermsSwitch: true)
+        
+        confirmationViewModel = ConfirmationViewModel(
+            title: title,
+            showTermsOfService: true,
+            showPrivacyPolicy: true,
+            showSettings: true,
+            showSaveButton: true,
+            policyURL: policyURL,
+            termsURL: termsURL,
+            services: currentStatus.services,
+            showTermsSwitch: true
+        )
+
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: onConfirm)
     }
-
+    
     // MARK: - Helper Functions
 
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
@@ -73,7 +87,9 @@ public class GDPRManager {
     
     public func setServices(services: [Service]) {
         guard let currentStatus = currentStatus else { return }
-        assert(!services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique" )
+        
+        assert(!services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique")
+
         for service in services {
             for singleService in currentStatus.services where service.id == singleService.id {
                 singleService.description = service.description
@@ -81,8 +97,10 @@ public class GDPRManager {
                 singleService.supportDeletion = service.supportDeletion
                 return
             }
+
             self.currentStatus?.services.append(ServiceModel(id: service.id, name: service.name, description: service.description, supportDeletion: service.supportDeletion, isOptIn: service.defaultOptInValue))
         }
+
         PersistenceManager.shared.saveStatus(status: currentStatus)
     }
 
@@ -93,14 +111,14 @@ public class GDPRManager {
             .first { $0.id == serviceId }?
             .isOptIn
     }
-    
+
     public func fetchServiceStatus() -> [String: Bool]? {
         guard let currentStatus = currentStatus else { return nil }
-        assert(!currentStatus.services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique" )
+        assert(!currentStatus.services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique")
         let idsAndStatus = currentStatus
             .services
             .map { ($0.id, $0.isOptIn) }
-        
+
         return Dictionary(uniqueKeysWithValues: idsAndStatus)
     }
 
@@ -142,31 +160,40 @@ public class GDPRManager {
             print("Missing terms URL or policy URL")
             return
         }
+
         if confirmationViewModel == nil {
-            confirmationViewModel = ConfirmationViewModel(title: "title",
-                                                          showTermsOfService: true,
-                                                          showPrivacyPolicy: true,
-                                                          showSettings: true,
-                                                          showSaveButton: true,
-                                                          policyURL: policyURL,
-                                                          termsURL: termsURL,
-                                                          services: currentStatus.services,
-                                                          showTermsSwitch: true)
+            confirmationViewModel = ConfirmationViewModel(
+                title: "title",
+                showTermsOfService: true,
+                showPrivacyPolicy: true,
+                showSettings: true,
+                showSaveButton: true,
+                policyURL: policyURL,
+                termsURL: termsURL,
+                services: currentStatus.services,
+                showTermsSwitch: true
+            )
         }
+
         confirmationViewModel?.savePolicy(date: date)
     }
 
     public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
-        let alert = UIAlertController(title: NSLocalizedString("alertViewTitle", bundle: Bundle.module, comment: ""),
-                                      message: NSLocalizedString("alertViewDescritption", bundle: Bundle.module, comment: ""),
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton", bundle: Bundle.module, comment: ""), style: .default, handler: { [weak self] _ in
+        let alert = UIAlertController(
+            title: NSLocalizedString("alertViewTitle", bundle: Bundle.module, comment: ""),
+            message: NSLocalizedString("alertViewDescritption", bundle: Bundle.module, comment: ""),
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton", bundle: Bundle.module, comment: ""), style: .default) { [weak self] _ in
             self?.confirmationViewModel?.savePolicy()
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton", bundle: Bundle.module, comment: ""), style: .default, handler: { [weak self] _ in
-            let view = self?.showSettings(title: title)
+        })
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton", bundle: Bundle.module, comment: ""), style: .default) { [weak self] _ in
+            let view = self?.settingsView(title: title)
             showConfirmationView(view)
-        }))
+        })
+        
         return alert
     }
 }

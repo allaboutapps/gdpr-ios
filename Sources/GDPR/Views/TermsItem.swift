@@ -1,11 +1,3 @@
-//
-//  PolicyItem.swift
-//  GDPR
-//
-//  Created by Lyn Almasri on 20.08.20.
-//  Copyright © 2020 All About Apps. All rights reserved.
-//
-
 import SwiftUI
 
 struct TermsItem: View {
@@ -18,10 +10,10 @@ struct TermsItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
             VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
-                Text("termsTitle",bundle: Bundle.module)
+                Text("termsTitle", bundle: Bundle.module)
                     .font(GDPRAppearance.headlineFont)
 
-                Text("termsDescription",bundle: Bundle.module)
+                Text("termsDescription", bundle: Bundle.module)
                     .fixedSize(horizontal: false, vertical: true)
                     .font(GDPRAppearance.bodyFont)
                     .foregroundColor(GDPRAppearance.bodyColor)
@@ -30,15 +22,15 @@ struct TermsItem: View {
                     self.showWebView.toggle()
 
                 }, label: {
-                    Text("termsTitle",bundle: Bundle.module)
+                    Text("termsTitle", bundle: Bundle.module)
                 }).sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: termsURL)
-                            .navigationBarTitle(Text("termsTitle",bundle: Bundle.module), displayMode: .inline)
+                            .navigationBarTitle(Text("termsTitle", bundle: Bundle.module), displayMode: .inline)
                             .navigationBarItems(leading: Button(action: {
                                 self.showWebView.toggle()
                             }, label: {
-                                Text("cancelButton",bundle: Bundle.module)
+                                Text("cancelButton", bundle: Bundle.module)
                             }))
                     }
                     .foregroundColor(GDPRAppearance.navigationBarTintColor)
@@ -51,14 +43,14 @@ struct TermsItem: View {
                 Divider()
                 if #available(iOS 14.0, *) {
                     Toggle(isOn: $isToggle) {
-                        Text("termsAcceptance",bundle: Bundle.module)
+                        Text("termsAcceptance", bundle: Bundle.module)
                             .font(GDPRAppearance.bodyFont)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                     .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
                 } else {
                     Toggle(isOn: $isToggle) {
-                        Text("termsAcceptance",bundle: Bundle.module)
+                        Text("termsAcceptance", bundle: Bundle.module)
                             .font(GDPRAppearance.bodyFont)
                             .fixedSize(horizontal: false, vertical: true)
                     }

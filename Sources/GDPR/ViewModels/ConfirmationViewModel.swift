@@ -1,11 +1,3 @@
-//
-//  ConfirmationViewModel.swift
-//  GDPR
-//
-//  Created by Lyn Almasri on 22.09.20.
-//  Copyright © 2020 All About Apps. All rights reserved.
-//
-
 import Combine
 import Foundation
 
@@ -18,7 +10,7 @@ class ConfirmationViewModel: ObservableObject {
     var policyURL: URL
     var termsURL: URL
     var showTermsSwitch: Bool
-    
+
     var servicesList = [ServiceModel]()
     @Published var acceptAll = false {
         didSet {
@@ -27,7 +19,7 @@ class ConfirmationViewModel: ObservableObject {
             }
         }
     }
-    
+
     init(title: String, showTermsOfService: Bool, showPrivacyPolicy: Bool, showSettings: Bool, showSaveButton: Bool, policyURL: URL, termsURL: URL, services: [ServiceModel]?, showTermsSwitch: Bool) {
         if let services = services {
             servicesList = services
@@ -41,7 +33,7 @@ class ConfirmationViewModel: ObservableObject {
         self.termsURL = termsURL
         self.showTermsSwitch = showTermsSwitch
     }
-    
+
     func savePolicy(date: Date = Date()) {
         let persistenceManager = PersistenceManager()
         persistenceManager.saveStatus(status: Status(latestPolicyChange: GDPRManager.shared.currentStatus?.latestPolicyChange, lastAcceptedPrivacy: .accepted(at: date), services: servicesList))

@@ -1,16 +1,8 @@
-//
-//  PersistenceManager.swift
-//  GDPR
-//
-//  Created by Lyn Almasri on 22.09.20.
-//  Copyright © 2020 All About Apps. All rights reserved.
-//
-
 import Foundation
 
 class PersistenceManager {
     public static var shared = PersistenceManager()
-    
+
     private let url = FileManager().urls(for: .documentDirectory,
                                          in: .userDomainMask).first!.appendingPathComponent("gdpr.json")
     public func saveStatus(status: Status) {
@@ -25,12 +17,12 @@ class PersistenceManager {
             }
         }
     }
-    
+
     public func retrieveStatus() -> Status {
         guard FileManager().fileExists(atPath: url.relativePath) else {
             return Status(lastAcceptedPrivacy: .undefined, services: [])
         }
-        
+
         do {
             let data = try Data(contentsOf: url)
             let currenStatus = try JSONDecoder().decode(Status.self, from: data)
