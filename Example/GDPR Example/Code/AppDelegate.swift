@@ -7,12 +7,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GDPRDelegate {
         print("Terms accepted")
     }
 
-    func serviceValueDidChange(id: String, isEnabled: Bool) {
-        print("service: \(id) changed value to \(isEnabled)")
+    func serviceValueDidChange(serviceId: String, isEnabled: Bool) {
+        print("service: \(serviceId) changed value to \(isEnabled)")
     }
 
-    func deleteData(id: String) {
-        print("Data deleted: \(id)")
+    func deleteData(serviceId: String) {
+        print("Data deleted: \(serviceId)")
     }
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -2,8 +2,8 @@ import Foundation
 import UIKit
 
 public protocol GDPRDelegate: AnyObject {
-    func serviceValueDidChange(id: String, isEnabled: Bool)
-    func deleteData(id: String)
+    func serviceValueDidChange(serviceId: String, isEnabled: Bool)
+    func deleteData(serviceId: String)
     func termsAndConditionsAccepted()
 }
 
