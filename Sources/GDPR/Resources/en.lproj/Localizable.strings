@@ -19,7 +19,7 @@
 "trackingSettingsHeader" = "Tracking Settings";
 "allowAll" = "Allow All";
 "cancelButton" = "Cancel";
-"alertViewTitle" = "Our privacy policy has changed";
+"alertViewTitle" = "Privacy Policy";
 "alertViewDescritption" = "Please note that we updated both our privacy as well as our terms of use. Read through the changes and learn more about the rights. In order to continue using the app, please accept the updated privacy policy.";
-"alertViewFirstButton" = "Read and understood";
-"alertViewSecondButton" = "View privacy policy";
+"alertViewFirstButton" = "Accept";
+"alertViewSecondButton" = "More information";
