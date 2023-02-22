@@ -17,8 +17,6 @@ public struct ConfirmationView: View {
 
     public var body: some View {
         ZStack {
-            GDPRAppearance.backgoundColor
-                .edgesIgnoringSafeArea(.bottom)
             VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
