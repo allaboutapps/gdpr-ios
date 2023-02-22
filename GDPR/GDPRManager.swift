@@ -1,11 +1,3 @@
-//
-//  GDPRManager.swift
-//  GDPR
-//
-//  Created by Lyn Almasri on 18.08.20.
-//  Copyright © 2020 All About Apps. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -15,25 +7,28 @@ public class GDPRManager {
         var name: String
         var description: String
         var supportDeletion: Bool
-        
-        public init(id: String, name: String, description: String, supportDeletion: Bool) {
+        /// when the services are populated the `defaultOptInValue` specifies whether the service is enabled or disabled
+        let defaultOptInValue: Bool
+
+        public init(id: String, name: String, description: String, supportDeletion: Bool, defaultOptInValue: Bool = false) {
             self.id = id
             self.name = name
             self.supportDeletion = supportDeletion
             self.description = description
+            self.defaultOptInValue = defaultOptInValue
         }
     }
-    
+
     var termsURL: URL?
     var privacyPolicyURL: URL?
     var currentStatus: Status?
     var confirmationViewModel: ConfirmationViewModel?
-    
+
     public weak var delegate: GDPRDelegate?
     public static var shared = GDPRManager()
-    
+
     // MARK: - Use Cases
-    
+
     public func showSettings(title: String) -> ConfirmationView? {
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
@@ -50,7 +45,7 @@ public class GDPRManager {
                                                       showTermsSwitch: false)
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: nil)
     }
-    
+
     public func showForm(title: String, onConfirm: @escaping () -> Void) -> ConfirmationView? {
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
@@ -67,17 +62,18 @@ public class GDPRManager {
                                                       showTermsSwitch: true)
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: onConfirm)
     }
-    
+
     // MARK: - Helper Functions
-    
+
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
         currentStatus = PersistenceManager.shared.retrieveStatus()
         self.termsURL = termsURL
         self.privacyPolicyURL = privacyPolicyURL
     }
-    
+
     public func setServices(services: [Service]) {
         guard let currentStatus = currentStatus else { return }
+        assert(!services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique" )
         for service in services {
             for singleService in currentStatus.services where service.id == singleService.id {
                 singleService.description = service.description
@@ -85,11 +81,29 @@ public class GDPRManager {
                 singleService.supportDeletion = service.supportDeletion
                 return
             }
-            self.currentStatus?.services.append(ServiceModel(id: service.id, name: service.name, description: service.description, supportDeletion: service.supportDeletion, isOptIn: false))
+            self.currentStatus?.services.append(ServiceModel(id: service.id, name: service.name, description: service.description, supportDeletion: service.supportDeletion, isOptIn: service.defaultOptInValue))
         }
         PersistenceManager.shared.saveStatus(status: currentStatus)
     }
+
+    public func isServiceEnabled(serviceId: String) -> Bool? {
+        guard let currentStatus = currentStatus else { return nil }
+        return currentStatus
+            .services
+            .first { $0.id == serviceId }?
+            .isOptIn
+    }
     
+    public func fetchServiceStatus() -> [String: Bool]? {
+        guard let currentStatus = currentStatus else { return nil }
+        assert(!currentStatus.services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique" )
+        let idsAndStatus = currentStatus
+            .services
+            .map { ($0.id, $0.isOptIn) }
+        
+        return Dictionary(uniqueKeysWithValues: idsAndStatus)
+    }
+
     public func updateLatestPolicyTimestamp(date: Date) {
         if currentStatus == nil {
             return
@@ -97,20 +111,20 @@ public class GDPRManager {
         currentStatus!.latestPolicyChange = date
         PersistenceManager.shared.saveStatus(status: currentStatus!)
     }
-    
+
     public func deleteService(id: String) {
         if currentStatus == nil {
             return
         }
         currentStatus!.services = currentStatus!.services.filter { $0.id != id }
-        
+
         PersistenceManager.shared.saveStatus(status: currentStatus!)
     }
-    
+
     public func shouldPresentTOS() -> Bool {
         let currentStatus = PersistenceManager.shared.retrieveStatus()
         let latestPolicyChange = currentStatus.latestPolicyChange
-        
+
         let shouldPresent: Bool
         switch currentStatus.lastAcceptedPrivacy {
         case .accepted(let at):
@@ -122,7 +136,7 @@ public class GDPRManager {
         }
         return shouldPresent
     }
-    
+
     public func acceptTermsAndPolicy(date: Date = Date()) {
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
@@ -141,7 +155,7 @@ public class GDPRManager {
         }
         confirmationViewModel?.savePolicy(date: date)
     }
-    
+
     public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
         let alert = UIAlertController(title: NSLocalizedString("alertViewTitle", bundle: Bundle.module, comment: ""),
                                       message: NSLocalizedString("alertViewDescritption", bundle: Bundle.module, comment: ""),
