@@ -49,6 +49,7 @@ class ServiceModel: Codable, ObservableObject {
     }
 
     func delete() {
+        isOptIn = false
         GDPRManager.shared.delegate?.deleteData(serviceId: id)
     }
 }
