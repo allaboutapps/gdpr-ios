@@ -143,6 +143,7 @@ public class GDPRManager {
         var newStatus = currentStatus
         newStatus.latestPolicyChange = date
         
+        self.currentStatus = newStatus
         PersistenceManager.shared.saveStatus(status: newStatus)
     }
 
@@ -152,6 +153,7 @@ public class GDPRManager {
         var newStatus = currentStatus
         newStatus.services = currentStatus.services.filter { $0.id != id }
 
+        self.currentStatus = newStatus
         PersistenceManager.shared.saveStatus(status: newStatus)
     }
 
