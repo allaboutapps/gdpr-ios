@@ -80,7 +80,10 @@ public class GDPRManager {
             showTermsSwitch: true
         )
 
-        return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: onConfirm)
+        return ConfirmationView(viewModel: confirmationViewModel!) { [weak self] in
+            self?.currentStatus = PersistenceManager.shared.retrieveStatus()
+            onConfirm()
+        }
     }
     
     public func confirmationViewController(title: String, onConfirm: @escaping () -> Void) -> UIViewController? {
@@ -91,7 +94,7 @@ public class GDPRManager {
     // MARK: - Helper Functions
     
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
-        currentStatus = PersistenceManager.shared.retrieveStatus()
+        self.currentStatus = PersistenceManager.shared.retrieveStatus()
         self.termsURL = termsURL
         self.privacyPolicyURL = privacyPolicyURL
     }
@@ -195,6 +198,7 @@ public class GDPRManager {
         }
 
         confirmationViewModel?.savePolicy(date: date)
+        self.currentStatus = PersistenceManager.shared.retrieveStatus()
     }
 
     public func showAlert(title: String, showConfirmationView: @escaping ((ConfirmationView?) -> Void)) -> UIAlertController {
