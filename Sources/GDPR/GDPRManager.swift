@@ -126,6 +126,12 @@ public class GDPRManager {
             .isOptIn
     }
     
+    public func updateService(serviceId: String, isEnabled: Bool) {
+        guard let serviceModel = currentStatus?.services.first(where: { $0.id == serviceId }) else { return }
+        
+        serviceModel.isOptIn = isEnabled
+    }
+    
     public var termState: TermState {
         return currentStatus?.lastAcceptedPrivacy ?? .undefined
     }
