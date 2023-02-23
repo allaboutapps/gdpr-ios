@@ -6,8 +6,8 @@ struct Status: Codable {
     var services: [ServiceModel]
 }
 
-enum TermState: Codable {
-    case accepted(at: Date)
+public enum TermState: Codable {
+    case accepted(date: Date)
     case rejected
     case undefined
 
@@ -17,24 +17,22 @@ enum TermState: Codable {
         case undefined
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         if let value = try? values.decode(Date.self, forKey: .accepted) {
-            self = .accepted(at: value)
+            self = .accepted(date: value)
         } else if (try? values.decode(String.self, forKey: .rejected)) != nil {
             self = .rejected
-        } else if (try? values.decode(String.self, forKey: .undefined)) != nil {
-            self = .undefined
         } else {
             self = .undefined
         }
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch self {
-        case .accepted(let at):
-            try container.encode(at, forKey: .accepted)
+        case .accepted(let date):
+            try container.encode(date, forKey: .accepted)
         case .rejected:
             try container.encode("notAccepted", forKey: .rejected)
         case .undefined:

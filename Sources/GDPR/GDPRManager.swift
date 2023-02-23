@@ -111,6 +111,10 @@ public class GDPRManager {
             .first { $0.id == serviceId }?
             .isOptIn
     }
+    
+    public var termState: TermState {
+        return currentStatus?.lastAcceptedPrivacy ?? .undefined
+    }
 
     public func fetchServiceStatus() -> [String: Bool]? {
         guard let currentStatus = currentStatus else { return nil }
@@ -123,20 +127,21 @@ public class GDPRManager {
     }
 
     public func updateLatestPolicyTimestamp(date: Date) {
-        if currentStatus == nil {
-            return
-        }
-        currentStatus!.latestPolicyChange = date
-        PersistenceManager.shared.saveStatus(status: currentStatus!)
+        guard let currentStatus = currentStatus else { return }
+        
+        var newStatus = currentStatus
+        newStatus.latestPolicyChange = date
+        
+        PersistenceManager.shared.saveStatus(status: newStatus)
     }
 
     public func deleteService(id: String) {
-        if currentStatus == nil {
-            return
-        }
-        currentStatus!.services = currentStatus!.services.filter { $0.id != id }
+        guard let currentStatus = currentStatus else { return }
 
-        PersistenceManager.shared.saveStatus(status: currentStatus!)
+        var newStatus = currentStatus
+        newStatus.services = currentStatus.services.filter { $0.id != id }
+
+        PersistenceManager.shared.saveStatus(status: newStatus)
     }
 
     public func shouldPresentTOS() -> Bool {
@@ -145,13 +150,14 @@ public class GDPRManager {
 
         let shouldPresent: Bool
         switch currentStatus.lastAcceptedPrivacy {
-        case .accepted(let at):
-            shouldPresent = at < latestPolicyChange ?? Date()
+        case .accepted(let date):
+            shouldPresent = date < (latestPolicyChange ?? Date())
         case .rejected:
             shouldPresent = true
         case .undefined:
             shouldPresent = true
         }
+        
         return shouldPresent
     }
 

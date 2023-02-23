@@ -1,10 +1,10 @@
 import Foundation
 
 public struct GDPRService {
-    var id: String
-    var name: String
-    var description: String
-    var supportDeletion: Bool?
+    let id: String
+    let name: String
+    let description: String
+    let supportDeletion: Bool
 
     public init(id: String, name: String, description: String, supportDeletion: Bool = false) {
         self.id = id
