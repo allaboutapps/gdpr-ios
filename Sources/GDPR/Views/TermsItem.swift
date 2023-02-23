@@ -41,20 +41,13 @@ struct TermsItem: View {
 
             if showSwitch {
                 Divider()
-                if #available(iOS 14.0, *) {
-                    Toggle(isOn: $isToggle) {
-                        Text("termsAcceptance", bundle: Bundle.module)
-                            .font(GDPRAppearance.bodyFont)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
-                } else {
-                    Toggle(isOn: $isToggle) {
-                        Text("termsAcceptance", bundle: Bundle.module)
-                            .font(GDPRAppearance.bodyFont)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
+                Toggle(isOn: $isToggle) {
+                    Text("termsAcceptance", bundle: Bundle.module)
+                        .font(GDPRAppearance.bodyFont)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
+                .toggleStyle(SwitchToggleStyle(tint: GDPRAppearance.primaryColor))
+                .padding(.trailing, 8)
             }
 
             Divider()

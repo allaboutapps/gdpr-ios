@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SwiftUI
 
 public protocol GDPRDelegate: AnyObject {
     func serviceValueDidChange(serviceId: String, isEnabled: Bool)
@@ -55,6 +56,11 @@ public class GDPRManager {
 
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: nil)
     }
+    
+    public func settingsViewController(title: String) -> UIViewController? {
+        guard let view = settingsView(title: title) else { return nil }
+        return UIHostingController(rootView: view)
+    }
 
     public func showForm(title: String, showTermsOfService: Bool = true, onConfirm: @escaping () -> Void) -> ConfirmationView? {
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
@@ -77,8 +83,13 @@ public class GDPRManager {
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: onConfirm)
     }
     
+    public func confirmationViewController(title: String, onConfirm: @escaping () -> Void) -> UIViewController? {
+        guard let view = confirmationView(title: title, onConfirm: onConfirm) else { return nil }
+        return UIHostingController(rootView: view)
+    }
+    
     // MARK: - Helper Functions
-
+    
     public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
         currentStatus = PersistenceManager.shared.retrieveStatus()
         self.termsURL = termsURL
@@ -151,7 +162,7 @@ public class GDPRManager {
         let shouldPresent: Bool
         switch currentStatus.lastAcceptedPrivacy {
         case .accepted(let date):
-            shouldPresent = date < (latestPolicyChange ?? Date())
+            shouldPresent = date < (latestPolicyChange ?? Date.distantPast)
         case .rejected:
             shouldPresent = true
         case .undefined:
