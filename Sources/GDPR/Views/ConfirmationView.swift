@@ -12,7 +12,7 @@ public struct ConfirmationView: View {
         self.onConfirm = onConfirm
 
         // If terms of service is not displayed enable complete button immediately
-        isEnabled = !viewModel.showTermsOfService
+        isEnabled = !viewModel.showTermsSwitch
     }
 
     public var body: some View {
@@ -27,7 +27,7 @@ public struct ConfirmationView: View {
                             PolicyItem(url: policyURL)
                         }
                         if !viewModel.servicesList.isEmpty {
-                            TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
+                            TrackingItem(acceptAll: $viewModel.acceptAll)
                         }
                     }
 

@@ -1,6 +1,6 @@
 import Foundation
-import UIKit
 import SwiftUI
+import UIKit
 
 public protocol GDPRDelegate: AnyObject {
     func serviceValueDidChange(serviceId: String, isEnabled: Bool)
@@ -38,7 +38,6 @@ public class GDPRManager {
 
     public func settingsView(title: String) -> ConfirmationView? {
         guard let currentStatus = currentStatus else {
-            print("Missing terms URL or policy URL")
             return nil
         }
 
@@ -54,26 +53,23 @@ public class GDPRManager {
 
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: nil)
     }
-    
+
     public func settingsViewController(title: String) -> UIViewController? {
         guard let view = settingsView(title: title) else { return nil }
         return UIHostingController(rootView: view)
     }
 
-    public func showForm(title: String, showTermsOfService: Bool = true, onConfirm: @escaping () -> Void) -> ConfirmationView? {
-        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
-            print("Missing terms URL or policy URL")
-            return nil
-        }
-        
+    public func confirmationView(title: String,  showTermsSwitch: Bool = true, showSaveButton: Bool = true, onConfirm: @escaping () -> Void) -> ConfirmationView? {
+        guard let currentStatus = currentStatus else { return nil }
+
         confirmationViewModel = ConfirmationViewModel(
             title: title,
             showSettings: true,
-            showSaveButton: true,
-            policyURL: policyURL,
+            showSaveButton: showSaveButton,
+            policyURL: privacyPolicyURL,
             termsURL: termsURL,
             services: currentStatus.services,
-            showTermsSwitch: true
+            showTermsSwitch: showTermsSwitch
         )
 
         return ConfirmationView(viewModel: confirmationViewModel!) { [weak self] in
@@ -81,23 +77,23 @@ public class GDPRManager {
             onConfirm()
         }
     }
-    
-    public func confirmationViewController(title: String, onConfirm: @escaping () -> Void) -> UIViewController? {
-        guard let view = confirmationView(title: title, onConfirm: onConfirm) else { return nil }
+
+    public func confirmationViewController(title: String, showTermsSwitch: Bool = true, showSaveButton: Bool = true, onConfirm: @escaping () -> Void) -> UIViewController? {
+        guard let view = confirmationView(title: title, showTermsSwitch: showTermsSwitch, showSaveButton: showSaveButton, onConfirm: onConfirm) else { return nil }
         return UIHostingController(rootView: view)
     }
-    
+
     // MARK: - Helper Functions
-    
+
     public func setURLs(termsURL: URL?, privacyPolicyURL: URL?) {
-        self.currentStatus = PersistenceManager.shared.retrieveStatus()
+        currentStatus = PersistenceManager.shared.retrieveStatus()
         self.termsURL = termsURL
         self.privacyPolicyURL = privacyPolicyURL
     }
     
     public func setServices(services: [Service]) {
         guard let currentStatus = currentStatus else { return }
-        
+
         assert(!services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique")
 
         for service in services {
@@ -121,13 +117,13 @@ public class GDPRManager {
             .first { $0.id == serviceId }?
             .isOptIn
     }
-    
+
     public func updateService(serviceId: String, isEnabled: Bool) {
         guard let serviceModel = currentStatus?.services.first(where: { $0.id == serviceId }) else { return }
-        
+
         serviceModel.isOptIn = isEnabled
     }
-    
+
     public var termState: TermState {
         return currentStatus?.lastAcceptedPrivacy ?? .undefined
     }
@@ -144,10 +140,10 @@ public class GDPRManager {
 
     public func updateLatestPolicyTimestamp(date: Date) {
         guard let currentStatus = currentStatus else { return }
-        
+
         var newStatus = currentStatus
         newStatus.latestPolicyChange = date
-        
+
         self.currentStatus = newStatus
         PersistenceManager.shared.saveStatus(status: newStatus)
     }
@@ -175,13 +171,12 @@ public class GDPRManager {
         case .undefined:
             shouldPresent = true
         }
-        
+
         return shouldPresent
     }
 
     public func acceptTermsAndPolicy(date: Date = Date()) {
-        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
-            print("Missing terms URL or policy URL")
+        guard let currentStatus = currentStatus else {
             return
         }
 
@@ -190,7 +185,7 @@ public class GDPRManager {
                 title: "title",
                 showSettings: true,
                 showSaveButton: true,
-                policyURL: policyURL,
+                policyURL: privacyPolicyURL,
                 termsURL: termsURL,
                 services: currentStatus.services,
                 showTermsSwitch: true
@@ -207,16 +202,16 @@ public class GDPRManager {
             message: NSLocalizedString("alertViewDescritption", bundle: Bundle.module, comment: ""),
             preferredStyle: .alert
         )
-        
+
         alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewFirstButton", bundle: Bundle.module, comment: ""), style: .default) { [weak self] _ in
             self?.confirmationViewModel?.savePolicy()
         })
-        
+
         alert.addAction(UIAlertAction(title: NSLocalizedString("alertViewSecondButton", bundle: Bundle.module, comment: ""), style: .default) { [weak self] _ in
             let view = self?.settingsView(title: title)
             showConfirmationView(view)
         })
-        
+
         return alert
     }
 }

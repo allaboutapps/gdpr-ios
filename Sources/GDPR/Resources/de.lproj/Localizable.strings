@@ -13,11 +13,11 @@
 "privacyDescription" = "Mit dem Fortfahren erklärst du dich mit den Datenschutzbestimmungen einverstanden.";
 "privacyTitle" = "Datenschutzbestimmungen";
 "confirm" = "Bestätigen";
-"deleteData" = "Daten Löschen";
+"deleteData" = "Daten löschen";
 "trackingHeader" = "Tracking Services";
 "trackingDescription" = "Du kannst ein paar, aber auch alle Services aktivieren um anonyme Nutzungsdaten zu teilen und uns beim Verbessern der App zu helfen.";
 "trackingSettingsHeader" = "Tracking-Einstellungen";
-"allowAll" = "Allen Zustimmen";
+"allowAll" = "Allen zustimmen";
 "cancelButton" = "Abbrechen";
 "alertViewTitle" = "Datenschutzbestimmungen";
 "alertViewDescritption" = "Wir haben unsere Datenschutzbestimmungen und Nutzungsbedingungen aktualisiert. Lies dir die Änderungen durch und erfahre mehr zu deinen Rechten. Bitte stimme den aktualisierten Datenschutzbestimmungen und Nutzungsbedingungen zu, um mit der Nutzung der App fortzufahren.";
