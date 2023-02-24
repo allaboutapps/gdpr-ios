@@ -3,7 +3,6 @@ import SwiftUI
 struct TrackingItem: View {
     @State private var showWebView: Bool = false
     @Binding var acceptAll: Bool
-    var url: URL
 
     var body: some View {
         VStack(alignment: .leading, spacing: GDPRAppearance.Padding.single) {
@@ -30,6 +29,6 @@ struct TrackingItem: View {
 
 struct TrackingItem_Previews: PreviewProvider {
     static var previews: some View {
-        TrackingItem(acceptAll: .constant(false), url: URL(string: "")!)
+        TrackingItem(acceptAll: .constant(false))
     }
 }

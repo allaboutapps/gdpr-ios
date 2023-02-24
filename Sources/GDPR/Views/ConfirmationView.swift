@@ -20,11 +20,11 @@ public struct ConfirmationView: View {
             VStack {
                 ScrollView {
                     VStack(alignment: .leading, spacing: GDPRAppearance.Padding.double) {
-                        if viewModel.showTermsOfService {
-                            TermsItem(isToggle: $isEnabled, termsURL: viewModel.termsURL, showSwitch: viewModel.showTermsSwitch)
+                        if let termsURL = viewModel.termsURL {
+                            TermsItem(isToggle: $isEnabled, termsURL: termsURL, showSwitch: viewModel.showTermsSwitch)
                         }
-                        if viewModel.showPrivacyPolicy {
-                            PolicyItem(url: viewModel.policyURL)
+                        if let policyURL = viewModel.policyURL {
+                            PolicyItem(url: policyURL)
                         }
                         if !viewModel.servicesList.isEmpty {
                             TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
@@ -59,6 +59,6 @@ public struct ConfirmationView: View {
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showTermsOfService: true, showPrivacyPolicy: true, showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil, showTermsSwitch: true), onConfirm: nil)
+        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil, showTermsSwitch: true), onConfirm: nil)
     }
 }

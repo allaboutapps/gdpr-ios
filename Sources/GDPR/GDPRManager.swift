@@ -37,18 +37,16 @@ public class GDPRManager {
     // MARK: - Interface
 
     public func settingsView(title: String) -> ConfirmationView? {
-        guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
+        guard let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
             return nil
         }
 
         confirmationViewModel = ConfirmationViewModel(
             title: title,
-            showTermsOfService: true,
-            showPrivacyPolicy: true,
             showSettings: true,
             showSaveButton: false,
-            policyURL: policyURL,
+            policyURL: privacyPolicyURL,
             termsURL: termsURL,
             services: currentStatus.services,
             showTermsSwitch: false
@@ -70,8 +68,6 @@ public class GDPRManager {
         
         confirmationViewModel = ConfirmationViewModel(
             title: title,
-            showTermsOfService: true,
-            showPrivacyPolicy: true,
             showSettings: true,
             showSaveButton: true,
             policyURL: policyURL,
@@ -93,7 +89,7 @@ public class GDPRManager {
     
     // MARK: - Helper Functions
     
-    public func setURLs(termsURL: URL, privacyPolicyURL: URL) {
+    public func setURLs(termsURL: URL?, privacyPolicyURL: URL?) {
         self.currentStatus = PersistenceManager.shared.retrieveStatus()
         self.termsURL = termsURL
         self.privacyPolicyURL = privacyPolicyURL
@@ -192,8 +188,6 @@ public class GDPRManager {
         if confirmationViewModel == nil {
             confirmationViewModel = ConfirmationViewModel(
                 title: "title",
-                showTermsOfService: true,
-                showPrivacyPolicy: true,
                 showSettings: true,
                 showSaveButton: true,
                 policyURL: policyURL,
