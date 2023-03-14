@@ -50,6 +50,7 @@ public struct ConfirmationView: View {
                             .accentColor(.white)
                     })
                     .disabled(!isEnabled)
+                    .padding(.bottom, 10.0)
                 }
             }
         }
@@ -59,6 +60,6 @@ public struct ConfirmationView: View {
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showSettings: true, showSaveButton: true, policyURL: URL(string: "")!, termsURL: URL(string: "")!, services: nil, showTermsSwitch: true), onConfirm: nil)
+        ConfirmationView(viewModel: ConfirmationViewModel(title: "", showSettings: true, showSaveButton: true, policyURL: URL(string: "http://allaboutapps.at")!, termsURL: URL(string: "http://allaboutapps.at")!, services: nil, showTermsSwitch: true), onConfirm: nil)
     }
 }
