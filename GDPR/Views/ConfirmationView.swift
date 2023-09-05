@@ -15,7 +15,7 @@ public struct ConfirmationView: View {
         self.viewModel = viewModel
         self.onConfirm = onConfirm
 
-        // If terms of service is not displayed enabled complete button immediately
+        // If terms of service is not displayed enable complete button immediately
         isEnabled = !viewModel.showTermsOfService
     }
 
