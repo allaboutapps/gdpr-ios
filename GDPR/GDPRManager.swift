@@ -46,13 +46,13 @@ public class GDPRManager {
         return ConfirmationView(viewModel: confirmationViewModel!, onConfirm: nil)
     }
 
-    public func showForm(title: String, onConfirm: @escaping () -> Void) -> ConfirmationView? {
+    public func showForm(title: String, showTermsOfService: Bool = true, onConfirm: @escaping () -> Void) -> ConfirmationView? {
         guard let termsURL = termsURL, let policyURL = privacyPolicyURL, let currentStatus = currentStatus else {
             print("Missing terms URL or policy URL")
             return nil
         }
         confirmationViewModel = ConfirmationViewModel(title: title,
-                                                      showTermsOfService: true,
+                                                      showTermsOfService: showTermsOfService,
                                                       showPrivacyPolicy: true,
                                                       showSettings: true,
                                                       showSaveButton: true,
@@ -70,7 +70,7 @@ public class GDPRManager {
         self.termsURL = termsURL
         self.privacyPolicyURL = privacyPolicyURL
     }
-
+    
     public func setServices(services: [Service]) {
         guard let currentStatus = currentStatus else { return }
         assert(!services.map { $0.id }.hasDuplicates, "The ids of the services have to be unique" )
