@@ -8,10 +8,6 @@ public struct ConfirmationView: View {
     var onConfirm: (() -> Void)?
 
     init(viewModel: ConfirmationViewModel, onConfirm: (() -> Void)?) {
-        if #available(iOS 14.0, *) {
-        } else {
-            UITableView.appearance().tableFooterView = UIView()
-        }
         self.viewModel = viewModel
         self.onConfirm = onConfirm
 
