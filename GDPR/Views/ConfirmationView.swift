@@ -1,26 +1,18 @@
-//
-//  ConfirmationView.swift
-//  GDPR
-//
-//  Created by Lyn Almasri on 22.09.20.
-//  Copyright © 2020 All About Apps. All rights reserved.
-//
-
 import SwiftUI
 
 public struct ConfirmationView: View {
-    @State var isEnabled = false
+    @State
+    private var isEnabled: Bool
     @ObservedObject var viewModel: ConfirmationViewModel
 
     var onConfirm: (() -> Void)?
 
     init(viewModel: ConfirmationViewModel, onConfirm: (() -> Void)?) {
-        if #available(iOS 14.0, *) {
-        } else {
-            UITableView.appearance().tableFooterView = UIView()
-        }
         self.viewModel = viewModel
         self.onConfirm = onConfirm
+
+        // If terms of service is not displayed enable complete button immediately
+        isEnabled = !viewModel.showTermsOfService
     }
 
     public var body: some View {
@@ -36,7 +28,7 @@ public struct ConfirmationView: View {
                         if viewModel.showPrivacyPolicy {
                             PolicyItem(url: viewModel.policyURL)
                         }
-                        if viewModel.servicesList.count != 0 {
+                        if !viewModel.servicesList.isEmpty {
                             TrackingItem(acceptAll: $viewModel.acceptAll, url: viewModel.policyURL)
                         }
                     }
@@ -55,11 +47,11 @@ public struct ConfirmationView: View {
                     }, label: {
                         Text("confirm", bundle: Bundle.module)
                     })
-                        .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
-                        .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .accentColor(.white)
-                        .disabled(!isEnabled)
+                    .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
+                    .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .accentColor(.white)
+                    .disabled(!isEnabled)
                 }
             }
         }
