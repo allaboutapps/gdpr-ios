@@ -46,11 +46,11 @@ public struct ConfirmationView: View {
                         self.onConfirm?()
                     }, label: {
                         Text("confirm", bundle: Bundle.module)
+                            .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
+                            .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .accentColor(.white)
                     })
-                    .padding(EdgeInsets(top: 8, leading: 100, bottom: 8, trailing: 100))
-                    .background(isEnabled ? GDPRAppearance.primaryColor : GDPRAppearance.disabledColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .accentColor(.white)
                     .disabled(!isEnabled)
                 }
             }
