@@ -18,8 +18,10 @@ public struct PolicyItem: View {
                 self.showWebView.toggle()
 
             }, label: {
-                Text("privacyTitle", bundle: Bundle.module)
-            }).sheet(isPresented: self.$showWebView) {
+                Text("privacyTitle",bundle: Bundle.module)
+            })
+            .buttonStyle(GDPRButtonStyle(config: GDPRAppearance.linkButtonConfig))
+            .sheet(isPresented: self.$showWebView) {
                 NavigationView {
                     ServiceWebView(url: url)
                         .navigationBarTitle(Text("privacyTitle", bundle: Bundle.module), displayMode: .inline)
@@ -31,11 +33,9 @@ public struct PolicyItem: View {
                 }
                 .foregroundColor(GDPRAppearance.navigationBarTintColor)
             }
-            .foregroundColor(GDPRAppearance.primaryColor)
-            .font(GDPRAppearance.linkFont)
-
+            
             Divider()
-        }.buttonStyle(PlainButtonStyle())
+        }
     }
 }
 
