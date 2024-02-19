@@ -20,10 +20,11 @@ struct TermsItem: View {
 
                 Button(action: {
                     self.showWebView.toggle()
-
                 }, label: {
                     Text("termsTitle", bundle: Bundle.module)
-                }).sheet(isPresented: self.$showWebView) {
+                })
+                .buttonStyle(GDPRButtonStyle(config: GDPRAppearance.linkButtonConfig))
+                .sheet(isPresented: self.$showWebView) {
                     NavigationView {
                         ServiceWebView(url: termsURL)
                             .navigationBarTitle(Text("termsTitle", bundle: Bundle.module), displayMode: .inline)
@@ -35,8 +36,6 @@ struct TermsItem: View {
                     }
                     .foregroundColor(GDPRAppearance.navigationBarTintColor)
                 }
-                .foregroundColor(GDPRAppearance.primaryColor)
-                .font(GDPRAppearance.linkFont)
             }
 
             if showSwitch {
