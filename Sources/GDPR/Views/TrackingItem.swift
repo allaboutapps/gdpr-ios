@@ -18,9 +18,8 @@ struct TrackingItem: View {
                     self.acceptAll = true
                 }, label: {
                     Text("allowAll", bundle: Bundle.module)
-                        .font(GDPRAppearance.controlsFont)
-                        .foregroundColor(GDPRAppearance.primaryColor)
-                }).buttonStyle(PlainButtonStyle())
+                })
+                .buttonStyle(GDPRButtonStyle(config: GDPRAppearance.acceptAllButtonConfig))
             }
             Divider()
         }.buttonStyle(PlainButtonStyle())
